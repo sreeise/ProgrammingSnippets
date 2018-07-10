@@ -1,2 +1,2 @@
 # Programming-Reference
-Things I write down and helpful uses as in my journey as a programmer.
+Things I write down and helpful concepts in my journey as a programmer.
