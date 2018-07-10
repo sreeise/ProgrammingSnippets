@@ -1,7 +1,19 @@
+/*
+ * License: GNU General Public License v3.0
+ * You can obtain a copy in the file titled: LICENSE
+ */
+
 #include <iostream>
 #include <array>
 #include <iomanip>
 #include "headers/Account.h"
+
+/*
+ * This is the main .cpp file for the C++ information in this repository.
+ *
+ * @author: sreeise
+ */
+
 
 // Using std without the std:: every time:
 using namespace std;

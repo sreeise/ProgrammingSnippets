@@ -1,6 +1,11 @@
-//
-// Created by sreeise on 7/9/18.
-//
+/*
+ * License: GNU General Public License v3.0
+ * You can obtain a copy in the file titled: LICENSE
+ */
+
+/*
+ * @author: sreeise
+ */
 #include <string>
 using namespace std;
 #ifndef C_REFERENCE_ACCOUNT_H
