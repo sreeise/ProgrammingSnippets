@@ -1,8 +1,23 @@
 
-\.idea/
-
+# CMake
+cmake-build-*/
 cmake-build-debug/
-
 CMakeLists\.txt
 
+# File-based project format and # IntelliJ
+*.iws
 *.iml
+out/
+*.idea
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+
+
