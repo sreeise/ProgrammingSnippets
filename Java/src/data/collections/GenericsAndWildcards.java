@@ -1,6 +1,7 @@
 package data.collections;
 
 import java.util.Collection;
+import java.util.List;
 
 public class GenericsAndWildcards {
 /*
@@ -37,6 +38,17 @@ T in generics stands for the type that the Class object is representing
   static <T> void toArray(T[] array, Collection<T> collection) {
     for (T each : array) {
       collection.add(each);
+    }
+  }
+
+  /**
+   * General example from oracle tutorials on how to add an integer
+   * that can be from any supertype: Object, Number, or Integer.
+   * @param list A List using the lower bound wildcard super.
+   */
+  public void addToList(List<? super Integer> list) {
+    for (int i = 0; i < 11; i++) {
+      list.add(i);
     }
   }
 
