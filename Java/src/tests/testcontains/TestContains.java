@@ -18,6 +18,7 @@ public class TestContains extends AbstractTest {
   };
 
   private static void test(String[] args) throws FileNotFoundException {
+    System.out.println("_______________________________");
     System.out.println("TWO ARRAY CONTAINS TEST. CLASS Contains");
     setTotalPassed(0);
     setTotalFailed(0);
