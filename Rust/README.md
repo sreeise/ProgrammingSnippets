@@ -1,4 +1,5 @@
-# Rust Programming Language Reference
+# Rust Programming snippets and reference. 
+Note the main README.md file. These files are not a guide, and code may be random.
 
 Some code here has been taken from 
 
