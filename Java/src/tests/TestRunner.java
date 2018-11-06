@@ -1,11 +1,9 @@
 package tests;
 
-import data.Pair;
-import tests.str.TestCompareSort;
+import tests.testcomparesort.TestCompareSort;
 import tests.testcontains.TestContains;
 
 import java.io.FileNotFoundException;
-import java.sql.SQLOutput;
 
 public class TestRunner {
 
@@ -23,17 +21,6 @@ public class TestRunner {
     } catch (FileNotFoundException e) {
       System.out.println("TESTS FAILED");
       System.out.println("File Not Found Exception for testing class Contains in test class TestContains");
-      System.out.println();
-      e.printStackTrace();
-    }
-
-    try {
-      TestCompareSort.runTests();
-      passedCount += TestCompareSort.getTotalPassed();
-      failedCount += TestCompareSort.getTotalFailed();
-    } catch (FileNotFoundException e) {
-      System.out.println("TESTS FAILED");
-      System.out.println("File Not Found Exception for testing class CompareSort in test class TestCompareSort");
       System.out.println();
       e.printStackTrace();
     }

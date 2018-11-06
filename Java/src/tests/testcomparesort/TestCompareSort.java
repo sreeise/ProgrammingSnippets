@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class TestCompareSort extends AbstractTest {
 
   public static String[] testFiles = {"test_files/test_str_comparator/input05.txt"};
-  public static String[] outFiles = {"/test_files/test_str_comparator/output05.txt"};
+  public static String[] outFiles = {"test_files/test_str_comparator/output05.txt"};
   private static int equal = 0;
   private static int notEqual = 0;
 
@@ -53,11 +53,6 @@ public class TestCompareSort extends AbstractTest {
       int count = keyValueMap.length - 1;
 
       for (int i = 0; i < keyValueMap.length; i++) {
-
-       // System.out.println(keyValueMap[i].testcomparesort + " = " + keyValueMap2[count].testcomparesort);
-      //  System.out.println(keyValueMap[i].num + " = " + keyValueMap2[count].num);
-
-
 
         if (keyValueMap[i].str.equals(keyValueMap2[count].str)) {
           if (keyValueMap[i].num == keyValueMap2[count].num) {
