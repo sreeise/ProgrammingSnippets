@@ -19,7 +19,7 @@ let _null: null = null;
 // Functions
 
 // Must return a string
-function strGetter(str: string) {
+function strGetter(str: string): string {
     return str;
 }
 
