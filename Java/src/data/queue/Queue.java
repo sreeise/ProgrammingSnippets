@@ -1,31 +1,20 @@
 package data.queue;
 
+import data.NodeItem;
+
 import java.util.NoSuchElementException;
 
 // Queues are first in first out (FIFO) data structures.
 public class Queue<T> {
-  /**
-   * Node class for a Queue
-   * @param <T>
-   */
-  private static class QNode<T> {
-    private T data;
-    private QNode<T> next;
-
-    QNode(T data) {
-      this.data = data;
-    }
-  }
-
-  private QNode<T> first;
-  private QNode<T> last;
+  private NodeItem<T> first;
+  private NodeItem<T> last;
 
   /**
    * Add an item onto the end of the Queue
    * @param T item
    */
   public void add(T item) {
-    QNode<T> t = new QNode<>(item);
+    NodeItem<T> t = new NodeItem<>(item);
     if (last != null) {
       last.next = t;
     }
@@ -37,8 +26,8 @@ public class Queue<T> {
   }
 
   /**
-   * Remove an iem from the end of a Queue
-   * @return T - Removed item
+   * Remove first item in queue
+   * @return T - First item in queue
    */
   public T remove() {
     if (first == null) {
@@ -54,6 +43,10 @@ public class Queue<T> {
     return data;
   }
 
+  /**
+   * Get first item in the stack
+   * @return T - First item in stack
+   */
   public T peek() {
     if (first == null) {
       throw new NoSuchElementException();
