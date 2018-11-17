@@ -27,7 +27,7 @@ or
 
 In this directory this will be:
 
-    $ cargo ./target/debug/rust_reference
+    $ cargo ./target/debug/rust_language
     
      
 #### Make sure project compiles without creating executable

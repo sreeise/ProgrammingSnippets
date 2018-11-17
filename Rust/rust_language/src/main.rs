@@ -19,6 +19,7 @@ fn main() {
     random_numbers(); // Print random number between 1 and 101
     guessing_game(); // Guessing game
     guessing_game_loop(); // Guessing game on loop.
+    shadow();
 }
 
 fn printing() {
@@ -159,4 +160,13 @@ fn guessing_game_loop() {
 
         println!("\nEnter CTRL C to quit.\n")
     }
+}
+
+fn shadow() {
+    // Shadowing variables using let <variable>
+    let x = 5;
+    let x = x + 1;
+    let x = x * 2;
+
+    println!("x is: {}", x); // -> 12
 }
