@@ -1,8 +1,11 @@
+mod rectangle; // Define the rectangle module for the rectangle directory
+
 extern crate rand; // For random numbers.
 
 use std::io;
 use std::cmp::Ordering; // Cmp for comparing values.
 use rand::Rng;
+use self::rectangle::Rectangle; // using self to reference a module defined within
 
 // Main method
 // Functions/Methods start with fn and use snake casing, where
@@ -17,11 +20,16 @@ fn main() {
     variable(); // Method for creating variables;
     usr_input(); // Method for getting and printing user input.
     random_numbers(); // Print random number between 1 and 101
-    guessing_game(); // Guessing game
-    guessing_game_loop(); // Guessing game on loop.
     shadow();
     tuples();
     arrays();
+    using_structs();
+
+    // Keep these last so methods that don't possibly last forever
+    // can run.
+    println!("\nThe next methods are guessing games. Feel free to press CTRL C to quit.\n");
+    guessing_game(); // Guessing game
+    guessing_game_loop(); // Guessing game on loop.
 
     // Floating point types
     let x = 2.0; // f64
@@ -212,4 +220,109 @@ fn arrays() {
     let last = arr[3];
     println!("The value of first is: {}", first);
     println!("The value of last is: {}", last);
+}
+
+fn conditional_statements() {
+    let condition = true;
+    // Set number to 5 if the boolean condition variable is true
+    // and 6 if false
+    let number = if condition {
+        5
+    } else {
+        6
+    };
+
+    // Print the number
+    println!("The value of number is: {}", number);
+}
+
+fn loop_statements() {
+    // while loop
+    let mut number = 3;
+
+    // If the number is not 0 print the number
+    // and subtract 1 from the number
+    while number != 0 {
+        println!("{}!", number);
+
+        number = number - 1;
+    }
+
+    println!("LIFTOFF!!!");
+
+    let a = [10, 20, 30, 40, 50];
+    let mut index = 0;
+
+    while index < 5 {
+        println!("the value is: {}", a[index]);
+
+        index = index + 1;
+    }
+
+    // Loop with array iter()
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a.iter() {
+        println!("the value is: {}", element);
+    }
+
+    // Loop with range and using rev() to reverse the range
+    for number in (1..4).rev() {
+        println!("{}!", number);
+    }
+    println!("LIFTOFF!!!");
+}
+
+// The -> symbol points to the values we want to return,
+// and the types of values follow
+fn returning_values() -> i32 {
+    // A 5 with no semicolon indicates the return value
+    // Using a semicolon here would turn it into an expression
+    // instead of a return value
+    5
+}
+
+fn stack_vs_heap() {
+    // Create a string s1 and then set variable s2 to s1
+    let s1 = String::from("hello");
+    let s2 = s1;
+
+    print!("The value of s2 is {}", s2); // --> hello
+    // s2 prints fine, but printing s1 would cause an error
+    // Having two pointers to the same value can cause memory
+    // corruption. Since both s1 and s2 are in the same scope
+    // Rust invalidates the reference to s1, and at the end
+    // of the scope Rust only has to clean up memory from s2.
+    // This happens because Rust copies only the stack data
+    // instead of the heap and the stack data.
+    // Use clone to deep copy a variable instead.
+
+    // Deep copy of a variable using clone()
+    // -> NEEDS FIX
+    // let s3 = String::from("hello");
+    // let s4 = s1.clone();
+
+    // println!("s1 = {}, s2 = {}", s3, s4);
+
+    // See next function - without_ownership() as well.
+}
+
+fn without_ownership() {
+    let s1 = String::from("hello");
+
+    let (s2, len) = calculate_length(s1);
+
+    println!("The length of '{}' is {}.", s2, len);
+}
+
+fn calculate_length(s: String) -> (String, usize) {
+    let length = s.len(); // len() returns the length of a String
+
+    (s, length)
+}
+
+// Structs
+fn using_structs() {
+    let rect = Rectangle { width: 3, height: 2 };
+    println!("The area of the rectangle is {} square pixels.", rect.area());
 }
