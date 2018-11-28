@@ -74,6 +74,9 @@ fn scoped_references() {
 /*
 Lifetimes:
 
+Definitions and Code from:
+https://doc.rust-lang.org/book/2018-edition/ch10-03-lifetime-syntax.html
+
     1. The main aim of lifetimes is to prevent dangling references,
         which cause a program to reference data other than the data
         it’s intended to reference.

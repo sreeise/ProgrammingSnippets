@@ -4,6 +4,7 @@ mod collection_types;
 mod handling_errors;
 mod generics_traits_lifetimes;
 mod borrowing_references;
+mod automated_testing;
 
 extern crate rand; // For random numbers.
 
