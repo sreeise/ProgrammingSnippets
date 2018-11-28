@@ -1,4 +1,9 @@
 mod rectangle; // Define the rectangle module for the rectangle directory
+mod enum_types;
+mod collection_types;
+mod handling_errors;
+mod generics_traits_lifetimes;
+mod borrowing_references;
 
 extern crate rand; // For random numbers.
 
