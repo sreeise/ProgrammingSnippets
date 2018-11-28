@@ -56,8 +56,6 @@ use std::error::Error; // For error handling
 use minigrep::Config;
 
 fn main() {
-    // Use collect to turn the iterator into a vector containing all the
-    // values produced by the iterator
     let config = Config::new(env::args()).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {}", err);
         process::exit(1);
