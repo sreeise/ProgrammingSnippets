@@ -25,6 +25,7 @@ mod using_crates;
 mod enum_types;
 mod ownership;
 mod collection_types;
+mod closures_iterators;
 mod handling_errors;
 mod generics_traits_lifetimes;
 mod borrowing_references;
