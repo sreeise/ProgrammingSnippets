@@ -1,5 +1,5 @@
 /*
-Memory, stack, and heap in Rust
+Ownership
 
 All Code and Definitions from:
 https://doc.rust-lang.org/book/2018-edition/ch04-01-what-is-ownership.html
