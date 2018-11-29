@@ -1,6 +1,12 @@
 /*
 Smart Pointers
 
+All Code and Definitions from:
+https://doc.rust-lang.org/book/2018-edition/ch15-00-smart-pointers.html
+https://doc.rust-lang.org/book/2018-edition/ch15-01-box.html
+https://doc.rust-lang.org/book/2018-edition/ch15-02-deref.html
+https://doc.rust-lang.org/book/2018-edition/ch15-03-drop.html
+
     A pointer is a general concept for a variable that contains an address in memory.
     This address refers to, or “points at,” some other data.
 
@@ -111,5 +117,77 @@ impl<T> Deref for MyBox<T> {
     }
 }
 
+/*
+Implicit Deref Coercions
+
+Converts a reference to a type that implements Deref into a reference to a type that
+Deref can convert the original type into.
+
+    1. Happens automatically when we pass a reference to a particular type’s
+        value as an argument to a function or method that doesn't match the parameter
+        type in the function or method definition.
+   2. A sequence of calls to the deref method converts the type we provided into the
+        type the parameter needs.
+
+Rust does deref coercion when it finds types and trait implementations in three cases:
+    1. From &T to &U when T: Deref<Target=U>
+    2. From &mut T to &mut U when T: DerefMut<Target=U>
+    3. From &mut T to &U when T: Deref<Target=U>
+
+*/
 
 
+fn hello(name: &str) {
+    println!("Hello, {}!", name);
+}
+
+fn call_hello_with_my_box() {
+    let m = MyBox::new(String::from("Rust"));
+    hello(&m);
+}
+
+/*
+Drop trait and smart pointers
+
+    1. The drop trait lets you customize what happens when a value is about to go out of scope.
+    2. You can provide an implementation for the Drop trait on any type, and the code you
+        specify can be used to release resources like files or network connections.
+    3. Implementations of the drop method cannot be explicitly called. Instead you have
+        to call the std::mem::drop function provided by the standard library if you want
+        to force a value to be dropped before the end of its scope.
+
+Defining the drop trait
+    The Drop trait requires you to implement one method named drop that takes a
+    mutable reference to self.
+*/
+
+struct CustomSmartPointer {
+    data: String,
+}
+
+impl Drop for CustomSmartPointer {
+    fn drop(&mut self) {
+        println!("Dropping CustomSmartPointer with data `{}`!", self.data);
+    }
+}
+
+// Here the last println! will run first because CustomSmartPointer is
+// run when this function goes out of scope.
+fn using_custom_smart_pointer() {
+    let c = CustomSmartPointer { data: String::from("my stuff") };
+    let d = CustomSmartPointer { data: String::from("other stuff") };
+    println!("CustomSmartPointers created.");
+}
+
+/*
+Cleaning up a value early using std::mem::drop
+
+The std::mem::drop function is different than the drop method in the Drop trait.
+We call it by passing the value we want to force to be dropped early as an argument.
+*/
+fn clean_up_drop_value_early() {
+    let c = CustomSmartPointer { data: String::from("some data") };
+    println!("CustomSmartPointer created.");
+    drop(c);
+    println!("CustomSmartPointer dropped before the end of main.");
+}
