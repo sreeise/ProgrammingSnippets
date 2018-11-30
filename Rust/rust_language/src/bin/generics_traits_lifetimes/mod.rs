@@ -1,6 +1,7 @@
 /*
 Definitions and Code from:
 https://doc.rust-lang.org/book/2018-edition/ch10-00-generics.html
+https://doc.rust-lang.org/book/2018-edition/ch17-03-oo-design-patterns.html
 
 Generics: Abstract stand-ins for concrete types or other properties.
 
@@ -317,4 +318,98 @@ impl<T: Display + PartialOrd> Pair<T> {
             println!("The largest member is y = {}", self.y);
         }
     }
+}
+
+/*
+Trait Objects
+
+Defining trait objects that can fill in variables/data at runtime
+
+Trait objects allow for multiple concrete types to fill in for the trait object at runtime.
+
+Trait objects are safe if all methods defined in the trait have the following two
+properties:
+    1. The return type isn’t Self.
+    2. There are no generic type parameters.
+
+Trait objects must be object safe because once you’ve used a trait object, Rust no longer
+knows the concrete type that’s implementing that trait. If a trait method returns the
+concrete Self type, but a trait object forgets the exact type that Self is, there is
+no way the method can use the original concrete type.
+
+Typically seen where libraries are used and programmers
+can build onto the existing 'Object'. Rust
+doesn't necessarily have an OOP Object, however, trait
+Objects are useful in this type of situation.
+*/
+
+/*
+Shows example of using trait objects and defining multiple structs that implement
+the Draw trait. If this were a library, and someone wanted to add another GUI component
+such as CheckBox, all they would have to do is define it's struct and implement the
+the Draw type.
+
+The define_library() shows how this could be done.
+*/
+pub trait Draw {
+    fn draw(&self);
+}
+
+pub struct Screen {
+    pub components: Vec<Box<dyn Draw>>,
+}
+
+impl Screen {
+    pub fn run(&self) {
+        for component in self.components.iter() {
+            component.draw();
+        }
+    }
+}
+
+pub struct Button {
+    pub width: u32,
+    pub height: u32,
+    pub label: String,
+}
+
+impl Draw for Button {
+    fn draw(&self) {
+        // Draw a button...
+    }
+}
+
+struct SelectBox {
+    width: u32,
+    height: u32,
+    options: Vec<String>,
+}
+
+impl Draw for SelectBox {
+    fn draw(&self) {
+        // code to actually draw a select box
+    }
+}
+
+fn define_library() {
+    let screen = Screen {
+        components: vec![
+            Box::new(SelectBox {
+                width: 75,
+                height: 10,
+                options: vec![
+                    String::from("Yes"),
+                    String::from("Maybe"),
+                    String::from("No")
+                ],
+            }),
+            Box::new(Button {
+                width: 50,
+                height: 10,
+                label: String::from("OK"),
+            }),
+        ],
+    };
+
+    screen.run();
 }
