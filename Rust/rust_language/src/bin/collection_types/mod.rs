@@ -88,7 +88,7 @@ Rust actually can interpret Strings in 3 different ways:
 
 fn string_type() {
     // Create a new String
-    let mut s = String::new();
+    let s = String::new();
     // Also
     let data = "String content";
     let s1 = data.to_string();

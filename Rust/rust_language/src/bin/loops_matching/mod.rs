@@ -38,7 +38,7 @@ fn array_iter_loops() {
 
 // Loop with range and using rev() to reverse the range
 fn range_loop() {
-    let mut number = 3;
+    let number = 3;
 
 
     for number in (1..4).rev() {
