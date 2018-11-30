@@ -16,6 +16,8 @@ Most of the code resides in each of these modules.
 In order to use this code in the actual program they
 must be called in the main function.
 */
+#![allow(dead_code)] // Allow dead code across entire crate
+#![allow(unused_variables)] // Allow unused variables across entire cate
 
 // Modules for the different language features of Rust
 mod input_output_variables;

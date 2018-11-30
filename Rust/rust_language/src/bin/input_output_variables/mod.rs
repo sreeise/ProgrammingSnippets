@@ -39,6 +39,7 @@ fn floating_point_and_integers() {
 // Variables can be either mutable or immutable. Meaning
 // if they are mutable, they can be change. If they are
 // immutable they cannot be changed.
+#[allow(unused_mut)] // Allow mutable variable that does not change for example.
 fn mutable_and_immutable_variables() {
     // Mutable variable
     let mut num = 3;
