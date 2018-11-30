@@ -406,6 +406,6 @@ mod tests {
         let mut limit_tracker = LimitTracker::new(&mock_messenger, 100);
         limit_tracker.set_value(75);
 
-        assert_eq!(mock_messenger.sent_messages.borrow().len(), 1)
+        assert_eq!(mock_messenger.sent_messages.borrow().len(), 1);
     }
 }
