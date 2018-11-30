@@ -41,6 +41,7 @@ mod smart_pointers;
 mod concurrency;
 mod state_pattern;
 mod match_expressions_patterns;
+mod unsafe_rust; // Advanced feature
 
 // Main method
 // Functions/Methods start with fn and use snake casing, where
