@@ -31,7 +31,6 @@ use std::thread;
 use std::time::Duration;
 
 // Basic thread creation
-#[allow(dead_code)]
 fn create_thread() {
     thread::spawn(|| {
         for i in 1..10 {
@@ -56,8 +55,6 @@ The return type of thread::spawn is JoinHandle.
 
 Example shows how handle ensures the spawned thread finishes.
 */
-
-#[allow(dead_code)]
 fn create_thread_using_handle() {
     let handle = thread::spawn(|| {
         for i in 1..10 {
