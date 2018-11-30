@@ -31,6 +31,7 @@ mod generics_traits_lifetimes;
 mod borrowing_references;
 mod automated_testing;
 mod smart_pointers;
+mod concurrency;
 
 // Main method
 // Functions/Methods start with fn and use snake casing, where
