@@ -34,6 +34,7 @@ mod borrowing_references;
 mod automated_testing;
 mod smart_pointers;
 mod concurrency;
+mod state_pattern;
 
 // Main method
 // Functions/Methods start with fn and use snake casing, where
