@@ -209,7 +209,6 @@ pub struct NewsArticle2 {
 // NewsArticle2 with no summarize method so it uses the default
 impl Summary2 for NewsArticle2 {}
 
-// Now the
 fn print_summary2() {
     let article = NewsArticle2 {
         headline: String::from("Penguins win the Stanley Cup Championship!"),
