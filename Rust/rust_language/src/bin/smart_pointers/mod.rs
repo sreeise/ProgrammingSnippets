@@ -137,9 +137,8 @@ Rust does deref coercion when it finds types and trait implementations in three 
     2. From &mut T to &mut U when T: DerefMut<Target=U>
     3. From &mut T to &U when T: Deref<Target=U>
 
-*/
-
-
+// Example: Doesn't compile due to unknown size of str.
+// Could possibly be used with std::marker::Sized
 fn hello(name: &str) {
     println!("Hello, {}!", name);
 }
@@ -148,6 +147,7 @@ fn call_hello_with_my_box() {
     let m = MyBox::new(String::from("Rust"));
     hello(&m);
 }
+*/
 
 /*
 Drop trait and smart pointers
