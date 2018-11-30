@@ -2,8 +2,11 @@
 The Rust Programming Language
 
 Goes over the main features of Rust
-All Code and Definitions from the Rust Programming Language book:
-https://doc.rust-lang.org/book/2018-edition/ch00-00-introduction.html
+All Code and Definitions from:
+    1. Rust Programming Language Book
+        https://doc.rust-lang.org/book/2018-edition/ch00-00-introduction.html
+    2. The Rust Standard Library Documentation
+        https://doc.rust-lang.org/std/index.html
 
 The main.rs file is where the main function resides and is the
 start of program execution.
