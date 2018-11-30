@@ -4,6 +4,8 @@ Code used may be from different sources listed here and in individual files:
 
     1. Rust Programming Language Book
         https://doc.rust-lang.org/book/2018-edition/ch00-00-introduction.html
+    2. The Rust Standard Library Documentation
+        https://doc.rust-lang.org/std/index.html
 
 Most Rust programming directories are separated into a common theme:
     
