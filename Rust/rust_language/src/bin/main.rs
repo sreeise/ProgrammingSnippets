@@ -35,6 +35,7 @@ mod automated_testing;
 mod smart_pointers;
 mod concurrency;
 mod state_pattern;
+mod match_expressions_patterns;
 
 // Main method
 // Functions/Methods start with fn and use snake casing, where
