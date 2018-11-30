@@ -1,6 +1,8 @@
+extern crate rand;
+
 use std::io;
 use std::cmp::Ordering; // Cmp for comparing values.
-use rand::Rng; // For ranges in looping
+use self::rand::Rng; // For ranges in looping
 
 fn while_loops() {
     let mut number = 3;

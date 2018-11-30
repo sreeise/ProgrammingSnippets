@@ -10,7 +10,9 @@ https://doc.rust-lang.org/book/2018-edition/ch14-00-more-about-cargo.html
 extern crate rand; // For random numbers.
 
 // Pull in different parts form create rand.
-use rand::Rng;
+// The create must have self:: before it in submodules
+// If this was in main.rs it would just be: use rand::Rng;
+use self::rand::Rng;
 
 // Random number guessing game.
 // You can use anything in the Rand Crate by placing rand:: before it.
