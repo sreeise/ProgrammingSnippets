@@ -47,6 +47,7 @@ mod state_pattern;
 mod match_expressions_patterns;
 mod unsafe_rust; // Advanced feature
 mod advanced_lifetimes; // Advanced feature
+mod advanced_traits; // Advanced feature
 
 // Main method
 // Functions/Methods start with fn and use snake casing, where
