@@ -28,9 +28,12 @@ struct Parser<'c, 's: 'c> {
     context: &'c Context<'s>,
 }
 
+/*
+Example of using Parser:
+
 fn parse_context(context: Context) -> Result<(), &str> {
     Parser { context: &context }.parse()
-}
+}*/
 
 /*
 Lifetime Bounds
