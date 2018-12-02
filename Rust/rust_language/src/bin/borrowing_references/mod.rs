@@ -1,6 +1,7 @@
 /*
 Definitions and Code from:
 https://doc.rust-lang.org/book/2018-edition/ch04-02-references-and-borrowing.html
+https://nbaksalyar.github.io/2015/07/10/writing-chat-in-rust.html
 */
 
 /*
@@ -27,6 +28,26 @@ Borrowing: References as parameters
         data in a particular scope.
 */
 
+/*
+The language itself is built upon the assumption that every value has exactly one owner.
+It means that there could be only one mutable variable pointing to the same memory region:
+
+*/
+fn referencing() {
+    let foo = vec![1, 2, 3];
+    // We've created a new vector containing elements 1, 2, 3 and
+    // bound it to the local variable `foo`.
+
+    let bar = foo;
+    // Now we've handed ownership of the object to the variable `bar`.
+    // `foo` can't be accessed further, because it has no binding now.
+
+    /*
+    And, because values bind to exactly one place, resources that they hold
+    (memory, file handles, sockets, etc.) can be automatically freed when the
+    variable goes out of a scope (defined by code blocks within curly braces, { and }).
+    */
+}
 
 fn run_calculate() {
     let s1 = String::from("hello");
