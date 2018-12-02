@@ -35,7 +35,7 @@ I/O operations often return a  Result<T, E> to handle situations when operations
 fail to work. This library has a std::io::Error struct that represents all possible
 I/O errors. Many of the functions in std::io will be returning Result<T, E> where
 the E is std::io::Error
-*/
+
 use std::io::*;
 
 pub trait Write {
@@ -45,6 +45,7 @@ pub trait Write {
     fn write_all(&mut self, buf: &[u8]) -> Result<()>;
     fn write_fmt(&mut self, fmt: Arguments) -> Result<()>;
 }
+*/
 
 /*
 The Never Type and Diverging Functions
