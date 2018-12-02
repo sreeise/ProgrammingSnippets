@@ -9,6 +9,8 @@ All Code and Definitions from:
         https://doc.rust-lang.org/std/index.html
     3. The Little Book of Rust Macros
         https://danielkeep.github.io/tlborm/book/README.html
+    4. Rust in Detail: Writing Scalable Chat Service from Scratch
+        https://nbaksalyar.github.io/2015/07/10/writing-chat-in-rust.html
 
 The main.rs file is where the main function resides and is the
 start of program execution.
