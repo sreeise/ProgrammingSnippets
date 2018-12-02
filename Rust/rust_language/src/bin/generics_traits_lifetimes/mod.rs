@@ -3,6 +3,7 @@ Definitions and Code from:
 https://doc.rust-lang.org/book/2018-edition/ch10-00-generics.html
 https://doc.rust-lang.org/book/2018-edition/ch17-03-oo-design-patterns.html
 daringordon.com/authz_rs_tutorial/03.authz.rs/
+https://doc.rust-lang.org/book/2018-edition/appendix-03-derivable-traits.html
 
 Generics: Abstract stand-ins for concrete types or other properties.
 
@@ -485,3 +486,84 @@ pub fn call_trait() {
     dolly.shear();
     dolly.talk();
 }
+
+
+/*
+Derivable Traits
+
+https://doc.rust-lang.org/book/2018-edition/appendix-03-derivable-traits.html
+*/
+
+/*
+#[derive(debug, Clone, Copy)]
+
+Derive is an annotation that allows us to add useful traits.
+
+    1. debug
+        Rust does include functionality to print out debugging information,
+        but we have to explicitly opt in to make that functionality available
+        for our struct.
+    2. clone()
+        The Clone trait allows you to explicitly create a deep copy of a value,
+        and the duplication process might involve running arbitrary code and
+        copying heap data.
+        Deriving Clone implements the clone method, which when implemented for the whole type,
+        calls clone on each of the parts of the type. This means all the fields or values in
+        the type must also implement Clone to derive Clone.
+    3. Copy
+        The Copy trait allows you to duplicate a value by only copying bits stored
+        on the stack; no arbitrary code is necessary.
+        The Copy trait doesn't define any methods to prevent programmers from overloading
+        those methods and violating the assumption that no arbitrary code is being run.
+        You can derive Copy on any type whose parts all implement Copy. You can only
+        apply the Copy trait to types that also implement Clone, because a type that
+        implements Copy has a trivial implementation of Clone that performs the same
+        task as Copy.
+*/
+
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32
+}
+
+/*
+#[derive(Debug, PartialEq)]
+
+    1. PartialEq
+        Allows you to compare instances of a type to check
+        for equality and enables use of the == and != operators.
+        Required for the use of assert_eq! macro.
+    2. Eq
+        Deriving PartialEq implements the eq method. When PartialEq is derived
+        on structs, two instances are equal only if all fields are equal, and the
+        instances are not equal if any fields are not equal. When derived on enums,
+        each variant is equal to itself and not equal to the other variants.
+        The Eq trait has no methods. Its purpose is to signal that for every value
+        of the annotated type, the value is equal to itself. The Eq trait can only be
+        applied to types that also implement PartialEq, although not all types that
+        implement PartialEq can implement Eq.
+
+PartialOrd and Ord
+
+    1. PartialOrd
+        Allows you to compare instances of a type for sorting purposes.
+        A type that implements PartialOrd can be used with the <, >, <=, and >= operators.
+        You can only apply the PartialOrd trait to types that also implement PartialEq.
+
+Hash
+    1. Hash
+        Allows you to take an instance of a type of arbitrary size and map that
+        instance to a value of fixed size using a hash function. Deriving Hash implements
+        the hash method. The derived implementation of the hash method combines the result
+        of calling hash on each of the parts of the type, meaning all fields or values must
+        also implement Hash to derive Hash.
+
+Default for Default Values
+    1. Default
+        Allows you to create a default value for a type. Deriving Default
+        implements the default function. The derived implementation of the default
+        function calls the default function on each part of the type, meaning all fields
+        or values in the type must also implement Default to derive Default.
+*/
+
