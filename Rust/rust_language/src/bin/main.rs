@@ -23,7 +23,7 @@ Most of the code resides in each of these modules.
 In order to use this code in the actual program they
 must be called in the main function. There are a few modules
 enclosed in other modules and are not available to use
-unless a pub keyword is added to them.
+unless a pub keyword is added where needed.
 */
 #![allow(dead_code)] // Allow dead code across entire crate
 #![allow(unused_variables)] // Allow unused variables across entire cate
