@@ -17,6 +17,7 @@ Most Rust programming directories are separated into a common theme:
     2. rust_library: Short overview on how to structure a library in Rust
     3. minigrep: Basic command line program written in Rust
     4. webserver: Basic web server written in Rust
+    5. rust_defined: My own practice and workspace for Rust
     
 An overview of operators and symbols in Rust can be found at
 
