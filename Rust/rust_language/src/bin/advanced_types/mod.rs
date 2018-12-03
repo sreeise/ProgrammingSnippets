@@ -53,10 +53,12 @@ The Never Type and Diverging Functions
 Rust has a special type named ! that’s known in type theory lingo as the empty
 type because it has no values. We prefer to call it the never type because it
 stands in the place of the return type when a function will never return.
-*/
+
 fn bar() -> ! {
     // --snip--
 }
+*/
+
 
 /*
 match arms must all return the same type.
@@ -67,7 +69,7 @@ requires that guess have only one type.
 Continue has a ! value. That is, when Rust computes the type of guess, it looks at both
 match arms, the former with a value of u32 and the latter with a ! value. Because ! can
 never have a value, Rust decides that the type of guess is u32.
-*/
+
 fn match_some_values() -> u32 {
     let guess: u32 = match guess.trim().parse() {
         Ok(num) => num,
@@ -75,6 +77,7 @@ fn match_some_values() -> u32 {
     };
     guess
 }
+*/
 
 /*
 Dynamically Sized Types
