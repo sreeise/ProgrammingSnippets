@@ -1,5 +1,14 @@
-// Definitions and Code from:
-// https://doc.rust-lang.org/book/2018-edition/ch08-01-vectors.html
+/*
+Rust Collections
+
+All Code and Definitions from:
+https://doc.rust-lang.org/book/2018-edition/ch08-01-vectors.html
+https://doc.rust-lang.org/book/2018-edition/ch08-03-hash-maps.html
+https://github.com/Hoverbear/rust-rosetta
+*/
+
+
+use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet, LinkedList, VecDeque};
 
 // Vectors are implemented using generics and need to know
 // the type of values being stored
@@ -106,7 +115,6 @@ fn string_type() {
     let mut s5 = String::from("lo");
     s5.push('l'); // s5 -> lol
 
-
     // Concatenating String using a Macro
     let string1 = String::from("Hello");
     let string2 = String::from("World");
@@ -128,10 +136,23 @@ fn string_type() {
     }
 }
 
-use std::collections::HashMap;
-/*
-Definitions and code from https://doc.rust-lang.org/book/2018-edition/ch08-03-hash-maps.html
+// Arrays ([T]) are stack allocated, fixed size collections of items of the same type.
+fn stack_allocated_arrays() {
+    let a = [1u8, 2, 3, 4, 5]; // a is of type [u8; 5];
+    let b = [0; 256]; // Equivalent to `let b = [0, 0, 0, 0, 0, 0... repeat 256 times]`
+    assert_eq!(a.len(), 5);
+    assert_eq!(b.len(), 256);
+}
 
+// Slices (&[T]) are dynamically sized views into contiguous sequences (arrays, vectors,
+// strings)
+fn slices() {
+    let array = [1, 2, 3, 4, 5];
+    let slice = &array[0..2];
+    println!("{:?}", slice); // Output: [1, 2]
+}
+
+/*
 The type HashMap<K, V> stores a mapping of keys of type K to values of type V.
 It does this via a hashing function, which determines how it places these
 keys and values into memory.
@@ -150,7 +171,6 @@ Important HashMap information:
         provide resistance to Denial of Service (DoS) attacks. The trade off
         is that the hashing algorithm used is not the fastest.
 */
-
 fn hash_maps() {
     let mut hm = HashMap::new();
 
@@ -212,4 +232,88 @@ fn hash_maps() {
     }
 
     println!("{:?}", hm2); // -> {"Again": 1, "world": 1, "Hello": 2}
+}
+
+// Linked List
+//
+// A doubly-linked list.
+// Use when:
+// - You want a Vec or VecDeque of unknown size, and can't tolerate amortization.
+// - You want to efficiently split and append lists.
+// - You are absolutely certain you really, truly, want a doubly linked list.
+fn linked_list() {
+    let mut a = LinkedList::new();
+    let mut b = LinkedList::new();
+    a.push_back(1);
+    a.push_back(2);
+    b.push_back(3);
+    b.push_back(4);
+
+    // A constant-time and -memory operation.
+    a.append(&mut b);
+
+    for e in &a {
+        println!("{}", e); // prints 1, then 2, then 3, then 4
+    }
+}
+
+// VecDequeue
+//
+// A growable ring buffer.
+// Use when:
+// - You want a Vec that supports efficient insertion at both ends of the sequence.
+// - You want a queue.
+// - You want a double-ended queue (deque).
+fn vec_deque() {
+    let mut deque = VecDeque::new();
+    deque.push_back(3);
+    deque.push_back(4);
+    deque.push_back(5);
+    assert_eq!(deque.get(1), Some(&4));
+}
+
+// BTreeMap
+//
+// A map based on a B-Tree. According to the Rust documentation, you should use it when:
+// - You're interested in what the smallest or largest key-value pair is.
+// - You want to find the largest or smallest key that is smaller or larger than something.
+// - You want to be able to get all of the entries in order on-demand.
+// - You want a sorted map.
+fn b_tree_map() {
+    let mut map = BTreeMap::new();
+    map.insert(1, "a");
+    map.insert(2, "b");
+    map.insert(3, "c");
+    assert_eq!(map.get(&1), Some(&"a"));
+}
+
+// HashSet/BTreeSet
+//
+// Set implementations that use an empty tuple () as the value of their respective maps (and
+// implement different methods).
+// Use when
+// - You just want to remember which keys you've seen.
+// - There is no meaningful value to associate with your keys.
+// - You just want a set.
+fn hash_set_and_b_tree() {
+    let mut set = HashSet::new();
+    set.insert(1);
+    set.insert(2);
+    set.insert(3);
+    set.insert(2);
+    assert_eq!(set.len(), 3);
+}
+
+// BinaryHeap
+//
+// A priority queue implemented with a binary heap. You should use it when
+// - You want to store a bunch of elements, but only ever want to process the "biggest" or
+//   "most important" one at any given time.
+// - You want a priority queue.
+fn binary_heap() {
+    let mut heap = BinaryHeap::new();
+    heap.push(1);
+    heap.push(5);
+    heap.push(2);
+    assert_eq!(heap.peek(), Some(&5));
 }
