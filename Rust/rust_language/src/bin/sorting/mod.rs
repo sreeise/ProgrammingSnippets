@@ -80,28 +80,89 @@ fn print_merge_sort() {
     println!("{:?}", sorted);
 }
 
+/*
+Sorting Composite Structures
+*/
+
+#[derive(Debug, PartialEq)]
+struct Element {
+    name: String,
+    value: String,
+}
+
+impl Element {
+    fn new(name: &str, value: &str) -> Element {
+        Element {
+            name: name.to_string(),
+            value: value.to_string(),
+        }
+    }
+}
+
+fn sort_by_name(elements: &mut Vec<Element>) {
+    elements.sort_by(|a, b| a.name.cmp(&b.name));
+}
+
+fn print_struct_sort() {
+    let mut values = vec![
+        Element::new("Iron", "Fe"),
+        Element::new("Cobalt", "Co"),
+        Element::new("Nickel", "Ni"),
+        Element::new("Copper", "Cu"),
+        Element::new("Zinc", "Zn"),
+    ];
+    sort_by_name(&mut values);
+    println!("{:?}", values);
+}
+
+/*
+Tests for Sorting Methods
+*/
+
 #[cfg(test)]
 mod tests {
-    use super::merge_sort;
+    use super::*;
 
     #[test]
-    fn sorted() {
+    fn tests_merge_sorted() {
         let arr = [1i32, 2, 3, 4, 6, 8];
         assert_eq!(merge_sort(&arr), arr.to_vec());
     }
 
     #[test]
-    fn reverse() {
+    fn tests_merge_reverse() {
         let arr = [8i32, 6, 4, 3, 2, 1];
         assert_eq!(merge_sort(&arr), vec![1i32, 2, 3, 4, 6, 8]);
     }
 
     #[test]
-    fn random() {
+    fn tests_merge_random() {
         let arr = [12i32, 54, 2, 93, 13, 43, 15, 299, 234];
         assert_eq!(
             merge_sort(&arr),
             vec![2i32, 12, 13, 15, 43, 54, 93, 234, 299]
+        );
+    }
+
+    #[test]
+    fn tests_struct_sort() {
+        let mut values = vec![
+            Element::new("Iron", "Fe"),
+            Element::new("Cobalt", "Co"),
+            Element::new("Nickel", "Ni"),
+            Element::new("Copper", "Cu"),
+            Element::new("Zinc", "Zn"),
+        ];
+        sort_by_name(&mut values);
+        assert_eq!(
+            values,
+            vec![
+                Element::new("Cobalt", "Co"),
+                Element::new("Copper", "Cu"),
+                Element::new("Iron", "Fe"),
+                Element::new("Nickel", "Ni"),
+                Element::new("Zinc", "Zn"),
+            ]
         );
     }
 }
