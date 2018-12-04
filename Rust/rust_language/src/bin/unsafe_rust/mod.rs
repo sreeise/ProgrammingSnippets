@@ -210,7 +210,7 @@ Accessing an immutable static variable is safe.
 */
 static HELLO_WORLD: &str = "Hello, world!";
 
-fn print_static_varible() {
+fn print_static_variable() {
     println!("name is: {}", HELLO_WORLD);
 }
 
