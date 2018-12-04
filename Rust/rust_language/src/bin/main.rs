@@ -11,6 +11,8 @@ All Code and Definitions from:
         https://danielkeep.github.io/tlborm/book/README.html
     4. Rust in Detail: Writing Scalable Chat Service from Scratch
         https://nbaksalyar.github.io/2015/07/10/writing-chat-in-rust.html
+    5. Rust rosetta - Simple and complex tasks in Rust
+        https://github.com/Hoverbear/rust-rosetta
 
 The main.rs file is where the main function resides and is the
 start of program execution.

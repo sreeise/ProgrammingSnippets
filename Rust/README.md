@@ -10,6 +10,8 @@ Code used may be from different sources listed here and in individual files:
         https://danielkeep.github.io/tlborm/book/README.html
     4. Rust in Detail: Writing Scalable Chat Service from Scratch
         https://nbaksalyar.github.io/2015/07/10/writing-chat-in-rust.html
+    5. Rust rosetta - Simple and complex tasks in Rust
+        https://github.com/Hoverbear/rust-rosetta
 
 Most Rust programming directories are separated into a common theme:
     

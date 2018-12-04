@@ -2,6 +2,7 @@
 Definitions and Code from:
 https://doc.rust-lang.org/book/2018-edition/ch04-02-references-and-borrowing.html
 https://nbaksalyar.github.io/2015/07/10/writing-chat-in-rust.html
+https://github.com/Hoverbear/rust-rosetta
 */
 
 /*
@@ -48,12 +49,25 @@ fn referencing() {
     variable goes out of a scope (defined by code blocks within curly braces, { and }).
     */
 }
-
 fn run_calculate() {
     let s1 = String::from("hello");
     let len = calculate_length(&s1);
 
     println!("The length of '{}' is {}", s1, len);
+}
+
+/*
+Get the memory address of a number
+and then get the number using the memory address
+*/
+fn memory_address() {
+    // Get the memory address of a variable
+    let num = 1_i32; // -> i32 integer
+    println!("address of var: {:p}", &num);
+
+    // Get the value at a certain memory address
+    let address = &num as *const i32;
+    println!("value at {:p}: {:?}", address, num);
 }
 
 /*
