@@ -50,6 +50,7 @@ mod smart_pointers;
 mod concurrency;
 mod state_pattern;
 mod match_expressions_patterns;
+mod traits_built_in;
 mod vectors;
 mod sorting;
 mod unsafe_rust; // Advanced feature
