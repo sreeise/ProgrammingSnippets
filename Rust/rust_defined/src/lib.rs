@@ -1,7 +1,59 @@
+#![allow(dead_code)] // Allow dead code across entire crate
+
+#[macro_use]
+extern crate serde_derive;
+
+mod json_write;
+
 /*
-Vec and dynamically resized data structure
+Vec and dynamically resized data structures
+
+Shows using different methods for Vec as well as
+common traits.
 */
 mod dynamic_resize {
+    #[derive(Debug)]
+    pub struct List<T> {
+        pub length: usize,
+        pub vec_list: Vec<T>,
+    }
+
+    impl<T> List<T> {
+        fn new() -> List<T> {
+            List {
+                length: 0,
+                vec_list: Vec::new(),
+            }
+        }
+
+        fn length(&self) -> usize {
+            self.vec_list.len()
+        }
+
+        fn add_item(&mut self, item: T, ) {
+            self.vec_list.push(item);
+            self.update_length();
+        }
+
+        fn remove_item(&mut self, index: usize) {
+            self.vec_list.remove(index);
+            self.update_length();
+        }
+
+        fn update_length(&mut self) {
+            self.length = self.length();
+        }
+
+        /// Merges given Vec<Item> into self Vec<Item>
+        fn merge(&mut self, vec_array_list: Vec<T>) {
+            self.vec_list.extend(vec_array_list.into_iter());
+        }
+
+        fn clear(&mut self) {
+            self.vec_list.clear();
+        }
+    }
+
     #[derive(Debug)]
     pub struct Item {
         name: String,
@@ -28,67 +80,53 @@ mod dynamic_resize {
         }
     }
 
-    #[derive(Debug)]
-    pub struct List<T> {
-        pub length: usize,
-        pub vec_list: Vec<T>,
+    /*
+    Structs can implement traits Copy and Clone
+    if all of their items are able to implement
+    copy and clone
+    */
+    #[derive(Debug, Copy, Clone)]
+    struct ItemCopy {
+        int_num: u32,
+        dec_num: f64,
     }
 
-    trait Dynamic {
-        fn new() -> List<Item>;
-        fn length(&self) -> usize;
-        fn add_item(&mut self, item: Item);
-        fn remove_item(&mut self, index: usize);
-        fn print_list(&self);
-        fn update_length(&mut self);
-        fn merge(&mut self, vec_list: Vec<Item>);
+    impl ItemCopy {
+        fn set_int_num(&mut self, int_num: u32) {
+            self.int_num = int_num;
+        }
+        fn set_dec_num(&mut self, dec_num: f64) {
+            self.dec_num = dec_num;
+        }
     }
 
-    impl Dynamic for List<Item> {
-        fn new() -> List<Item> {
-            List {
-                length: 0,
-                vec_list: Vec::new(),
-            }
-        }
+    /*
+    PartialEq takes one method: eq()
 
-        fn length(&self) -> usize {
-            self.vec_list.len()
+    Here eq() allows creating a method for testing whether
+    two items of the same type are equal.
+    */
+    impl PartialEq for ItemCopy {
+        fn eq(&self, item: &ItemCopy) -> bool {
+            self.int_num == item.int_num &&
+                self.dec_num == item.dec_num
         }
+    }
 
-        fn add_item(&mut self, item: Item) {
-            self.vec_list.push(item);
-            self.update_length();
-        }
-
-        fn remove_item(&mut self, index: usize) {
-            self.vec_list.remove(index);
-            self.update_length();
-        }
-
-        fn print_list(&self) {
-            let v_iter = self.vec_list.iter();
-            for val in v_iter {
-                println!("Val: {:?}", val);
-            }
-        }
-
-        fn update_length(&mut self) {
-            self.length = self.length();
-        }
-
-        /// Merges given Vec<Item> into self Vec<Item>
-        fn merge(&mut self, vec_array_list: Vec<Item>) {
-            self.vec_list.extend(vec_array_list.into_iter());
+    impl List<ItemCopy> {
+        fn set_items(&mut self, int_num: u32, dec_num: f64, index: usize) {
+            self.vec_list[index].set_int_num(int_num);
+            self.vec_list[index].set_dec_num(dec_num);
         }
     }
 
     #[cfg(test)]
     mod tests {
+        use super::*;
+
         // Tests the Item methods
         #[test]
         fn test_dynamic_item_create() {
-            use super::*;
             let item = Item::new("name", "text");
             assert_eq!(item.name_of(), "name");
             assert_eq!(item.text_of(), "text");
@@ -97,9 +135,7 @@ mod dynamic_resize {
         // Test that the length is updated on List after add and remove item
         #[test]
         fn test_dynamic_update_length() {
-            use super::*;
-
-            let mut list = List::new();
+            let mut list = List::<Item>::new();
             assert_eq!(list.length, 0);
             let item1 = Item::new("name1", "text1");
             list.add_item(item1);
@@ -111,11 +147,10 @@ mod dynamic_resize {
         // Test that Items can be added to and removed from List<Item> Vec
         #[test]
         fn test_dynamic_resize() {
-            use super::*;
-            let mut list = List::new();
+            let mut list = List::<Item>::new();
             let item1 = Item::new("name1", "text1");
-
             let item2 = Item::new("name2", "text2");
+
             list.add_item(item1);
             assert_eq!(list.length(), 1);
             list.remove_item(0);
@@ -128,9 +163,7 @@ mod dynamic_resize {
         // merging it's items in the List Vec<Item>
         #[test]
         fn test_dynamic_merge() {
-            use super::*;
-
-            let mut list = List::new();
+            let mut list = List::<Item>::new();
             let item1 = Item::new("name1", "text1");
             list.add_item(item1);
             assert_eq!(list.length(), 1);
@@ -150,12 +183,122 @@ mod dynamic_resize {
         #[test]
         #[should_panic(expected = "assertion failed: index < len")]
         fn test_dynamic_index_range_panic() {
-            use super::*;
-            let mut list = List::new();
+            let mut list = List::<Item>::new();
             let item1 = Item::new("name1", "text1");
             list.add_item(item1);
             list.remove_item(0);
             list.remove_item(0);
+        }
+
+        #[test]
+        fn test_dynamic_clear() {
+            let mut list = List::<Item>::new();
+            let item1 = Item::new("name1", "text1");
+            let item2 = Item::new("name2", "text2");
+
+            list.add_item(item1);
+            list.add_item(item2);
+            assert_eq!(list.length(), 2);
+            list.clear();
+            assert_eq!(list.length(), 0);
+        }
+
+
+        #[test]
+        fn test_copy() {
+            let mut list = List::<ItemCopy>::new();
+            let item = ItemCopy {
+                int_num: 32,
+                dec_num: 12.0,
+            };
+
+            let item2 = item.clone();
+            list.add_item(item);
+            list.add_item(item2);
+            assert_eq!(list.length(), 2);
+        }
+
+        #[test]
+        fn test_item_partial_eq() {
+            let mut list = List::<ItemCopy>::new();
+            let item = ItemCopy {
+                int_num: 32,
+                dec_num: 12.0,
+            };
+
+            let item2 = ItemCopy {
+                int_num: 22,
+                dec_num: 22.23,
+            };
+
+            assert_ne!(item, item2);
+            list.add_item(item);
+            list.add_item(item2);
+            assert_eq!(list.length(), 2);
+
+            assert_eq!(list.vec_list[0], item);
+            assert_eq!(list.vec_list[1], item2);
+
+            list.remove_item(0);
+            assert_eq!(list.vec_list[0], item2);
+        }
+
+        #[test]
+        fn test_set_items() {
+            let mut list = List::<ItemCopy>::new();
+            let item = ItemCopy {
+                int_num: 32,
+                dec_num: 12.0,
+            };
+
+            assert_eq!(item.int_num, 32);
+            assert_eq!(item.dec_num, 12.0);
+
+            list.add_item(item);
+            list.set_items(22, 23.33, 0);
+            assert_eq!(list.vec_list[0].int_num, 22);
+            assert_eq!(list.vec_list[0].dec_num, 23.33);
+        }
+
+        #[test]
+        fn test_length_variable() {
+            let mut list = List::<ItemCopy>::new();
+            let item = ItemCopy {
+                int_num: 32,
+                dec_num: 12.0,
+            };
+
+            let item2 = ItemCopy {
+                int_num: 100,
+                dec_num: 101.23,
+            };
+
+            list.add_item(item);
+            assert_eq!(list.length, 1);
+            list.add_item(item2);
+            assert_eq!(list.length, 2);
+            list.remove_item(1);
+            assert_eq!(list.length, 1);
+            list.remove_item(0);
+            assert_eq!(list.length, 0);
+        }
+
+        #[test]
+        fn test_length_method() {
+            let mut list = List::<ItemCopy>::new();
+            let item = ItemCopy {
+                int_num: 32,
+                dec_num: 12.0,
+            };
+            let item2 = ItemCopy {
+                int_num: 10,
+                dec_num: 33.32,
+            };
+
+            list.add_item(item);
+            assert_eq!(list.length(), 1);
+            list.add_item(item2);
+            assert_eq!(list.length(), 2);
         }
     }
 }
