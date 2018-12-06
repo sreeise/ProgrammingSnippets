@@ -7,17 +7,18 @@ use std::net::TcpListener;
 use std::fs::File;
 
 fn main() {
-    // Bind to port 7878
-    // Use unwrap in case of error
-    let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
-    let pool = ThreadPool::new(4);
+    start("127.0.0.1:7878", 4);
+}
 
+fn start(addr: &str, thread_pool_size: usize) {
+    let listener = TcpListener::bind(addr).unwrap();
+    let pool = ThreadPool::new(thread_pool_size);
     for stream in listener.incoming() {
         let stream = stream.unwrap();
 
         pool.execute(|| {
             connect(stream);
-        });
+        })
     }
 }
 
