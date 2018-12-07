@@ -7,6 +7,7 @@ concurrent modules of code.
 All Code and Definitions taken from:
 https://doc.rust-lang.org/book/2018-edition/ch16-00-concurrency.html
 https://github.com/ProgrammingRust/examples
+https://github.com/Hoverbear/rust-rosetta/blob/master/tasks/atomic-updates/src/main.rs
 
 Fearless concurrency
     1. Rust leverages the type system and ownership to perform compile
@@ -257,6 +258,50 @@ pub fn checkpoint() {
 #[test]
 fn test_checkpoint() {
     checkpoint();
+}
+
+/*
+Atomics
+For lock-free concurrent programming
+
+See: Above function as well.
+See: https://github.com/Hoverbear/rust-rosetta/blob/master/tasks/atomic-updates/src/main.rs
+
+    1. Atomic<isize> and AtomicUsize are shared integer types corresponding to
+            the single-threaded isize and usize types.
+    2. An AtomicBool is a shared bool value.
+    3. An AtomicPtr<T> is a shared value of the unsafe pointer type *mut T.
+*/
+
+/*
+into_inner()
+
+Consumes the atomic and returns the value
+*/
+fn into_inner_consume_atomic() {
+    let some_bool = AtomicBool::new(true);
+    assert_eq!(some_bool.into_inner(), true);
+}
+
+/*
+get_mut() Returns a mutable reference to the underlying bool.
+load(): Loads a value from the bool.
+*/
+fn atomic_get_mut() {
+    let mut some_bool = AtomicBool::new(true);
+    assert_eq!(*some_bool.get_mut(), true);
+    *some_bool.get_mut() = false;
+    assert_eq!(some_bool.load(Ordering::SeqCst), false);
+}
+
+/*
+swap(): Stores a value into the bool, returning the previous value.
+*/
+fn swap_atomic_bool() {
+    let some_bool = AtomicBool::new(true);
+
+    assert_eq!(some_bool.swap(false, Ordering::Relaxed), true);
+    assert_eq!(some_bool.load(Ordering::Relaxed), false);
 }
 
 /*
