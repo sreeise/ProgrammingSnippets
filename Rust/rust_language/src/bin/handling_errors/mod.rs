@@ -15,6 +15,14 @@ By default, when a panic occurs, the program starts unwinding, which means Rust
 walks back up the stack and cleans up the data from each function it encounters.
 */
 
+use std::fs::File;
+use std::io::ErrorKind;
+use std::io;
+use std::io::Read;
+use std::error::Error;
+use std::io::{Write, stderr};
+use std::path::Path;
+
 // End the program with a panic! macro
 // Not a very useful method by itself except for showing what happens to a
 // program when a panic! macro is called
@@ -38,7 +46,6 @@ Handling errors using Result<T, E>
     2. E represents the type of the error that will be returned in a failure
         case within the Err variant.
 */
-use std::fs::File;
 
 fn panic_file_error_with_result() {
     let f = File::open("hello.txt");
@@ -56,8 +63,6 @@ fn panic_file_error_with_result() {
         },
     };
 }
-
-use std::io::ErrorKind;
 
 /*
 The enum io::ErrorKind is provided by the standard library and has
@@ -115,10 +120,6 @@ If this function encounters any problems, the code that calls this function will
 receive an Err value that holds an instance of io::Error that contains more
 information about what the problems were.
 */
-
-use std::io;
-use std::io::Read;
-
 
 // Return the errors to the calling code using match
 fn read_username_from_file() -> Result<String, io::Error> {
@@ -185,4 +186,71 @@ use std::fs;
 
 fn read_username_from_file_short() -> Result<String, io::Error> {
     fs::read_to_string("hello.txt")
+}
+
+/*
+Result io::Error
+
+is_ok(): returns Bool indicating successful result.
+is_err(): returns Bool indicating unsuccessful result.
+ok(): Returns success value, if any, as an Option<T>.
+        Successful results return Some()
+        otherwise it returns None
+err(): returns the err value
+unwrap_or(fallback) returns the success value, if results is a success result,
+            otherwise it returns fallback, discarding the error value.
+unwrap_or_else(fallback_fn): same as unwrap_or() but takes a closure or function
+                            instead of a value.
+unwrap(): returns the success value, if result is a success result. If result
+            is an error result, the method panics.
+expect(err_message): same as unwrap with the option to define an error message
+as_ref(): converts a Result<T, E> to a Result<&T, &E>, borrowing a reference
+                to the success or error value in the existing result.
+as_mut(): Same as as_ref() but borrows a mutable reference.
+                The return type is Result<&mut T, &mut E>.
+as_ref().ok(): borrows result returning an Option<&t>
+
+Result type is an Alias Type: fn remove_file(path: &Path) -> Result<()>
+            A type alias is a kind of shorthand for type names.
+*/
+
+/*
+Printing Errors to standard output.
+
+Rust may not always print out an errors cause. In this case
+a function like this can be used.
+*/
+fn print_error(mut err: &Error) {
+    let _ = writeln!(stderr(), "error: {}", err);
+    while let Some(cause) = err.cause() {
+        let _ = writeln!(stderr(), "caused by: {}", cause);
+        err = cause;
+    }
+}
+
+/*
+Propagate Errors with ?
+
+You can add ? to any expression that produces a Result.
+
+The behavior of ? depends on whether the function returns a success result
+or an error result:
+    1. Success: It unwraps the Result to get the success value inside.
+    2. Error: Immediately returns from the enclosing function and passing
+                the error result up the call chain.
+
+The ? can only be used in functions that have a Result return type.
+*/
+
+fn move_all(src: &Path, dst: &Path) -> io::Result<()> {
+    // Opening directory could fail here. See the ?
+    for entry_result in src.read_dir()? {
+        // Reading directory could fail here. See the ?
+        let entry = entry_result?;
+        let dst_file = dst.join(entry.file_name());
+
+        // Renaming directory could fail here. See the ?
+        fs::rename(entry.path(), dst_file)?;
+    }
+    Ok(())
 }
