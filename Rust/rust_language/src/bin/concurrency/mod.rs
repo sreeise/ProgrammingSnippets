@@ -6,11 +6,24 @@ concurrent modules of code.
 
 All Code and Definitions taken from:
 https://doc.rust-lang.org/book/2018-edition/ch16-00-concurrency.html
+https://github.com/ProgrammingRust/examples
 
 Fearless concurrency
     1. Rust leverages the type system and ownership to perform compile
         time checks rather than having runtime errors for concurrency
         to aid in development. This is known as fearless concurrency.
+
+Types of Parallelism:
+    1. Fork-Join Parallelism: To fork is to start a new thread, and to join
+                    a thread is to wait for it to finish. A fork-jon program
+                    is deterministic as long as the threads are really isolated.
+   2. Channel: One-way conduit for sending values from one thread to another.
+   3. Shared mutable state
+
+Mutexes:
+    1. Prevent data races
+    2. Supports programming with invariants, rules about the protected data
+        that are true by construction.
 */
 
 /*
@@ -244,4 +257,38 @@ pub fn checkpoint() {
 #[test]
 fn test_checkpoint() {
     checkpoint();
+}
+
+/*
+Channels and Mutex
+
+A Mutex can wrap a Receiver to share it.
+*/
+pub mod shared_channel {
+    use std::sync::{Arc, Mutex};
+    use std::sync::mpsc::{channel, Sender, Receiver};
+
+    /// A thread-safe wrapper around a `Receiver`.
+    #[derive(Clone)]
+    pub struct SharedReceiver<T>(Arc<Mutex<Receiver<T>>>);
+
+    impl<T> Iterator for SharedReceiver<T> {
+        type Item = T;
+
+        /// Get the next item from the wrapped receiver.
+        fn next(&mut self) -> Option<T> {
+            let guard = self.0.lock().unwrap();
+            guard.recv().ok()
+        }
+    }
+
+    /*
+    Create a new channel whose receiver can be shared across threads.
+    this returns a sender and a receiver, just like the stdlib's
+    channel()`, and sometimes works as a drop-in replacement.
+    */
+    pub fn shared_channel<T>() -> (Sender<T>, SharedReceiver<T>) {
+        let (sender, receiver) = channel();
+        (sender, SharedReceiver(Arc::new(Mutex::new(receiver))))
+    }
 }
