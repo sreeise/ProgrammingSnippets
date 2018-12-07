@@ -13,6 +13,8 @@ All Code and Definitions from:
         https://nbaksalyar.github.io/2015/07/10/writing-chat-in-rust.html
     5. Rust rosetta - Simple and complex tasks in Rust
         https://github.com/Hoverbear/rust-rosetta
+   6. Programming Rust (book). Code available on GitHub
+        https://github.com/ProgrammingRust/examples
 
 The main.rs file is where the main function resides and is the
 start of program execution.
@@ -53,6 +55,7 @@ mod match_expressions_patterns;
 mod traits_built_in;
 mod vectors;
 mod sorting;
+mod file_io;
 mod unsafe_rust; // Advanced feature
 mod advanced_lifetimes; // Advanced feature
 mod advanced_traits; // Advanced feature

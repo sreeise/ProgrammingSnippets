@@ -12,6 +12,8 @@ Code used may be from different sources listed here and in individual files:
         https://nbaksalyar.github.io/2015/07/10/writing-chat-in-rust.html
     5. Rust rosetta - Simple and complex tasks in Rust
         https://github.com/Hoverbear/rust-rosetta
+    6. Programming Rust (book). Code available on GitHub
+        https://github.com/ProgrammingRust/examples
 
 Most Rust programming directories are separated into a common theme:
     
