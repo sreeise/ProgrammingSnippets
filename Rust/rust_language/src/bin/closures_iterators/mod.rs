@@ -1,6 +1,7 @@
 /*
 Code and Definitions from:
 https://doc.rust-lang.org/book/2018-edition/ch13-01-closures.html
+https://github.com/ProgrammingRust/examples
 
 Closures
 
@@ -264,4 +265,34 @@ impl Iterator for Counter {
             None
         }
     }
+}
+
+/*
+Vector of numbers into vector of Strings
+
+Two versions shown:
+    1. Using a closure in map()
+    2. Using a function in map()
+*/
+fn closure_map_iter() {
+    let list_of_numbers = vec![1, 2, 3];
+    let list_of_strings: Vec<String> = list_of_numbers
+        .iter()
+        .map(|i| i.to_string())
+        .collect();
+
+    let list_of_numbers2 = vec![1, 2, 3];
+    let list_of_strings2: Vec<String> = list_of_numbers2
+        .iter()
+        .map(ToString::to_string)
+        .collect();
+}
+
+/*
+Using closures where Rust needs a Size trait
+
+Box can be used in this situation
+*/
+fn returns_closure() -> Box<dyn Fn(i32) -> i32> {
+    Box::new(|x| x + 1)
 }
