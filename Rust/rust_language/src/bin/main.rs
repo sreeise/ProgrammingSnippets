@@ -61,6 +61,9 @@ mod advanced_lifetimes; // Advanced feature
 mod advanced_traits; // Advanced feature
 mod advanced_types; // Advanced feature
 
+#[macro_use]
+mod macro_usage; // Macros
+
 // Main method
 // Functions/Methods start with fn and use snake casing, where
 // methods with two words are separated by an underline and
