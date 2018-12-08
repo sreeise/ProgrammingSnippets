@@ -15,6 +15,14 @@ Code used may be from different sources listed here and in individual files:
     6. Programming Rust (book). Code available on GitHub
         https://github.com/ProgrammingRust/examples
 
+Rusts formal documentation can be found by running the command:
+
+    rustup doc
+
+This will open a web page of the Rust documentation. Note that it may have incomplete parts.
+
+### Directories
+
 Most Rust programming directories are separated into a common theme:
     
     1. rust_language: Goes over main features in the Rust programming Language
@@ -22,6 +30,7 @@ Most Rust programming directories are separated into a common theme:
     3. minigrep: Basic command line program written in Rust
     4. webserver: Basic web server written in Rust
     5. rust_defined: My own practice and workspace for Rust
+    6. rust_examples: Rust code examples
     
 An overview of operators and symbols in Rust can be found at
 
