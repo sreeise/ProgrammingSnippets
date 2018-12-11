@@ -2,7 +2,7 @@
 The Rust Programming Language
 
 Goes over the main features of Rust
-All Code and Definitions from:
+Portions of Code and Definitions may be from:
     1. Rust Programming Language Book
         https://doc.rust-lang.org/book/2018-edition/ch00-00-introduction.html
     2. The Rust Standard Library Documentation
