@@ -190,9 +190,12 @@ This usage of extern does not require unsafe.
 In the following example, we make the call_from_c function accessible from C code,
 after it’s compiled to a shared library and linked from C:
 */
-// Allow private_no_mangle_fns is here so this code does not have to
-// be exported and can't be used without doing so. It is just an example.
-#[allow(private_no_mangle_fns)]
+
+// #[allow(private_no_mangle_fns)]: Allow private_no_mangle_fns was
+// originally here so this code does not have to be exported and can't be used
+// without doing so. It is just an example. However, this has been removed in Rust
+// and no longer needed in Rust 1.31.
+
 #[no_mangle]
 pub extern "C" fn call_from_c() {
     println!("Just called a Rust function from C!");
