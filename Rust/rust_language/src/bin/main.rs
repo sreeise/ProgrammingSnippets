@@ -57,6 +57,7 @@ mod vectors;
 mod sorting;
 mod file_io;
 mod networking;
+mod command_line;
 mod unsafe_rust; // Advanced feature
 mod advanced_lifetimes; // Advanced feature
 mod advanced_traits; // Advanced feature
