@@ -296,3 +296,13 @@ Box can be used in this situation
 fn returns_closure() -> Box<dyn Fn(i32) -> i32> {
     Box::new(|x| x + 1)
 }
+
+fn accept_callback() {
+    let array = [1, 2, 3, 4, 5];
+    println!("{:?}", array);
+    println!("{:?}", array.iter().map(callback).collect::<Vec<i32>>());
+}
+
+fn callback(val: &i32) -> i32 {
+    *val + 1
+}
