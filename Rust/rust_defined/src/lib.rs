@@ -30,7 +30,7 @@ mod dynamic_resize {
             self.vec_list.len()
         }
 
-        fn add_item(&mut self, item: T, ) {
+        fn add_item(&mut self, item: T) {
             self.vec_list.push(item);
             self.update_length();
         }
@@ -108,8 +108,7 @@ mod dynamic_resize {
     */
     impl PartialEq for ItemCopy {
         fn eq(&self, item: &ItemCopy) -> bool {
-            self.int_num == item.int_num &&
-                self.dec_num == item.dec_num
+            self.int_num == item.int_num && self.dec_num == item.dec_num
         }
     }
 
@@ -202,7 +201,6 @@ mod dynamic_resize {
             list.clear();
             assert_eq!(list.length(), 0);
         }
-
 
         #[test]
         fn test_copy() {
