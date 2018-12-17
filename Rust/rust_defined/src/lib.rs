@@ -9,7 +9,7 @@ mod json_write;
 Vec and dynamically resized data structures
 
 Shows using different methods for Vec as well as
-common traits.
+common traits
 */
 mod dynamic_resize {
     #[derive(Debug)]
