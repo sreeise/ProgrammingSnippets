@@ -1,8 +1,8 @@
 extern crate rand;
 
-use std::io;
+use self::rand::Rng;
 use std::cmp::Ordering; // Cmp for comparing values.
-use self::rand::Rng; // For ranges in looping
+use std::io; // For ranges in looping
 
 fn while_loops() {
     let mut number = 3;
@@ -40,7 +40,6 @@ fn array_iter_loops() {
 fn range_loop() {
     let number = 3;
 
-
     for number in (1..4).rev() {
         println!("{}!", number);
     }
@@ -60,7 +59,8 @@ fn guessing_game() {
 
     let mut guess = String::new();
 
-    io::stdin().read_line(&mut guess)
+    io::stdin()
+        .read_line(&mut guess)
         .expect("Failed to read line");
 
     // Declaring the variable guess again here will shadow
@@ -70,8 +70,7 @@ fn guessing_game() {
     // .trim removes empty space and removes issues with parsing like newline \n.
     // .parse parses the number from the string.
     // .expect is for errors/exceptions.
-    let guess: u32 = guess.trim().parse()
-        .expect("Please type a number!");
+    let guess: u32 = guess.trim().parse().expect("Please type a number!");
 
     println!("You guessed: {}", guess);
 
@@ -96,7 +95,8 @@ fn guessing_game_loop() {
 
         let mut guess = String::new();
 
-        io::stdin().read_line(&mut guess)
+        io::stdin()
+            .read_line(&mut guess)
             .expect("Failed to read line");
 
         // The underscore in Err(_) matches all error values.

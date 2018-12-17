@@ -1,4 +1,3 @@
-
 /*
 Advanced lifetimes struct
 
@@ -60,13 +59,13 @@ Lifetime and Trait Object Rules:
     3. With a single T: 'a clause, the default lifetime of the trait object is 'a.
     4. With multiple clauses like T: 'a, there is no default lifetime; we must be explicit.
 */
-trait Red { }
+trait Red {}
 
 struct Ball<'a> {
     diameter: &'a i32,
 }
 
-impl<'a> Red for Ball<'a> { }
+impl<'a> Red for Ball<'a> {}
 
 fn main() {
     let num = 5;

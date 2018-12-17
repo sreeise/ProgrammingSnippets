@@ -17,7 +17,9 @@ assumes they have the same lifetime.
 pub fn smallest(v: &[i32]) -> &i32 {
     let mut s = &v[0];
     for r in &v[1..] {
-        if *r < *s { s = r; }
+        if *r < *s {
+            s = r;
+        }
     }
     s
 }
@@ -36,7 +38,7 @@ Lifetime: <'a>
 */
 
 struct LifetimeStruct<'a> {
-    num: &'a i32
+    num: &'a i32,
 }
 
 /*
@@ -46,7 +48,7 @@ The T value will relate to the LifetimeStruct reference.
 */
 
 struct LifetimeStore<'a> {
-    num: LifetimeStruct<'a>
+    num: LifetimeStruct<'a>,
 }
 
 /*
@@ -56,7 +58,7 @@ num1 and num2 will have different lifetimes.
 */
 struct MultiLifetime<'a, 'b> {
     num1: &'a i32,
-    num2: &'b i32
+    num2: &'b i32,
 }
 
 fn sum_multi_lifetime(r: &i32, multi: MultiLifetime) -> i32 {

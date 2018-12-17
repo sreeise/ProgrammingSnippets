@@ -23,7 +23,6 @@ fn string_move() {
     println!("a_string: {}", a_string); // -> a_string: Another String
 }
 
-
 /*
 Vec Ownership
 
@@ -47,12 +46,11 @@ fn vec_ownership() {
     // the Struct takes ownership of the Strings
     vec.push(Person {
         first_name: "John".to_string(), // -> Struct takes ownership of the String
-        last_name: "Doe".to_string(), // -> Struct takes ownership of the String
+        last_name: "Doe".to_string(),   // -> Struct takes ownership of the String
     });
 
     println!("Vector: {:?}", vec); // -> Vector: [Person { first_name: "John", last_name: "Doe" }]
 }
-
 
 /*
 Vec Value Move
@@ -61,10 +59,12 @@ Rust does not allow setting a value in a vector directly,
 Values must be moved in a safe way
 */
 fn vec_value_move() {
-    let mut vec : Vec<String> = vec![
-        "value1".to_string(), "value2".to_string(),
-        "value3".to_string(), "value4".to_string(),
-        "value5".to_string()
+    let mut vec: Vec<String> = vec![
+        "value1".to_string(),
+        "value2".to_string(),
+        "value3".to_string(),
+        "value4".to_string(),
+        "value5".to_string(),
     ];
 
     // Stacks Pop Method
@@ -94,7 +94,7 @@ is set to the variable and the variable owns that value.
 */
 
 fn loop_move() {
-    let vec : Vec<u32> = vec![1, 2, 3, 4];
+    let vec: Vec<u32> = vec![1, 2, 3, 4];
 
     for mut val in vec {
         // We can not modify the value using variable val

@@ -59,7 +59,6 @@ fn bar() -> ! {
 }
 */
 
-
 /*
 match arms must all return the same type.
 

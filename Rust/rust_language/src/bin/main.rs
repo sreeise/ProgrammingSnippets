@@ -33,35 +33,35 @@ unless a pub keyword is added where needed.
 #![allow(unused_variables)] // Allow unused variables across entire cate
 
 // Modules for the different language features of Rust
-mod input_output_variables;
-mod arrays_tuples;
-mod loops_matching;
-mod using_crates;
-mod enum_types;
-mod ownership;
-mod ownership_moves;
-mod ownership_ref_deref;
-mod ownership_lifetimes;
-mod collection_types;
-mod closures_iterators;
-mod handling_errors;
-mod generics_traits_lifetimes;
-mod borrowing_references;
-mod automated_testing;
-mod smart_pointers;
-mod concurrency;
-mod state_pattern;
-mod match_expressions_patterns;
-mod traits_built_in;
-mod vectors;
-mod sorting;
-mod file_io;
-mod networking;
-mod command_line;
-mod unsafe_rust; // Advanced feature
 mod advanced_lifetimes; // Advanced feature
 mod advanced_traits; // Advanced feature
-mod advanced_types; // Advanced feature
+mod advanced_types;
+mod arrays_tuples;
+mod automated_testing;
+mod borrowing_references;
+mod closures_iterators;
+mod collection_types;
+mod command_line;
+mod concurrency;
+mod enum_types;
+mod file_io;
+mod generics_traits_lifetimes;
+mod handling_errors;
+mod input_output_variables;
+mod loops_matching;
+mod match_expressions_patterns;
+mod networking;
+mod ownership;
+mod ownership_lifetimes;
+mod ownership_moves;
+mod ownership_ref_deref;
+mod smart_pointers;
+mod sorting;
+mod state_pattern;
+mod traits_built_in;
+mod unsafe_rust; // Advanced feature
+mod using_crates;
+mod vectors; // Advanced feature
 
 #[macro_use]
 mod macro_usage; // Macros

@@ -127,15 +127,11 @@ fn using_at_operator_bindings() {
     let msg = Message::Hello { id: 5 };
 
     match msg {
-        Message::Hello { id: id_variable @ 3...7 } => {
-            println!("Found an id in range: {}", id_variable)
-        },
-        Message::Hello { id: 10...12 } => {
-            println!("Found an id in another range")
-        },
-        Message::Hello { id } => {
-            println!("Found some other id: {}", id)
-        },
+        Message::Hello {
+            id: id_variable @ 3...7,
+        } => println!("Found an id in range: {}", id_variable),
+        Message::Hello { id: 10...12 } => println!("Found an id in another range"),
+        Message::Hello { id } => println!("Found some other id: {}", id),
     }
 }
 
@@ -178,7 +174,7 @@ fn match_range_values() {
     let x = 5;
 
     match x {
-        1 ... 5 => println!("one through five"),
+        1...5 => println!("one through five"),
         _ => println!("something else"),
     }
 }
@@ -192,8 +188,8 @@ fn match_range_values_char() {
     let x = 'c';
 
     match x {
-        'a' ... 'j' => println!("early ASCII letter"),
-        'k' ... 'z' => println!("late ASCII letter"),
+        'a'...'j' => println!("early ASCII letter"),
+        'k'...'z' => println!("late ASCII letter"),
         _ => println!("something else"),
     }
 }
@@ -257,28 +253,16 @@ fn match_destructure_enum() {
     let msg = Message::ChangeColor(0, 160, 255);
 
     match msg {
-        Message::Quit => {
-            println!("The Quit variant has no data to destructure.")
-        },
+        Message::Quit => println!("The Quit variant has no data to destructure."),
         Message::Move { x, y } => {
-            println!(
-                "Move in the x direction {} and in the y direction {}",
-                x,
-                y
-            );
+            println!("Move in the x direction {} and in the y direction {}", x, y);
         }
         Message::Write(text) => println!("Text message: {}", text),
         Message::ChangeColor(r, g, b) => {
-            println!(
-                "Change the color to red {}, green {}, and blue {}",
-                r,
-                g,
-                b
-            )
+            println!("Change the color to red {}, green {}, and blue {}", r, g, b)
         }
     }
 }
-
 
 /*
 Matching and Destructuring References
@@ -300,17 +284,14 @@ fn match_sum_of_squares() {
         Point { x: 10, y: -3 },
     ];
 
-    let sum_of_squares: i32 = points
-        .iter()
-        .map(|&Point { x, y }| x * x + y * y)
-        .sum();
+    let sum_of_squares: i32 = points.iter().map(|&Point { x, y }| x * x + y * y).sum();
 }
 
 /*
 Complex Multiple Destructuring
 */
 fn complex_destructure() {
-    let ((feet, inches), Point {x, y}) = ((3, 10), Point { x: 3, y: -10 });
+    let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
 }
 
 /*
@@ -353,13 +334,10 @@ Ignoring Values in Tuples using _ Underscore
 Ignoring the second and fourth values in a tuple of five items.
 */
 fn ignore_tuple_values() {
-
     let numbers = (2, 4, 8, 16, 32);
 
     match numbers {
-        (first, _, third, _, fifth) => {
-            println!("Some numbers: {}, {}, {}", first, third, fifth)
-        },
+        (first, _, third, _, fifth) => println!("Some numbers: {}, {}, {}", first, third, fifth),
     }
 }
 
@@ -386,7 +364,7 @@ fn match_with_tuple_first_last() {
     match numbers {
         (first, .., last) => {
             println!("Some numbers: {}, {}", first, last);
-        },
+        }
     }
 }
 
@@ -399,7 +377,6 @@ but matches an existing reference in the value. Because & already has that
 meaning in patterns, we can’t use & to create a reference in a pattern.
 */
 fn pattern_reference_with_ref() {
-
     let robot_name = Some(String::from("Bors"));
 
     match robot_name {
@@ -511,7 +488,6 @@ fn match_tuple_pattern_as_argument(&(x, y): &(i32, i32)) -> String {
     format!("Current location: ({}{})", x, y)
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -519,7 +495,10 @@ mod tests {
     #[test]
     fn test_match_tuple_pattern() {
         let point = (3, 5);
-        assert_eq!("Current location: (35)", match_tuple_pattern_as_argument(&point))
+        assert_eq!(
+            "Current location: (35)",
+            match_tuple_pattern_as_argument(&point)
+        )
     }
 
     #[test]

@@ -17,7 +17,6 @@ Then using the macro as a derive macro:
     #[derive(MacroName)]
 */
 
-
 /*
 create_function() and print_result() can be used like so:
 
@@ -44,25 +43,21 @@ macro_rules! create_function {
     // This macro takes an argument of designator `ident` and
     // creates a function named `$func_name`.
     // The `ident` designator is used for variable/function names.
-    ($func_name:ident) => (
+    ($func_name:ident) => {
         fn $func_name() {
             // The `stringify!` macro converts an `ident` into a string.
-            println!("You called {:?}()",
-                     stringify!($func_name));
+            println!("You called {:?}()", stringify!($func_name));
         }
-    )
+    };
 }
-
 
 #[macro_export]
 macro_rules! print_result {
     // This macro takes an expression of type `expr` and prints
     // it as a string along with its result.
     // The `expr` designator is used for expressions.
-    ($expression:expr) => (
+    ($expression:expr) => {
         // `stringify!` will convert the expression *as it is* into a string.
-        println!("{:?} = {:?}",
-                 stringify!($expression),
-                 $expression);
-    )
+        println!("{:?} = {:?}", stringify!($expression), $expression);
+    };
 }

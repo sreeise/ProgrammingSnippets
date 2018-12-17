@@ -2,7 +2,6 @@
 Rust Ownership References and Dereferences
 */
 
-
 /*
 References
 
@@ -59,18 +58,28 @@ fn sort_table_works(table: &mut Table) {
 }
 
 fn hash_table() {
-
-
     let mut table = Table::new();
-    table.insert("Gesualdo".to_string(),
-                 vec!["many madrigals".to_string(),
-                      "Tenebrae Responsoria".to_string()]);
-    table.insert("Caravaggio".to_string(),
-                 vec!["The Musicians".to_string(),
-                      "The Calling of St. Matthew".to_string()]);
-    table.insert("Cellini".to_string(),
-                 vec!["Perseus with the head of Medusa".to_string(),
-                      "a salt cellar".to_string()]);
+    table.insert(
+        "Gesualdo".to_string(),
+        vec![
+            "many madrigals".to_string(),
+            "Tenebrae Responsoria".to_string(),
+        ],
+    );
+    table.insert(
+        "Caravaggio".to_string(),
+        vec![
+            "The Musicians".to_string(),
+            "The Calling of St. Matthew".to_string(),
+        ],
+    );
+    table.insert(
+        "Cellini".to_string(),
+        vec![
+            "Perseus with the head of Medusa".to_string(),
+            "a salt cellar".to_string(),
+        ],
+    );
 
     print_table(&table);
     sort_table_works(&mut table);
@@ -116,7 +125,7 @@ its lifetime depends on the reference:
 */
 
 fn factorial(n: usize) -> usize {
-    (1..n+1).fold(1, |a, b| a * b)
+    (1..n + 1).fold(1, |a, b| a * b)
 }
 
 fn assert_factorial() {

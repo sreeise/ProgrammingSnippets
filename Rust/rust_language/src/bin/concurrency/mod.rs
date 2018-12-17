@@ -310,8 +310,8 @@ Channels and Mutex
 A Mutex can wrap a Receiver to share it.
 */
 pub mod shared_channel {
+    use std::sync::mpsc::{channel, Receiver, Sender};
     use std::sync::{Arc, Mutex};
-    use std::sync::mpsc::{channel, Sender, Receiver};
 
     /// A thread-safe wrapper around a `Receiver`.
     #[derive(Clone)]

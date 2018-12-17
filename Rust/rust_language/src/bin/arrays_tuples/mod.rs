@@ -38,11 +38,7 @@ fn conditional_statements() {
     let condition = true;
     // Set number to 5 if the boolean condition variable is true
     // and 6 if false
-    let number = if condition {
-        5
-    } else {
-        6
-    };
+    let number = if condition { 5 } else { 6 };
 
     // Print the number
     println!("The value of number is: {}", number);

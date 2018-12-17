@@ -61,10 +61,7 @@ fn main() {
     let simulated_user_specified_value = 10;
     let simulated_random_number = 7;
 
-    generate_workout(
-        simulated_user_specified_value,
-        simulated_random_number
-    );
+    generate_workout(simulated_user_specified_value, simulated_random_number);
 }
 
 fn simulated_expensive_calculation(intensity: u32) -> u32 {
@@ -81,14 +78,8 @@ fn generate_workout(intensity: u32, random_number: u32) {
     });
 
     if intensity < 25 {
-        println!(
-            "Today, do {} pushups!",
-            expensive_result.value(intensity)
-        );
-        println!(
-            "Next, do {} situps!",
-            expensive_result.value(intensity)
-        );
+        println!("Today, do {} pushups!", expensive_result.value(intensity));
+        println!("Next, do {} situps!", expensive_result.value(intensity));
     } else {
         if random_number == 3 {
             println!("Take a break today! Remember to stay hydrated!");
@@ -114,15 +105,16 @@ the result held in the Some variant.
 */
 
 struct Cacher<T>
-    where T: Fn(u32) -> u32
+where
+    T: Fn(u32) -> u32,
 {
     calculation: T,
     value: Option<u32>,
 }
 
-
 impl<T> Cacher<T>
-    where T: Fn(u32) -> u32
+where
+    T: Fn(u32) -> u32,
 {
     fn new(calculation: T) -> Cacher<T> {
         Cacher {
@@ -138,11 +130,10 @@ impl<T> Cacher<T>
                 let v = (self.calculation)(arg);
                 self.value = Some(v);
                 v
-            },
+            }
         }
     }
 }
-
 
 /*
 Unlike functions, closures can refer to variables
@@ -157,7 +148,6 @@ fn closure_enclosing_scope() {
 
     assert!(equal_to_x(y))
 }
-
 
 /*
 Iterators
@@ -214,17 +204,24 @@ struct Shoe {
 }
 
 fn shoes_in_my_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
-    shoes.into_iter()
-        .filter(|s| s.size == shoe_size)
-        .collect()
+    shoes.into_iter().filter(|s| s.size == shoe_size).collect()
 }
 
 #[test]
 fn filters_by_size() {
     let shoes = vec![
-        Shoe { size: 10, style: String::from("sneaker") },
-        Shoe { size: 13, style: String::from("sandal") },
-        Shoe { size: 10, style: String::from("boot") },
+        Shoe {
+            size: 10,
+            style: String::from("sneaker"),
+        },
+        Shoe {
+            size: 13,
+            style: String::from("sandal"),
+        },
+        Shoe {
+            size: 10,
+            style: String::from("boot"),
+        },
     ];
 
     let in_my_size = shoes_in_my_size(shoes, 10);
@@ -232,8 +229,14 @@ fn filters_by_size() {
     assert_eq!(
         in_my_size,
         vec![
-            Shoe { size: 10, style: String::from("sneaker") },
-            Shoe { size: 10, style: String::from("boot") },
+            Shoe {
+                size: 10,
+                style: String::from("sneaker")
+            },
+            Shoe {
+                size: 10,
+                style: String::from("boot")
+            },
         ]
     );
 }
@@ -241,7 +244,6 @@ fn filters_by_size() {
 /*
 Using iterators in structs.
 */
-
 
 struct Counter {
     count: u32,
@@ -276,16 +278,10 @@ Two versions shown:
 */
 fn closure_map_iter() {
     let list_of_numbers = vec![1, 2, 3];
-    let list_of_strings: Vec<String> = list_of_numbers
-        .iter()
-        .map(|i| i.to_string())
-        .collect();
+    let list_of_strings: Vec<String> = list_of_numbers.iter().map(|i| i.to_string()).collect();
 
     let list_of_numbers2 = vec![1, 2, 3];
-    let list_of_strings2: Vec<String> = list_of_numbers2
-        .iter()
-        .map(ToString::to_string)
-        .collect();
+    let list_of_strings2: Vec<String> = list_of_numbers2.iter().map(ToString::to_string).collect();
 }
 
 /*

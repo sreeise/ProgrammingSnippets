@@ -96,7 +96,6 @@ assert! macro calls the panic! macro, which causes the test to fail. Using
 the assert! macro helps us check that our code is functioning in the way we intend.
 */
 
-
 // Rectangle struct and impl for showing how automated tests can be written
 #[derive(Debug)]
 pub struct Rectangle {
@@ -126,16 +125,28 @@ mod tests2 {
 
     #[test]
     fn larger_can_hold_smaller() {
-        let larger = Rectangle { length: 8, width: 7 };
-        let smaller = Rectangle { length: 5, width: 1 };
+        let larger = Rectangle {
+            length: 8,
+            width: 7,
+        };
+        let smaller = Rectangle {
+            length: 5,
+            width: 1,
+        };
 
         assert!(larger.can_hold(&smaller));
     }
 
     #[test]
     fn smaller_cannot_hold_larger() {
-        let larger = Rectangle { length: 8, width: 7 };
-        let smaller = Rectangle { length: 5, width: 1 };
+        let larger = Rectangle {
+            length: 8,
+            width: 7,
+        };
+        let smaller = Rectangle {
+            length: 5,
+            width: 1,
+        };
 
         // Negate the value returned from can_hold()
         assert!(!smaller.can_hold(&larger));
@@ -164,7 +175,6 @@ mod tests3 {
     }
 }
 
-
 /*
 Custom messages for tests
 */
@@ -181,7 +191,8 @@ mod test_custom_messages {
         let result = greeting("Carol");
         assert!(
             result.contains("Carol"),
-            "Greeting did not contain name, value was `{}`", result
+            "Greeting did not contain name, value was `{}`",
+            result
         );
     }
 }
@@ -202,9 +213,7 @@ impl Guess {
             panic!("Guess value must be between 1 and 100, got {}.", value);
         }
 
-        Guess {
-            value
-        }
+        Guess { value }
     }
 }
 
@@ -232,16 +241,18 @@ pub struct Guess2 {
 impl Guess2 {
     pub fn new(value: i32) -> Guess2 {
         if value < 1 {
-            panic!("Guess value must be greater than or equal to 1, got {}.",
-                   value);
+            panic!(
+                "Guess value must be greater than or equal to 1, got {}.",
+                value
+            );
         } else if value > 100 {
-            panic!("Guess value must be less than or equal to 100, got {}.",
-                   value);
+            panic!(
+                "Guess value must be less than or equal to 100, got {}.",
+                value
+            );
         }
 
-        Guess2 {
-            value
-        }
+        Guess2 { value }
     }
 }
 
@@ -255,7 +266,6 @@ mod tests_should_panic_with_expected_value {
         Guess2::new(200);
     }
 }
-
 
 /*
 Using Result<T, E> in tests
@@ -276,7 +286,6 @@ mod tests_using_result {
         }
     }
 }
-
 
 /*
 Ignoring tests with the $[ignore] attribute

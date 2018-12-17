@@ -33,9 +33,7 @@ arg: An argument to give the command line. Must be one argument per arg() call.
 */
 fn print_hello() {
     let mut echo_hello = Command::new("sh");
-    echo_hello
-        .arg("-c")
-        .arg("echo hello");
+    echo_hello.arg("-c").arg("echo hello");
     let hello_1 = echo_hello.output().expect("failed to execute process");
     let hello_2 = echo_hello.output().expect("failed to execute process");
 }
@@ -103,5 +101,8 @@ fn inherit_output_using_stdin() {
         .output()
         .expect("Failed to execute command");
 
-    println!("You piped in the reverse of: {}", String::from_utf8_lossy(&output.stdout));
+    println!(
+        "You piped in the reverse of: {}",
+        String::from_utf8_lossy(&output.stdout)
+    );
 }

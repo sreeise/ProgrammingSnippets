@@ -22,12 +22,12 @@ The traits Read, BufRead, Write, and Seek have a prelude for
 only those traits: use std::io::prelude::*;
 */
 
-use std::io::{self, Read, Write, ErrorKind, BufRead};
-use std::path::{Path, PathBuf};
 use std::fs;
-use std::fs::OpenOptions;
-use std::io::{BufReader};
 use std::fs::File;
+use std::fs::OpenOptions;
+use std::io::BufReader;
+use std::io::{self, BufRead, ErrorKind, Read, Write};
+use std::path::{Path, PathBuf};
 
 const DEFAULT_BUF_SIZE: usize = 8 * 1024;
 
@@ -35,7 +35,9 @@ const DEFAULT_BUF_SIZE: usize = 8 * 1024;
 Function for copying all bytes from any reader to any writer.
 */
 pub fn copy<R: ?Sized, W: ?Sized>(reader: &mut R, writer: &mut W) -> io::Result<u64>
-    where R: Read, W: Write
+where
+    R: Read,
+    W: Write,
 {
     let mut buf = [0; DEFAULT_BUF_SIZE];
     let mut written = 0;
@@ -77,7 +79,8 @@ fn grep(target: &str) -> io::Result<()> {
 }
 
 fn grep_generic<R>(target: &str, reader: R) -> io::Result<()>
-    where R: BufRead
+where
+    R: BufRead,
 {
     for line_result in reader.lines() {
         let line = line_result?;
@@ -97,7 +100,7 @@ fn grep_run() -> Result<(), Box<std::error::Error>> {
     let mut args = std::env::args().skip(1);
     let target = match args.next() {
         Some(s) => s,
-        None => Err("usage: grep PATTERN FILE...")?
+        None => Err("usage: grep PATTERN FILE...")?,
     };
     let files: Vec<PathBuf> = args.map(PathBuf::from).collect();
 
@@ -150,12 +153,12 @@ and buffers can be added.
 */
 fn open_options() -> Result<(), io::Error> {
     let log = OpenOptions::new()
-        .append(true)  // if file exists, add to the end
+        .append(true) // if file exists, add to the end
         .open("server.log")?;
 
     let file = OpenOptions::new()
         .write(true)
-        .create_new(true)  // fail if file exists
+        .create_new(true) // fail if file exists
         .open("new_file.txt")?;
 
     Ok(())
@@ -168,7 +171,6 @@ OsStr is a string type that’s a superset of UTF-8. Its job is to be able to re
 all filenames, command-line arguments, and environment variables on the current system,
 whether they’re valid Unicode or not.
 */
-
 
 /*
 Recursively copies a directory tree from one place to another
@@ -199,9 +201,10 @@ fn copy_to(src: &Path, src_type: &fs::FileType, dst: &Path) -> io::Result<()> {
     } else if src_type.is_dir() {
         copy_dir_to(src, dst)?;
     } else {
-        return Err(io::Error::new(io::ErrorKind::Other,
-                                  format!("don't know how to copy: {}",
-                                          src.display())));
+        return Err(io::Error::new(
+            io::ErrorKind::Other,
+            format!("don't know how to copy: {}", src.display()),
+        ));
     }
     Ok(())
 }

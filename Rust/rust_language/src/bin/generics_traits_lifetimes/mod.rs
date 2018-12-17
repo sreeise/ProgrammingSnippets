@@ -43,7 +43,6 @@ fn largest_with_generics<T: PartialOrd + Copy>(list: &[T]) -> T {
     largest
 }
 
-
 /*
 Structs that can hold values of any types by use of Generics
 
@@ -83,7 +82,6 @@ impl<T> Point3<T> {
         (self.x.powi(2) + self.y.powi(2)).sqrt()
     } */
 }
-
 
 // Using different generics in method signatures then those
 // in a struct
@@ -125,7 +123,6 @@ impl<T, U> Point4<T, U> {
         println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
     }
 }
-
 
 /*
 Traits
@@ -217,8 +214,10 @@ fn print_summary2() {
         headline: String::from("Penguins win the Stanley Cup Championship!"),
         location: String::from("Pittsburgh, PA, USA"),
         author: String::from("Iceburgh"),
-        content: String::from("The Pittsburgh Penguins once again are the best
-    hockey team in the NHL."),
+        content: String::from(
+            "The Pittsburgh Penguins once again are the best
+    hockey team in the NHL.",
+        ),
     };
 
     println!("New article available! {}", article.summarize());
@@ -250,7 +249,6 @@ fn print_tweet_summary3() {
     println!("1 new tweet: {}", tweet.summarize3());
 }
 
-
 /*
 Traits as arguments
 
@@ -278,7 +276,6 @@ pub fn notify_trait_bound<T: Summary>(item: T) {
     println!("Breaking news! {}", item.summarize());
 }
 
-
 /*
 Return Traits
 */
@@ -290,7 +287,6 @@ fn returns_trait_summary() -> impl Summary {
         retweet: false,
     }
 }
-
 
 /*
 Using trait bounds to conditionally implement methods
@@ -305,10 +301,7 @@ struct Pair<T> {
 
 impl<T> Pair<T> {
     fn new(x: T, y: T) -> Self {
-        Self {
-            x,
-            y,
-        }
+        Self { x, y }
     }
 }
 
@@ -402,7 +395,7 @@ fn define_library() {
                 options: vec![
                     String::from("Yes"),
                     String::from("Maybe"),
-                    String::from("No")
+                    String::from("No"),
                 ],
             }),
             Box::new(Button {
@@ -420,7 +413,10 @@ fn define_library() {
 Example Implementation of Trait
 */
 
-struct Sheep { naked: bool, name: &'static str }
+struct Sheep {
+    naked: bool,
+    name: &'static str,
+}
 
 trait Animal {
     // Static method signature; `Self` refers to the implementor type.
@@ -457,7 +453,10 @@ impl Sheep {
 impl Animal for Sheep {
     // `Self` is the implementor type: `Sheep`.
     fn new(name: &'static str) -> Sheep {
-        Sheep { name: name, naked: false }
+        Sheep {
+            name: name,
+            naked: false,
+        }
     }
 
     fn name(&self) -> &'static str {
@@ -486,7 +485,6 @@ pub fn call_trait() {
     dolly.shear();
     dolly.talk();
 }
-
 
 /*
 Derivable Traits
@@ -524,7 +522,7 @@ Derive is an annotation that allows us to add useful traits.
 #[derive(Debug)]
 struct Rectangle {
     width: u32,
-    height: u32
+    height: u32,
 }
 
 /*
@@ -566,4 +564,3 @@ Default for Default Values
         function calls the default function on each part of the type, meaning all fields
         or values in the type must also implement Default to derive Default.
 */
-

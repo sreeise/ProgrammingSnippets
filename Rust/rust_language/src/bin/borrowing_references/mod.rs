@@ -100,7 +100,6 @@ fn scoped_references() {
 
     {
         let r1 = &mut s;
-
     } // r1 goes out of scope here, so we can make a new reference with no problems.
 
     let r2 = &mut s;
@@ -249,7 +248,6 @@ fn first_word(s: &str) -> &str {
     &s[..]
 }
 
-
 /*
 A struct that holds a reference, so its definition needs a lifetime annotation
 
@@ -290,7 +288,6 @@ impl<'a> ImportantExcerpt<'a> {
     }
 }
 
-
 /*
 Using Generic Types, Trait Bounds, and Lifetimes together
 
@@ -308,7 +305,8 @@ Using Generic Types, Trait Bounds, and Lifetimes together
 use std::fmt::Display;
 
 fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
-    where T: Display
+where
+    T: Display,
 {
     println!("Announcement! {}", ann);
     if x.len() > y.len() {

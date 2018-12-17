@@ -91,7 +91,6 @@ fn using_box_pointer_to_value() {
     assert_eq!(5, *y);
 }
 
-
 /*
 Defining a smart pointer
 */
@@ -177,8 +176,12 @@ impl Drop for CustomSmartPointer {
 // Here the last println! will run first because CustomSmartPointer is
 // run when this function goes out of scope.
 fn using_custom_smart_pointer() {
-    let c = CustomSmartPointer { data: String::from("my stuff") };
-    let d = CustomSmartPointer { data: String::from("other stuff") };
+    let c = CustomSmartPointer {
+        data: String::from("my stuff"),
+    };
+    let d = CustomSmartPointer {
+        data: String::from("other stuff"),
+    };
     println!("CustomSmartPointers created.");
 }
 
@@ -189,7 +192,9 @@ The std::mem::drop function is different than the drop method in the Drop trait.
 We call it by passing the value we want to force to be dropped early as an argument.
 */
 fn clean_up_drop_value_early() {
-    let c = CustomSmartPointer { data: String::from("some data") };
+    let c = CustomSmartPointer {
+        data: String::from("some data"),
+    };
     println!("CustomSmartPointer created.");
     drop(c);
     println!("CustomSmartPointer dropped before the end of main.");
@@ -251,7 +256,6 @@ use std::rc::Rc;
 fn using_rc() {
     let five = Rc::new(5);
 }
-
 
 /*
 RefCell<T> Type
@@ -356,7 +360,10 @@ pub struct LimitTracker<'a, T: 'a + Messenger> {
     max: usize,
 }
 
-impl<'a, T> LimitTracker<'a, T> where T: Messenger {
+impl<'a, T> LimitTracker<'a, T>
+where
+    T: Messenger,
+{
     pub fn new(messenger: &T, max: usize) -> LimitTracker<T> {
         LimitTracker {
             messenger,
@@ -371,9 +378,11 @@ impl<'a, T> LimitTracker<'a, T> where T: Messenger {
         let percentage_of_max = self.value as f64 / self.max as f64;
 
         if percentage_of_max >= 0.75 && percentage_of_max < 0.9 {
-            self.messenger.send("Warning: You've used up over 75% of your quota!");
+            self.messenger
+                .send("Warning: You've used up over 75% of your quota!");
         } else if percentage_of_max >= 0.9 && percentage_of_max < 1.0 {
-            self.messenger.send("Urgent warning: You've used up over 90% of your quota!");
+            self.messenger
+                .send("Urgent warning: You've used up over 90% of your quota!");
         } else if percentage_of_max >= 1.0 {
             self.messenger.send("Error: You are over your quota!");
         }
@@ -391,7 +400,9 @@ mod tests {
 
     impl MockMessenger {
         fn new() -> MockMessenger {
-            MockMessenger { sent_messages: RefCell::new(vec![]) }
+            MockMessenger {
+                sent_messages: RefCell::new(vec![]),
+            }
         }
     }
 

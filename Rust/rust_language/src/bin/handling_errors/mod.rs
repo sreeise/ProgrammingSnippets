@@ -15,12 +15,12 @@ By default, when a panic occurs, the program starts unwinding, which means Rust
 walks back up the stack and cleans up the data from each function it encounters.
 */
 
-use std::fs::File;
-use std::io::ErrorKind;
-use std::io;
-use std::io::Read;
 use std::error::Error;
-use std::io::{Write, stderr};
+use std::fs::File;
+use std::io;
+use std::io::ErrorKind;
+use std::io::Read;
+use std::io::{stderr, Write};
 use std::path::Path;
 
 // End the program with a panic! macro
@@ -58,9 +58,7 @@ fn panic_file_error_with_result() {
 
     let f = match f {
         Ok(file) => file,
-        Err(error) => {
-            panic!("There was a problem opening the file: {:?}", error)
-        },
+        Err(error) => panic!("There was a problem opening the file: {:?}", error),
     };
 }
 
@@ -79,10 +77,9 @@ fn create_file_if_not_found() {
             ErrorKind::NotFound => match File::create("hello.txt") {
                 Ok(fc) => fc,
                 Err(e) => panic!("Tried to create file but there was a problem: {:?}", e),
-
             },
             other_error => panic!("There was a problem opening the file: {:?}", other_error),
-        }
+        },
     };
 }
 

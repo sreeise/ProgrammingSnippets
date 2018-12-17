@@ -7,7 +7,7 @@ The Index Trait
 */
 struct Image<P> {
     width: usize,
-    pixels: Vec<P>
+    pixels: Vec<P>,
 }
 
 impl<P: Default + Copy> Image<P> {
@@ -15,7 +15,7 @@ impl<P: Default + Copy> Image<P> {
     fn new(width: usize, height: usize) -> Image<P> {
         Image {
             width,
-            pixels: vec![P::default(); width * height]
+            pixels: vec![P::default(); width * height],
         }
     }
 }
@@ -24,14 +24,14 @@ impl<P> std::ops::Index<usize> for Image<P> {
     type Output = [P];
     fn index(&self, row: usize) -> &[P] {
         let start = row * self.width;
-        &self.pixels[start .. start + self.width]
+        &self.pixels[start..start + self.width]
     }
 }
 
 impl<P> std::ops::IndexMut<usize> for Image<P> {
     fn index_mut(&mut self, row: usize) -> &mut [P] {
         let start = row * self.width;
-        &mut self.pixels[start .. start + self.width]
+        &mut self.pixels[start..start + self.width]
     }
 }
 
@@ -57,10 +57,15 @@ struct Interval<T> {
 
 impl<T: PartialOrd> PartialOrd<Interval<T>> for Interval<T> {
     fn partial_cmp(&self, other: &Interval<T>) -> Option<Ordering> {
-        if self == other { Some(Ordering::Equal) }
-            else if self.lower >= other.upper { Some(Ordering::Greater) }
-                else if self.upper <= other.lower { Some(Ordering::Less) }
-                    else { None }
+        if self == other {
+            Some(Ordering::Equal)
+        } else if self.lower >= other.upper {
+            Some(Ordering::Greater)
+        } else if self.upper <= other.lower {
+            Some(Ordering::Less)
+        } else {
+            None
+        }
     }
 }
 
@@ -70,24 +75,34 @@ mod tests {
 
     #[test]
     fn test_partial_eq() {
+        let item = Numbers { int: 3, dec: 6 };
 
-        let item = Numbers {
-            int: 3,
-            dec: 6,
-        };
-
-        assert_eq!(item, Numbers { int: 3, dec: 6})
+        assert_eq!(item, Numbers { int: 3, dec: 6 })
     }
 
     #[test]
     fn test_interval() {
-        assert!(Interval { lower: 10, upper: 20 } <  Interval { lower: 20, upper: 40 });
-        assert!(Interval { lower: 7,  upper: 8  } >= Interval { lower: 0,  upper: 1  });
-        assert!(Interval { lower: 7,  upper: 8  } <= Interval { lower: 7,  upper: 8  });
+        assert!(
+            Interval {
+                lower: 10,
+                upper: 20
+            } < Interval {
+                lower: 20,
+                upper: 40
+            }
+        );
+        assert!(Interval { lower: 7, upper: 8 } >= Interval { lower: 0, upper: 1 });
+        assert!(Interval { lower: 7, upper: 8 } <= Interval { lower: 7, upper: 8 });
 
         // Overlapping intervals aren't ordered with respect to each other.
-        let left  = Interval { lower: 10, upper: 30 };
-        let right = Interval { lower: 20, upper: 40 };
+        let left = Interval {
+            lower: 10,
+            upper: 30,
+        };
+        let right = Interval {
+            lower: 20,
+            upper: 40,
+        };
         assert!(!(left < right));
         assert!(!(left >= right));
     }
@@ -115,9 +130,11 @@ Add and Mul
 use std::ops::{Add, Mul};
 
 fn vec_multiply<N>(v1: &[N], v2: &[N]) -> N
-    where N: Add<Output=N> + Mul<Output=N> + Default + Copy {
+where
+    N: Add<Output = N> + Mul<Output = N> + Default + Copy,
+{
     let mut total = N::default();
-    for i in 0 .. v1.len() {
+    for i in 0..v1.len() {
         total = total + v1[i] * v2[i];
     }
     total

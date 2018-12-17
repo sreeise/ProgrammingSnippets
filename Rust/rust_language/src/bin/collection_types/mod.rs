@@ -7,7 +7,6 @@ https://doc.rust-lang.org/book/2018-edition/ch08-03-hash-maps.html
 https://github.com/Hoverbear/rust-rosetta
 */
 
-
 use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet, LinkedList, VecDeque};
 
 // Vectors are implemented using generics and need to know
@@ -30,13 +29,12 @@ fn vectors() {
     // Indexing
     let zeroth: &i32 = &v2[0]; // -> 5
 
-
     // using get method
     let v2_index = 0;
     match v2.get(1) {
         Some(v2_index) => {
             println!("Element found at index: {}", v2_index);
-        },
+        }
         None => {
             println!("Element not found at index: {}", v2_index);
         }
@@ -59,7 +57,6 @@ fn vectors() {
     // Use an enum to add multiple types to a vector
 
     let row = vec![
-
         SpreadsheetCell::Int(3),
         SpreadsheetCell::Text(String::from("blue")),
         SpreadsheetCell::Float(10.12),
@@ -71,7 +68,6 @@ enum SpreadsheetCell {
     Float(f64),
     Text(String),
 }
-
 
 /*
 Definitions and Code from:
@@ -179,7 +175,7 @@ fn hash_maps() {
     hm.insert(String::from("world"), 6);
 
     // Using collect on a vector of tuples
-    let teams  = vec![String::from("Blue"), String::from("Yellow")];
+    let teams = vec![String::from("Blue"), String::from("Yellow")];
     let initial_scores = vec![10, 50];
 
     // The HashMap<_, _> allows Rust to infer the types that the hash map
