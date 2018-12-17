@@ -50,10 +50,10 @@ Definitions:
 
 extern crate minigrep;
 
-use std::env; // For getting command line arguments
-use std::process; // For exiting in error events
-use std::error::Error; // For error handling
 use minigrep::Config;
+use std::env; // For getting command line arguments
+use std::error::Error; // For error handling
+use std::process; // For exiting in error events
 
 fn main() {
     let config = Config::new(env::args()).unwrap_or_else(|err| {
