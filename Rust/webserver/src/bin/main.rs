@@ -1,10 +1,10 @@
 extern crate webserver;
 
-use webserver::ThreadPool;
-use std::io::prelude::*;
-use std::net::TcpStream;
-use std::net::TcpListener;
 use std::fs::File;
+use std::io::prelude::*;
+use std::net::TcpListener;
+use std::net::TcpStream;
+use webserver::ThreadPool;
 
 fn main() {
     start("127.0.0.1:7878", 4);
