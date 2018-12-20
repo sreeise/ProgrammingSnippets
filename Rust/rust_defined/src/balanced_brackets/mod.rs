@@ -1,5 +1,3 @@
-
-
 pub struct Brackets {
     to_parse: String,
     vec_char: Vec<char>,
