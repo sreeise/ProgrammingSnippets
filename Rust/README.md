@@ -31,6 +31,7 @@ Most Rust programming directories are separated into a common theme:
     4. webserver: Basic web server written in Rust
     5. rust_defined: My own practice and workspace for Rust
     6. rust_examples: Rust code examples
+    7. rust_gtk: GUI programming using gtk
     
 An overview of operators and symbols in Rust can be found at
 

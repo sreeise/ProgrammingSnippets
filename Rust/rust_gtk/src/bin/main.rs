@@ -1,3 +1,10 @@
+/*
+GUI's with gtk
+
+Code and Definitions included may be from:
+https://mmstick.github.io/gtkrs-tutorials/introduction.html
+*/
+
 extern crate gtk;
 
 pub mod basic_gtk;
