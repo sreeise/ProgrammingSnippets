@@ -19,6 +19,10 @@ Each section is divided into its own package:
         Examples of Big-O complexity
     7. sort
         Sorting algorithm examples
+    8. functional_interfaces
+        Functional interfaces such as Consumer and Predicate
+    9. mathutils
+        Math basics and problems     
     8. tests
         Tests for a few of the examples - explained below
 
