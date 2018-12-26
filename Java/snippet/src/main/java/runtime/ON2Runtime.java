@@ -1,4 +1,4 @@
-package RunTime;
+package runtime;
 
 public class ON2Runtime {
 

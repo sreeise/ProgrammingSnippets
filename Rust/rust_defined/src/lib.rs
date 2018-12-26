@@ -5,6 +5,7 @@ extern crate serde_derive;
 
 mod json_write;
 mod balanced_brackets;
+mod data_structures;
 
 /*
 Vec and dynamically resized data structures

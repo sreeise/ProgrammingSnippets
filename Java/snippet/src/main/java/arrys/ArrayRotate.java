@@ -1,7 +1,6 @@
 package arrys;
 
 public class ArrayRotate {
-
   private ArrayRotate() {}
 
   /**

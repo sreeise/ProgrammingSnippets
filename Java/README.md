@@ -19,6 +19,10 @@ Each section is divided into its own package:
         Examples of Big-O complexity
     7. sort
         Sorting algorithm examples
+    8. functional_interfaces
+        Functional interfaces such as Consumer and Predicate
+    9. mathutils
+        Math basics and problems     
     8. tests
         Tests for a few of the examples - explained below
 
@@ -26,12 +30,4 @@ Each section is divided into its own package:
 A good portion of the classes/methods that perform some type of work, other then just being an example
 have test cases.
 
-Tests can be run by calling TestRunner in the main class:
-
-    import tests.TestRunner;
-    
-    public class JavaReference {
-      public static void main(String[] args) {
-        TestRunner.RunAll();
-      }
-    } 
+All tests are done using JUnit 5 
