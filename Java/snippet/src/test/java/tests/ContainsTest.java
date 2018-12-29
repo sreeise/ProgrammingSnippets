@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -52,6 +53,8 @@ public class ContainsTest {
       }
 
       boolean c = Contains.containsAll(note, magazine);
+      Logger logger = Logger.getLogger("TestContains");
+      logger.info("ContainsAll: " + c);
       assertEquals(c, answers[testIndex]);
 
       scanner.close();
