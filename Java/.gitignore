@@ -15,3 +15,6 @@ gradle-app.setting
 
 # Work in progress
 snippet/src/main/java/sort/quicksort/
+
+# JUnit console launcher standalone
+junit-platform-console-standalone-1.4.0-M1
