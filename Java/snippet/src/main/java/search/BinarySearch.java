@@ -51,7 +51,7 @@ public class BinarySearch {
     if (low > high) {
       return -1;
     }
-]\
+
     int mid = (low + high) / 2;
     if (a[mid] < x) {
       return recursiveFind(a, x, mid + 1, high);
