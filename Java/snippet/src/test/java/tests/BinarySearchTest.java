@@ -1,15 +1,16 @@
 package tests;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 import search.BinarySearch;
 
 import java.util.Arrays;
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BinarySearchTest {
   @Test
-  public static void binarySearchTest() {
+  public void binarySearchTest() {
     int[] array = {33, 45, 67, 93, 103, 3434};
     int index = BinarySearch.find(array, 3434);
     assertEquals(5, index);
@@ -24,12 +25,10 @@ public class BinarySearchTest {
     }
 
     Arrays.sort(array2);
-    int randomInt = random.nextInt(99);
+    int randomInt = random.nextInt(100);
     int num = array2[randomInt];
 
-    int index3 = BinarySearch.find(array2, randomInt);
+    int index3 = BinarySearch.find(array2, num);
     assertEquals(num, array2[index3]);
-    System.out.println(num);
-    System.out.println(array2[index3]);
   }
 }

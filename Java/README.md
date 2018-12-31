@@ -30,4 +30,6 @@ Each section is divided into its own package:
 A good portion of the classes/methods that perform some type of work, other then just being an example
 have test cases.
 
-All tests are done using JUnit 5 
+All tests are done using JUnit 4:
+
+	./gradlew test

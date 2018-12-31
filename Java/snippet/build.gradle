@@ -1,24 +1,27 @@
 plugins {
     id 'java'
     id 'idea'
-    id 'groovy'
+    id 'application'
 }
+
 
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
+mainClassName = "JavaReference.java"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-
-    testImplementation(
-     group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.4.0-M1'
-    )
+    testCompile 'junit:junit:4.12'
+    testRuntime("org.junit.vintage:junit-vintage-engine:5.3.2")
 }
 
 test {
-    useJUnit()
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }

@@ -1,14 +1,14 @@
 package tests;
 
 import data.hashmaps.Contains;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class ContainsTest {
   private static final String[] testFiles = {
@@ -21,7 +21,7 @@ public class ContainsTest {
   };
 
   @Test
-  static void testContains() throws FileNotFoundException {
+  public void testContains() throws FileNotFoundException {
     for (int testIndex = 0; testIndex < testFiles.length; testIndex++) {
 
       File file = new File(testFiles[testIndex]);

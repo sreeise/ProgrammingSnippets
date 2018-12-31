@@ -1,14 +1,14 @@
 package tests;
 
 import data.hashmaps.Pairs;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class PairTest {
 
   @Test
-  static void testPair() {
+  public void testPair() {
     int[] array = new int[]{1, 1, 3, 1, 2, 1, 3, 3, 3, 3};
     assertEquals(Pairs.count(array), 4);
   }

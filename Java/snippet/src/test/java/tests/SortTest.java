@@ -1,6 +1,6 @@
 package tests;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import sort.strcompare.CompareSort;
 import sort.strcompare.KeyValueMap;
 
@@ -8,15 +8,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class SortTest {
   private static String[] testFiles = {"test_files/test_str_comparator/input05.txt"};
   private static String[] outFiles = {"test_files/test_str_comparator/output05.txt"};
 
   @Test
-  static void testCompareSort() throws FileNotFoundException {
+  public void testCompareSort() throws FileNotFoundException {
 
     String test_files[] = FileUtils.getPathsArray(testFiles);
     String out_files[] = FileUtils.getPathsArray(outFiles);
