@@ -62,6 +62,9 @@ mod traits_built_in;
 mod unsafe_rust; // Advanced feature
 mod using_crates;
 mod vectors; // Advanced feature
+mod string_types_chars;
+mod trait_object_multi_types;
+mod implementing_common_traits;
 
 #[macro_use]
 mod macro_usage; // Macros
