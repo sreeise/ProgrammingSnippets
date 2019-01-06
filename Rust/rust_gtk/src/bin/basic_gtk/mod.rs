@@ -11,6 +11,8 @@ pub struct Header {
 }
 
 /*
+Code and Tutorial From: https://mmstick.github.io/gtkrs-tutorials/introduction.html
+
 Each GtkWidget provides a get_style_context() method, which returns an Option,
 which thereby provides an add_class() method, which is then used to set style
 classes. Got it? Good. The most important classes to know for buttons are the
