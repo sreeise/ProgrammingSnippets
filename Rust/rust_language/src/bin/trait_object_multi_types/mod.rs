@@ -17,6 +17,44 @@ Trait Object:
         context will implement the trait object's trait. Therefore all possible
         types need to be known at compile time.
 
+Runtime Costs
+
+    The are two types of ways in which Rust monomorephizing that Rust does:
+        1. Static Dispatch: The compiler generates non-generic implementations
+            of functions and methods for each concrete type that is used in place
+            of a generic type parameter.
+        2. Dynamic Dispatch: The compiler can't tell at compile time which method you
+            are calling at compile time so the compiler emits code that at runtime will
+            figure out which method to call.
+
+Trait Objects use Dynamic Dispatch. At runtime, Rust uses the pointers inside the trait
+object to know which method to call. There is a runtime cost when this lookup happens
+that doesn't occur with static dispatch. Dynamic dispatch also prevents the compiler from
+choosing to inline a method's code, which in turn prevents some optimizations.
+
+
+Trait Objects Require Object Safety
+
+You can only make object-safe traits into trait objects. In practice there are
+two relevant rules:
+
+        1. The return type isn't Self.
+        2. There are no generic type parameters.
+
+
+The Self keyword is an alias for the type we’re implementing the traits or methods on.
+Trait objects must be object safe because once you’ve used a trait object, Rust no
+longer knows the concrete type that’s implementing that trait. If a trait method returns
+the concrete Self type, but a trait object forgets the exact type that Self is, there is
+no way the method can use the original concrete type. The same is true of generic type
+parameters that are filled in with concrete type parameters when the trait is used: the
+concrete types become part of the type that implements the trait. When the type is forgotten
+through the use of a trait object, there is no way to know what types to fill in the generic
+type parameters with.
+
+Information on Object Safety can be found here:
+
+    https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md
 */
 
 // Trait that will be used as a trait object.
