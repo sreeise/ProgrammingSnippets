@@ -34,13 +34,15 @@ impl Balanced for Brackets {
                 ')' => { count_parenthesis -= 1; },
                 _ => {},
             };
-            if count < 0 || count_bracket < 0 || count_parenthesis < 0 {
+            let total_count = count + count_bracket + count_parenthesis;
+            if total_count < 0 {
                 return false;
             }
 
 
         }
-        if count == 0 && count_bracket == 0 && count_parenthesis == 0 {
+        let total_count = count + count_bracket + count_parenthesis;
+        if total_count == 0 {
             return true;
         }
         return false;
