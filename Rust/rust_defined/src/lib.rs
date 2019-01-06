@@ -14,36 +14,61 @@ Shows using different methods for Vec as well as
 common traits
 */
 mod dynamic_resize {
+    #[derive(Debug, Ord, PartialOrd, Eq, PartialEq)]
+    pub struct IntList {
+        pub vec_list: Vec<i32>,
+    }
+
+    impl IntList {
+        pub fn new() -> IntList {
+            IntList {
+                vec_list: Vec::new(),
+            }
+        }
+
+        pub fn slice_reference(&mut self, index: usize) -> &i32 {
+            &self.vec_list[index]
+        }
+
+        pub fn push(&mut self, item: i32) {
+            self.vec_list.push(item);
+        }
+
+        pub fn sort(&mut self) {
+            self.vec_list.sort();
+        }
+    }
+
     #[derive(Debug)]
     pub struct List<T> {
-        pub length: usize,
         pub vec_list: Vec<T>,
     }
 
     impl<T> List<T> {
         fn new() -> List<T> {
             List {
-                length: 0,
                 vec_list: Vec::new(),
             }
         }
 
-        fn length(&self) -> usize {
+        fn len(&self) -> usize {
             self.vec_list.len()
         }
 
         fn add_item(&mut self, item: T) {
             self.vec_list.push(item);
-            self.update_length();
+        }
+
+        fn insert_item(&mut self, index: usize, item: T) {
+            self.vec_list.insert(index, item);
         }
 
         fn remove_item(&mut self, index: usize) {
             self.vec_list.remove(index);
-            self.update_length();
         }
 
-        fn update_length(&mut self) {
-            self.length = self.length();
+        fn remove_range(&mut self, start_index: usize, end_index: usize) {
+            self.vec_list.drain(start_index..end_index);
         }
 
         /// Merges given Vec<Item> into self Vec<Item>
@@ -137,12 +162,12 @@ mod dynamic_resize {
         #[test]
         fn test_dynamic_update_length() {
             let mut list = List::<Item>::new();
-            assert_eq!(list.length, 0);
+            assert_eq!(list.len(), 0);
             let item1 = Item::new("name1", "text1");
             list.add_item(item1);
-            assert_eq!(list.length, 1);
+            assert_eq!(list.len(), 1);
             list.remove_item(0);
-            assert_eq!(list.length, 0);
+            assert_eq!(list.len(), 0);
         }
 
         // Test that Items can be added to and removed from List<Item> Vec
@@ -153,11 +178,11 @@ mod dynamic_resize {
             let item2 = Item::new("name2", "text2");
 
             list.add_item(item1);
-            assert_eq!(list.length(), 1);
+            assert_eq!(list.len(), 1);
             list.remove_item(0);
-            assert_eq!(list.length(), 0);
+            assert_eq!(list.len(), 0);
             list.add_item(item2);
-            assert_eq!(list.length(), 1);
+            assert_eq!(list.len(), 1);
         }
 
         // Tests merge method for taking a Vec<Item> and
@@ -167,7 +192,7 @@ mod dynamic_resize {
             let mut list = List::<Item>::new();
             let item1 = Item::new("name1", "text1");
             list.add_item(item1);
-            assert_eq!(list.length(), 1);
+            assert_eq!(list.len(), 1);
 
             let item2 = Item::new("name2", "text2");
             let item3 = Item::new("name3", "text3");
@@ -177,7 +202,7 @@ mod dynamic_resize {
             vec2.push(item3);
 
             list.merge(vec2);
-            assert_eq!(list.length(), 3);
+            assert_eq!(list.len(), 3);
         }
 
         // Tests invalid range causing panic
@@ -199,9 +224,9 @@ mod dynamic_resize {
 
             list.add_item(item1);
             list.add_item(item2);
-            assert_eq!(list.length(), 2);
+            assert_eq!(list.len(), 2);
             list.clear();
-            assert_eq!(list.length(), 0);
+            assert_eq!(list.len(), 0);
         }
 
         #[test]
@@ -215,7 +240,7 @@ mod dynamic_resize {
             let item2 = item.clone();
             list.add_item(item);
             list.add_item(item2);
-            assert_eq!(list.length(), 2);
+            assert_eq!(list.len(), 2);
         }
 
         #[test]
@@ -234,7 +259,7 @@ mod dynamic_resize {
             assert_ne!(item, item2);
             list.add_item(item);
             list.add_item(item2);
-            assert_eq!(list.length(), 2);
+            assert_eq!(list.len(), 2);
 
             assert_eq!(list.vec_list[0], item);
             assert_eq!(list.vec_list[1], item2);
@@ -274,13 +299,13 @@ mod dynamic_resize {
             };
 
             list.add_item(item);
-            assert_eq!(list.length, 1);
+            assert_eq!(list.len(), 1);
             list.add_item(item2);
-            assert_eq!(list.length, 2);
+            assert_eq!(list.len(), 2);
             list.remove_item(1);
-            assert_eq!(list.length, 1);
+            assert_eq!(list.len(), 1);
             list.remove_item(0);
-            assert_eq!(list.length, 0);
+            assert_eq!(list.len(), 0);
         }
 
         #[test]
@@ -296,9 +321,17 @@ mod dynamic_resize {
             };
 
             list.add_item(item);
-            assert_eq!(list.length(), 1);
+            assert_eq!(list.len(), 1);
             list.add_item(item2);
-            assert_eq!(list.length(), 2);
+            assert_eq!(list.len(), 2);
+        }
+
+        #[test]
+        fn slice_reference() {
+            let mut int_list = IntList::new();
+            int_list.push(3);
+            int_list.push(2);
+            assert_eq!(int_list.slice_reference(0), &3_i32);
         }
     }
 }
