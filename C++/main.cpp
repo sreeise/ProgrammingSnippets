@@ -1,6 +1,10 @@
 /*
- * License: GNU General Public License v3.0
- * You can obtain a copy in the file titled: LICENSE
+ * License: MIT
+ * See LICENSE
+ *
+ * This is the main C++ file and includes the main method
+ *
+ * @author: sreeise
  */
 
 #include <iostream>
@@ -10,14 +14,7 @@
 #include "headers/BasicClass/Savings.h"
 #include "headers/BasicClass/Checking.h"
 #include "headers/Vectors/BasicVector/BasicVector.h"
-#include "headers/Pointers_Indirection/Pointers.h"
-
-/*
- * This is the main .cpp file for the C++ information in this repository.
- *
- * @author: sreeise
- */
-
+#include "headers/AddressOfAndPointers/ReferencesPointers.h"
 
 // Using std without the std:: every time:
 using namespace std;
@@ -25,6 +22,9 @@ using namespace std;
 // The method name is not intentional at all...
 void stdTest() {
   cout << "No std's here" << endl;
+
+  // Using ful std name
+  std::cout << "Using std::cout here" << endl;
 }
 
 // While << sends data to the output stream, >> sends the data provided.
@@ -38,6 +38,18 @@ void readInput() {
 const size_t rows{2};
 const size_t columns{3};
 
+// Declare a method that is implemented later.
+// Because C++ requires that we define methods before we use them we can define
+// the function here but provide it's implementation later.
+void implementLater();
+
+void runImplementLater() {
+  cout << "\n Calling method implementLater() which is implemented after main method:" << endl;
+  implementLater();
+}
+
+// Arrays
+// This method is shown in arrayUsage()
 // To process the elements of a two-dimensional array, we use a nested loop in which the outer
 // loop iterates through the rows and the inner loop iterates through the columns of a given row.
 void printArray(const array<array<int, columns>, rows> &a) {
@@ -51,13 +63,85 @@ void printArray(const array<array<int, columns>, rows> &a) {
   }
 }
 
-// The address operator (&) is a unary operator that obtains the memory address of its operand.
-int y{5}; // Declare variable y
-int *yPtr{nullptr}; // Declare pointer variable yPtr.
+// Arrays
+void arrayUsage() {
+  array<int, 12> c{};
+
+  // Notes on size_t
+  // It is a type able to represent the size of any object in bytes: size_t is the
+  // type returned by the sizeof operator and is widely used in the standard library
+  // to represent sizes and counts.
+
+  for (size_t i{0}; i < c.size(); ++i) {
+    c[i] = 0;
+  }
+
+  for (size_t j{0}; j < c.size(); ++j) {
+    cout << setw(7) << j << setw(10) << c[j] << endl;
+  }
+
+  cout << "\nDeclaring and looping through arrays" << endl;
+  // Other arrays;
+  array<int, 5> n{32, 27, 64, 18, 95};
+  cout << "Element" << setw(10) << "value" << endl;
+
+  for (size_t i{0}; i < n.size(); ++i) {
+    cout << setw(7) << i << setw(10) << n[i] << endl;
+  }
+
+  // Multidimensional arrays
+  array<array<int, columns>, rows> array1{1, 2, 3, 4, 5, 6};
+  array<array<int, columns>, rows> array2{1, 2, 3, 4, 5};
+
+  printArray(array1);
+  printArray(array2);
+}
+
+// Class Account
+// See headers/BasicClass/Account.h
+void createAccount() {
+  // Declare a String to hold the account name
+  string accountName;
+
+  // Ask for account name
+  cout << "Enter Account Name" << endl;
+  cin >> accountName;
+
+  // Create Account with accountName
+  Account account{accountName};
+
+  // Get and print the account name
+  string name = account.getName();
+  cout << name << endl;
+}
+
+// Vectors
+void vectorUsage() {
+  // Vectors
+  cout << "\nBasic vector:" << endl;
+  std::vector<int> basicVector = {1, 2, 5, 2, 3};
+  BasicVector vector1{basicVector};
+  vector1.outputVector();
+  vector1.printVectorSize();
+
+  cout << "\nChange Vector in class:" << endl;
+  std::vector<int> basicVector1 = {2, 3};
+  vector1.setBasicVector(basicVector1);
+
+  vector1.outputVector();
+  vector1.printVectorSize();
+
+  cout << "\nCopy basic vector and print" << endl;
+  std::vector<int> basicCopy(10);
+  vector1.copyBasicVector(basicCopy);
+  for (int item : basicCopy) {
+    cout << item << " ";
+  }
+}
 
 // Up Casting and Down casting
 // Down casting or demotion: Conversion errors are prevented by the normal casting or also defined as Demotion:
-//Demotion (narrowing) The conversion of a value from a “higher” type to a “lower” type according
+// Demotion (narrowing) The conversion of a value from a “higher” type to a “lower” type according
 // to a programming language’s precedence of data types. Demotion may cause loss of information.
 // Down casting allows determining type at runtime and acting as that object.
 void upCastingAndDownCasting() {
@@ -89,85 +173,27 @@ void upCastingAndDownCasting() {
   cout << "Object checking2 after downcast with keyword auto. Amount: " << checking2->getAmount() << endl;
 }
 
-// Because C++ requires that we define methods before we use them we can define
-// the function here but provide it's implementation later.
-void implementLater();
-
-int main() {
-  std::cout << "Programming-Reference!" << std::endl;
-  stdTest();
-  readInput();
-  string accountName;
-  cin >> accountName;
-  // Class usage see headers/Account.h
-  Account account{accountName};
-  string name = account.getName();
-  cout << name << endl;
-
-  // Arrays
-  array<int, 12> c;
-
-  // Notes on size_t
-  // It is a type able to represent the size of any object in bytes: size_t is the
-  // type returned by the sizeof operator and is widely used in the standard library
-  // to represent sizes and counts.
-
-  for (size_t i{0}; i < c.size(); ++i) {
-    c[i] = 0;
-  }
-
-  for (size_t j{0}; j < c.size(); ++j) {
-    cout << setw(7) << j << setw(10) << c[j] << endl;
-  }
-
-  cout << "\n Try calling method that is implemented after main method:" << endl;
-  implementLater();
-
-  cout << "\nDeclaring and looping through arrays" << endl;
-  // Other arrays;
-  array<int, 5> n{32, 27, 64, 18, 95};
-  cout << "Element" << setw(10) << "value" << endl;
-
-  for (size_t i{0}; i < n.size(); ++i) {
-    cout << setw(7) << i << setw(10) << n[i] << endl;
-  }
-
-  // Multidimensional arrays
-  array<array<int, columns>, rows> array1{1, 2, 3, 4, 5, 6};
-  array<array<int, columns>, rows> array2{1, 2, 3, 4, 5};
-
-  printArray(array1);
-  printArray(array2);
-
-  // Vectors
-  cout << "\nBasic vector:" << endl;
-  std::vector<int> basicVector = {1, 2, 5, 2, 3};
-  BasicVector vector1{basicVector};
-  vector1.outputVector();
-  vector1.printVectorSize();
-
-  cout << "\nChange Vector in class:" << endl;
-  std::vector<int> basicVector1 = {2, 3};
-  vector1.setBasicVector(basicVector1);
-
-  vector1.outputVector();
-  vector1.printVectorSize();
-
-  cout << "\nCopy basic vector and print" << endl;
-  std::vector<int> basicCopy(10);
-  vector1.copyBasicVector(basicCopy);
-  for (int item : basicCopy) {
-    cout << item << " ";
-  }
-
-  // Pointers
+// Pointer and Address Of
+void pointersAndAddressOf() {
   cout << "\n\nPointers" << endl;
-  Pointers pointer;
-  pointer.basicPointerInfo();
+  ReferencesPointers referencesPointers;
 
-  // Up casting and down casting/demotion
-  cout << "\nUp casting and down casting/demotion:" << endl;
-  upCastingAndDownCasting();
+  cout << "Simple Address Of and Pointers" << endl;
+  referencesPointers.simple_address_and_pointers();
+
+  cout << "\nAddress Of and Pointers Continued" << endl;
+  referencesPointers.pointerAndAddressOfInfoContinued();
+}
+
+// Main method
+int main() {
+  cout << "Programming-Reference!" << endl;
+
+  // Basic Hello World!
+  cout << "Hello World!" << endl;
+
+  // Run one of the methods above here to see the output.
+
   return 0;
 }
 
