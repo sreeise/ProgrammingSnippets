@@ -1,6 +1,6 @@
 package tests;
 
-import data.hashmaps.Pairs;
+import data_structures.hashmaps.Pairs;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -1,6 +1,6 @@
-package data;
+package data_structures;
 
-// Node Class for data structures
+// Node Class for data_structures structures
 public class NodeItem<T> {
   public T data;
   public NodeItem<T> next;

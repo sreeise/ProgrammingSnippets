@@ -1,4 +1,4 @@
-package data.graphs.trees;
+package data_structures.graphs.trees;
 
 /*
 Binary Search Tree: All left descendants < N < All right descendents

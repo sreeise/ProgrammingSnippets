@@ -1,8 +1,7 @@
-package data.hashsets;
+package data_structures.hashsets;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 
 // Shows example of how to use HashSet in preventing duplicates in Strings
 public class Unique {

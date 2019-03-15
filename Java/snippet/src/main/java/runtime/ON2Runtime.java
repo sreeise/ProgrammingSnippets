@@ -6,7 +6,7 @@ public class ON2Runtime {
 
 
   // This is 0(N^2) Runtime.
-  // 0(N^2): The runtime is proportionate to the square of the size of data.
+  // 0(N^2): The runtime is proportionate to the square of the size of data_structures.
   // Here the inner loop with variable j will loop for each value of
   // of the array so it is O(N) and then it does this for every
   // value in the array based upon the outer loop so it becomes O(N^2).

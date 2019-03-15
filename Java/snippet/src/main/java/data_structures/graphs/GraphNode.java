@@ -1,4 +1,4 @@
-package data.graphs;
+package data_structures.graphs;
 
 public class GraphNode {
   public enum State {

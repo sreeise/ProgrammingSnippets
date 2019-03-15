@@ -1,10 +1,10 @@
-package data.queue;
+package data_structures.queue;
 
-import data.NodeItem;
+import data_structures.NodeItem;
 
 import java.util.NoSuchElementException;
 
-// Queues are first in first out (FIFO) data structures.
+// Queues are first in first out (FIFO) data_structures structures.
 public class Queue<T> {
   private NodeItem<T> first;
   private NodeItem<T> last;

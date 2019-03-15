@@ -1,4 +1,4 @@
-package data.collections;
+package data_structures.collections;
 
 // This class is used to represent examples in
 // other classes in this package

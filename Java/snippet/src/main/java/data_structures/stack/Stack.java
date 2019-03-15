@@ -1,9 +1,9 @@
-package data.stack;
+package data_structures.stack;
 
-import data.NodeItem;
+import data_structures.NodeItem;
 import java.util.NoSuchElementException;
 
-// Stacks are last in first out (LIFO) data structures
+// Stacks are last in first out (LIFO) data_structures structures
 public class Stack<T> {
   private NodeItem<T> top;
 

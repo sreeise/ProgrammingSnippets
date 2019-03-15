@@ -1,4 +1,4 @@
-package data.hashmaps;
+package data_structures.hashmaps;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package data.collections;
+package data_structures.collections;
 
 import java.util.Collection;
 import java.util.List;

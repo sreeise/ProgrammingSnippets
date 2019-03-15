@@ -1,8 +1,8 @@
 package tests;
 
-import data.graphs.BreadthFirstSearch;
-import data.graphs.Graph;
-import data.graphs.GraphNode;
+import data_structures.graphs.BreadthFirstSearch;
+import data_structures.graphs.Graph;
+import data_structures.graphs.GraphNode;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;

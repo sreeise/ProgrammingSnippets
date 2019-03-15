@@ -1,6 +1,6 @@
 package tests;
 
-import data.hashmaps.Contains;
+import data_structures.hashmaps.Contains;
 import org.junit.Test;
 
 import java.io.File;

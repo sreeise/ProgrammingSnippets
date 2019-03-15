@@ -1,6 +1,6 @@
 package tests;
 
-import data.hashsets.Unique;
+import data_structures.hashsets.Unique;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
