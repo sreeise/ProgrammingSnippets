@@ -8,7 +8,23 @@ import java.util.Optional;
 
 import static org.junit.Assert.*;
 
-public class LinkedListTest<T> {
+public class LinkedListTest {
+  @Test
+  public void linkedListNullTest() {
+    // When the list is empty the head of the list
+    // should be null. The isEmtpy() method
+    // checks to see if the head Node is null.
+    // This test ensures that the head will be null
+    // at the start and when all values are removed
+    // from the list.
+    LinkedList<Integer> list = new LinkedList<>();
+    assertTrue(list.isEmpty());
+    list.add(3);
+    assertFalse(list.isEmpty());
+    list.pop();
+    assertTrue(list.isEmpty());
+  }
+
   @Test
   public void linkedListIntegerTest() {
     LinkedList<Integer> list = new LinkedList<>();
