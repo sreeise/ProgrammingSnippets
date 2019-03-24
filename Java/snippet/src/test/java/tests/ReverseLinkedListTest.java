@@ -1,7 +1,7 @@
 package tests;
 
-import interview_questions.ReverseLinkedList;
-import interview_questions.SinglyLinkedListNode;
+import interview_questions.linked_lists.ReverseLinkedList;
+import interview_questions.linked_lists.SinglyLinkedListNode;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

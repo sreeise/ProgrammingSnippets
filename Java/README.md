@@ -25,6 +25,8 @@ Each section is divided into its own package:
         Math basics and problems     
     8. tests
         Tests for a few of the examples - explained below
+    9. interview_questions
+	Various questions and answers for interview prep.
 
 ### Tests
 A good portion of the classes/methods that perform some type of work, other then just being an example
