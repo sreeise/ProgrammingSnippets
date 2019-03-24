@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": ""
+    "test": "mocha"
   },
-  "dependencies": {}
+  "dependencies": {
+    "chai": "*",
+    "mocha": "*"
+  }
 }
