@@ -1,7 +1,10 @@
 package data_structures.graphs.trees;
 
 /*
-Binary Search Tree: All left descendants < N < All right descendents
+Binary Tree: A tree whose elements have at most 2 children is called a binary tree. Since each element in
+             a binary tree can have only 2 children, we typically name them the left and right child.
+
+Binary Search Tree: Is a binary tree where all left descendants < N < All right descendents - See class BinarySearchTree
 
 Types of Binary Trees:
 
@@ -34,14 +37,170 @@ Binary Tree Traversal:
 
   1. In-Order Traversal: Visit the left branch, then the current node, and finally the right branch.
     Visits the nodes in ascending order.
+      1. Traverse the left subtree and recursively call inOrder(node.left)
+      2. Visit the root
+      3. Traverse the right subtree and recursively call inOrder(node.right)
 
   2. Pre-Order Traversal: Visit the current node before its child nodes. The root node is always the
     first node visited.
+      1. Visit the root
+      2. Traverse the left subtree and recursively call preOrder(root.left).
+      3. Traverse the right subtree and recursively call preOrder(root.right).
 
   3. Post-Order Traversal: Visit the current node after its child nodes. The root node is always the
     last node visited.
+      1. Traverse the left subtree and recursively call postOrder(root.left)
+      2. Traverse the right subtree and recursively call postOrder(root.right)
+      3. Visit the root
 */
 
-public class BinaryTree {
+/*
+In a binary search tree, all nodes on the left branch of a node are less than the node value.
+All values on the right branch are greater than the node value.
+ */
 
+public class BinaryTree {
+  public BinaryTreeNode root;
+
+  public BinaryTree(int data) {
+    root = new BinaryTreeNode(data);
+  }
+
+  public BinaryTree() {
+    root = null;
+  }
+
+  /**
+   * Pre-order traversal takes the following steps:
+   *
+   * <p>1. Visit the root 2. Traverse the left subtree and recursively call preOrder(root.left) 3.
+   * Traverse the right subtree and recursively call preOrder(root.right)
+   *
+   * <p>One each call the algorithm will first visit the left node and then the right. When it
+   * reaches a null for a subtree, we return to the current subtrees parent and follow the next
+   * child node.
+   *
+   * @param node BinaryTreeNode
+   */
+  public void printPreOrder(BinaryTreeNode node) {
+    if (node == null) {
+      return;
+    }
+
+    System.out.println(node.data + " ");
+    printPreOrder(node.left);
+    printPreOrder(node.right);
+  }
+
+  /**
+   * A recursive wrapper around printPreOrder(BinaryTreeNode) that uses the BinaryTrees root node
+   * instead of one passed to the first printPreOrder method.
+   */
+  public void printPreOrder() {
+    printPreOrder(this.root);
+  }
+
+  /**
+   * Post-order traversal takes the following steps:
+   *
+   * <p>1. Traverse the left subtree and recursively call postOrder(root.left) 2. Traverse the right
+   * subtree and recursively call postOrder(root.right) 3. Visit the root
+   *
+   * <p>One each call the algorithm will first visit the left node and then the right. When it
+   * reaches a null for a subtree, we return to the current subtrees parent and follow the next
+   * child node.
+   *
+   * @param node BinaryTreeNode
+   */
+  public void printPostOrder(BinaryTreeNode node) {
+    if (node == null) {
+      return;
+    }
+
+    printPostOrder(node.left);
+    printPostOrder(node.right);
+    System.out.println(node.data + " ");
+  }
+
+  /**
+   * A recursive wrapper around printPostOrder(BinaryTreeNode) that uses the BinaryTrees root node
+   * instead of one passed to the first printPostOrder method.
+   */
+  public void printPostOrder() {
+    printPostOrder(this.root);
+  }
+
+
+  /**
+   * Inorder traversal takes the following steps:
+   *
+   * 1. Traverse the left subtree and recursively call inOrder(node.left)
+   * 2. Visit the root
+   * 3. Traverse the right subtree and recursively call inOrder(node.right)
+   *
+   * @param node BinaryTreeNode
+   */
+  public void printInOrder(BinaryTreeNode node) {
+    if (node == null) {
+      return;
+    }
+
+    printInOrder(node.left);
+    System.out.println(node.data + " ");
+    printInOrder(node.right);
+  }
+
+  /**
+   * A recursive wrapper around printInOrder(BinaryTreeNode) that uses the BinaryTrees root node
+   * instead of one passed to the first printInOrder method.
+   */
+  public void printInOrder() {
+    printInOrder(this.root);
+  }
+
+  /**
+   * Level order traversal of a tree is breadth first traversal for the tree.
+   * @param node BinaryTreeNode
+   */
+  public void printLevelOrder(BinaryTreeNode root) {
+    int height = height(root);
+    for (int i = 1; i <= height; i++) {
+      printGivenLevel(root, i);
+    }
+  }
+
+  private void printGivenLevel(BinaryTreeNode root, int level) {
+    if (root == null) {
+      return;
+    }
+    if (level == 1) {
+      System.out.print(root.data + " ");
+    } else if (level > 1) {
+      printGivenLevel(root.left, level - 1);
+      printGivenLevel(root.right, level - 1);
+    }
+  }
+
+  /**
+   * A recursive wrapper around printLevelOrder(BinaryTreeNode) that uses the BinaryTrees root node
+   * instead of one passed to the first printLevelOrder method.
+   */
+  public void printLevelOrder() {
+    printLevelOrder(this.root);
+  }
+
+  private int height(BinaryTreeNode root) {
+    if (root == null) {
+      return 0;
+    } else {
+      int leftHeight = height(root.left);
+      int rightHeight = height(root.right);
+
+      if (leftHeight > rightHeight) {
+        return leftHeight + 1;
+      } else {
+        return rightHeight + 1;
+      }
+    }
+  }
 }
