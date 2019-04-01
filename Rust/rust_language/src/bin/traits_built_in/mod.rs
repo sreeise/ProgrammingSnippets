@@ -1,4 +1,10 @@
 /*
+Code references may be from:
+    https://github.com/ProgrammingRust
+    https://doc.rust-lang.org/book
+*/
+
+/*
 Index and IndexMut Trait with Default and Copy
 */
 
@@ -169,4 +175,24 @@ impl std::error::Error for ErrorHandle {
     fn description(&self) -> &str {
         &self.message
     }
+}
+
+/*
+A trait can use the keyword Self as a type.
+
+Using Self as the return type here means that the type of x.clone()
+is the same as the type of x.
+*/
+pub trait Spliceable {
+    fn splice(&self, other: &Self) -> Self;
+}
+
+/*
+Traits can be an extension of another trait.
+
+Every type that implements Splicer must also implement
+Spliceable.
+*/
+trait Splicer: Spliceable {
+
 }
