@@ -337,3 +337,26 @@ pub mod shared_channel {
         (sender, SharedReceiver(Arc::new(Mutex::new(receiver))))
     }
 }
+
+// Trait that creates thread safe iterators for any T.
+pub trait SafeThreadIter: Iterator {
+    fn off_thread(self) -> mpsc::IntoIter<Self::Item>;
+}
+
+impl<T> SafeThreadIter for T
+    where T: Iterator + Send + 'static, T::Item: Send + 'static
+{
+    fn off_thread(self) -> mpsc::IntoIter<Self::Item> {
+        let (sender, receiver) = mpsc::sync_channel(1024);
+
+        spawn(move || {
+            for item in self {
+                if sender.send(item).is_err() {
+                    break;
+                }
+            }
+        });
+
+        receiver.into_iter()
+    }
+}
