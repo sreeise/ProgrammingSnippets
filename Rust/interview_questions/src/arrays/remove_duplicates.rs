@@ -14,7 +14,7 @@ pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
 
     let mut count = 0;
     loop {
-        let mut temp = count;
+        let temp = count;
         while temp + 1 < nums.len() && nums[temp] == nums[temp + 1] {
             nums.remove(temp);
         }
@@ -26,5 +26,13 @@ pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
         count += 1;
     }
     return nums.len() as i32;
+}
 
+
+#[test]
+fn duplicates_test() {
+    let mut vec = vec![0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+    let length = remove_duplicates(&mut vec);
+    assert_eq!(length, 5);
+    assert_eq!(vec, vec![0, 1, 2, 3, 4]);
 }
