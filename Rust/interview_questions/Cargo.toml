@@ -1,0 +1,7 @@
+[package]
+name = "interview_questions"
+version = "0.1.0"
+authors = ["sreeise"]
+edition = "2018"
+
+[dependencies]
