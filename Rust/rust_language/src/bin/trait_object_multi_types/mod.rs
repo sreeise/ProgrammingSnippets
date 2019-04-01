@@ -4,11 +4,17 @@ Trait Objects that Allow for Values of Different Types
 Code and Definitions may be from:
 https://doc.rust-lang.org/book/ch17-02-trait-objects.html?highlight=trait,objects#object-safety-is-required-for-trait-objects
 
-
 Trait Object:
+    A Reference to a trait type is called a trait object:
+
+        let mut buf: Vec<u8> = vec![];
+        let writer: &mut Write = &mut buf; // => Writer is a trait object
+
+    In memory, a trait object is a fat pointer consisting of a pointer to the value,
+    plus a pointer to a table representing that value's type.
 
     1. Points to an instance of a type that implements the trait we specify.
-    2. Create a trait object by specifying some sor of pointer, such as a &
+    2. Create a trait object by specifying some type of pointer, such as a &
         reference or a Box<T> smart pointer, and then specifying the relevant
         trait, and add a dyn keyword.
     3. Trait objects must use a pointer.
@@ -16,6 +22,7 @@ Trait Object:
     5. Rust's type system will ensure at compile time that any value used in that
         context will implement the trait object's trait. Therefore all possible
         types need to be known at compile time.
+
 
 Runtime Costs
 
