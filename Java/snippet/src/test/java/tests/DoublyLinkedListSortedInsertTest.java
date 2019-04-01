@@ -3,7 +3,9 @@ package tests;
 import interview_questions.linked_lists.DoublyLinkedListNode;
 import interview_questions.linked_lists.DoublyLinkedListSortedInsert;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
+
 public class DoublyLinkedListSortedInsertTest {
   @Test
   public void sortedInsertTest() {

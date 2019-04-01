@@ -38,16 +38,15 @@ public class BaseMath {
     return true;
   }
 
-
   /*
-Sieve of Eratosthenes: Efficient way to generate a list of primes
+  Sieve of Eratosthenes: Efficient way to generate a list of primes
 
-Recognizes all non-prime numbers are divisible by a prime number.
+  Recognizes all non-prime numbers are divisible by a prime number.
 
-1. Cross off all numbers divisible by 2
-2. Look for the next prime, the next non-crossed off number, and cross off all numbers
-  divisible by it.
- */
+  1. Cross off all numbers divisible by 2
+  2. Look for the next prime, the next non-crossed off number, and cross off all numbers
+    divisible by it.
+   */
   public static void SOEExample() {
     boolean[] primes = sieveOfEratosthenes(4);
     for (int i = 0; i < primes.length; i++) {
@@ -71,7 +70,7 @@ Recognizes all non-prime numbers are divisible by a prime number.
       prime = getNextPrime(flags, prime);
     }
 
-    return flags; //prune(flags, count);
+    return flags; // prune(flags, count);
   }
 
   public static void crossOff(boolean[] flags, int prime) {

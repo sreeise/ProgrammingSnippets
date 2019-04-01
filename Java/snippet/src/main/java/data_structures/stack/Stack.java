@@ -1,6 +1,7 @@
 package data_structures.stack;
 
 import data_structures.NodeItem;
+
 import java.util.NoSuchElementException;
 
 // Stacks are last in first out (LIFO) data_structures structures
@@ -9,6 +10,7 @@ public class Stack<T> {
 
   /**
    * Remove the last item in the stack
+   *
    * @return T - Last item that was put in the stack
    */
   public T pop() {
@@ -23,6 +25,7 @@ public class Stack<T> {
 
   /**
    * Adds item to end of stack
+   *
    * @param T Item
    */
   public void push(T item) {
@@ -33,6 +36,7 @@ public class Stack<T> {
 
   /**
    * Look at the last item in the stack
+   *
    * @return T Item
    */
   public T peek() {
@@ -45,6 +49,7 @@ public class Stack<T> {
 
   /**
    * Check if stack is empty
+   *
    * @return Boolean - True if stack is empty else false
    */
   public boolean isEmpty() {

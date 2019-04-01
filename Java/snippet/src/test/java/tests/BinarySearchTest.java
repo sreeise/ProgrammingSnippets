@@ -1,12 +1,12 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 import search.BinarySearch;
 
 import java.util.Arrays;
 import java.util.Random;
+
+import static org.junit.Assert.assertEquals;
 
 public class BinarySearchTest {
   @Test
@@ -15,7 +15,7 @@ public class BinarySearchTest {
     int index = BinarySearch.find(array, 3434);
     assertEquals(5, index);
 
-    int index2 = BinarySearch.recursiveFind(array, 3434, 2, array.length-1);
+    int index2 = BinarySearch.recursiveFind(array, 3434, 2, array.length - 1);
     assertEquals(5, index2);
 
     int[] array2 = new int[100];

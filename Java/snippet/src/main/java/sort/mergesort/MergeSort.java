@@ -2,7 +2,7 @@ package sort.mergesort;
 
 public class MergeSort {
   public static void sort(int[] array) {
-    sort(array, new int[array.length], 0, array.length -1);
+    sort(array, new int[array.length], 0, array.length - 1);
   }
 
   private static void sort(int[] array, int[] temp, int arrayStart, int arrayEnd) {

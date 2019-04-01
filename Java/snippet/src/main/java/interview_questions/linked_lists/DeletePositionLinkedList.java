@@ -19,7 +19,7 @@ public class DeletePositionLinkedList {
     }
 
     int count = 1;
-    while (count < position){
+    while (count < position) {
       temp = temp.next;
       count++;
     }

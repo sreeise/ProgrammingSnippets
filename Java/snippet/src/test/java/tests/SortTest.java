@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
+
 import static org.junit.Assert.assertEquals;
 
 public class SortTest {
@@ -35,7 +36,6 @@ public class SortTest {
       File output = new File(out_files[testIndex]);
 
       Scanner scanner = new Scanner(output);
-
 
       KeyValueMap[] keyValueMap2 = new KeyValueMap[n];
 

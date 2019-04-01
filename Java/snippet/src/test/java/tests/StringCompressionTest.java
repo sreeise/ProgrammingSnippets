@@ -2,6 +2,7 @@ package tests;
 
 import interview_questions.strings.Compression;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 public class StringCompressionTest {

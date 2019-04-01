@@ -1,14 +1,10 @@
-package data_structures.graphs;
+package data_structures.graphs.breadth_first_search;
 
 public class GraphNode {
-  public enum State {
-    Unvisited, Visited, Visiting;
-  }
-
+  GraphNode.State state;
   private GraphNode[] adjacent;
   private int adjacentCount;
   private String vertex;
-  GraphNode.State state;
 
   public GraphNode(String vertex, int adjacentLength) {
     this.vertex = vertex;
@@ -31,5 +27,11 @@ public class GraphNode {
 
   public String getVertex() {
     return vertex;
+  }
+
+  public enum State {
+    Unvisited,
+    Visited,
+    Visiting;
   }
 }

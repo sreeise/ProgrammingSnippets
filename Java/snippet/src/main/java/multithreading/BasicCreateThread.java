@@ -14,12 +14,12 @@ public class BasicCreateThread {
   call start() more then once will throw an IllegalStateException.
    */
   public static synchronized void CreateThread() {
-    Thread thread = new Thread() {
-      public void run() {
-        printStatement();
-      }
-    };
-
+    Thread thread =
+        new Thread() {
+          public void run() {
+            printStatement();
+          }
+        };
 
     // In Java, the start() method must be called to create a new thread, whereas
     // the run() method will run the on the main thread.

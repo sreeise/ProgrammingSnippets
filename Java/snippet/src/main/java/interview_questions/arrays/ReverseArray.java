@@ -9,8 +9,8 @@ public class ReverseArray {
     int[] b = new int[a.length];
     int length = a.length;
     for (int i = 0; i < a.length; i++) {
-      b[length -1] = a[i];
-      length = length -1;
+      b[length - 1] = a[i];
+      length = length - 1;
     }
 
     // Print the new array which is array a in reverse order.

@@ -1,4 +1,5 @@
-package data_structures.graphs;
+package data_structures.graphs.breadth_first_search;
+
 import java.util.LinkedList;
 /*
 https://en.wikipedia.org/wiki/Breadth-first_search
@@ -25,7 +26,7 @@ public class BreadthFirstSearch {
     graphNodes.add(start);
 
     GraphNode u;
-    while(!graphNodes.isEmpty()) {
+    while (!graphNodes.isEmpty()) {
       u = graphNodes.removeFirst();
 
       if (u != null) {

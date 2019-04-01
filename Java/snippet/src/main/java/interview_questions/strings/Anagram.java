@@ -1,10 +1,10 @@
-package interview_questions;
+package interview_questions.strings;
 
 import java.util.Arrays;
 
 public class Anagram {
   /*
-  Write a function to check if to Strings are anagrams.
+  Write a function to check if two Strings are anagrams.
   Anagrams are a word, phrase, or name formed by rearranging the
   the letters of another.
    */

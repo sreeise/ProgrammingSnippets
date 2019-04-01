@@ -1,22 +1,13 @@
 package tests;
 
-import data_structures.graphs.BreadthFirstSearch;
-import data_structures.graphs.Graph;
-import data_structures.graphs.GraphNode;
+import data_structures.graphs.breadth_first_search.BreadthFirstSearch;
+import data_structures.graphs.breadth_first_search.Graph;
+import data_structures.graphs.breadth_first_search.GraphNode;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
 public class BreadthFristSearchTest {
-
-  @Test
-  public void testBreadthFirstSearch() {
-    Graph g = createNewGraph();
-    GraphNode[] n = g.getNodes();
-    GraphNode start = n[3];
-    GraphNode end = n[5];
-    assertTrue(BreadthFirstSearch.search(g, start, end));
-  }
 
   private static Graph createNewGraph() {
     Graph g = new Graph();
@@ -39,5 +30,14 @@ public class BreadthFristSearchTest {
       g.addNode(temp[i]);
     }
     return g;
+  }
+
+  @Test
+  public void testBreadthFirstSearch() {
+    Graph g = createNewGraph();
+    GraphNode[] n = g.getNodes();
+    GraphNode start = n[3];
+    GraphNode end = n[5];
+    assertTrue(BreadthFirstSearch.search(g, start, end));
   }
 }

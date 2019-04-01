@@ -20,7 +20,7 @@ public class Compression {
     for (int i = 0; i < str.length(); i++) {
       consecutive++;
 
-      if (i + 1 > str.length() -1) {
+      if (i + 1 > str.length() - 1) {
         compressed.append(str.charAt(i));
         compressed.append(consecutive);
         return compressed.toString();

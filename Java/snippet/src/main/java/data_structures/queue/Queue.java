@@ -11,6 +11,7 @@ public class Queue<T> {
 
   /**
    * Add an item onto the end of the Queue
+   *
    * @param T item
    */
   public void add(T item) {
@@ -27,6 +28,7 @@ public class Queue<T> {
 
   /**
    * Remove first item in queue
+   *
    * @return T - First item in queue
    */
   public T remove() {
@@ -45,6 +47,7 @@ public class Queue<T> {
 
   /**
    * Get first item in the stack
+   *
    * @return T - First item in stack
    */
   public T peek() {
@@ -57,6 +60,7 @@ public class Queue<T> {
 
   /**
    * Check if the Queue is empty;
+   *
    * @return Boolean - True if queue is empty else false
    */
   public boolean isEmpty() {

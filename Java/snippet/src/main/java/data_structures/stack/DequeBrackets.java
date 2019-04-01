@@ -1,13 +1,13 @@
 package data_structures.stack;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class DequeBrackets {
 
   /**
-   * Given a string of brackets, such as `{(([])[])[]}[]`,
-   * the method checks to see if the the String is a balanced
-   * set of brackets.
+   * Given a string of brackets, such as `{(([])[])[]}[]`, the method checks to see if the the
+   * String is a balanced set of brackets.
    *
    * @param String s
    * @return True is the string is balanced else false

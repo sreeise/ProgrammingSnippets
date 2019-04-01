@@ -130,13 +130,11 @@ public class BinaryTree {
     printPostOrder(this.root);
   }
 
-
   /**
    * Inorder traversal takes the following steps:
    *
-   * 1. Traverse the left subtree and recursively call inOrder(node.left)
-   * 2. Visit the root
-   * 3. Traverse the right subtree and recursively call inOrder(node.right)
+   * <p>1. Traverse the left subtree and recursively call inOrder(node.left) 2. Visit the root 3.
+   * Traverse the right subtree and recursively call inOrder(node.right)
    *
    * @param node BinaryTreeNode
    */
@@ -160,6 +158,7 @@ public class BinaryTree {
 
   /**
    * Level order traversal of a tree is breadth first traversal for the tree.
+   *
    * @param node BinaryTreeNode
    */
   public void printLevelOrder(BinaryTreeNode root) {

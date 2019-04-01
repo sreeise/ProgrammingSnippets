@@ -11,11 +11,9 @@ import java.util.List;
 
 public class FileRead {
 
-
   /**
-   * Reads in text from a file putting each line into a String Array. Returns
-   * the List of Arrays. An Array may be empty if there is a blank
-   * line written to the file.
+   * Reads in text from a file putting each line into a String Array. Returns the List of Arrays. An
+   * Array may be empty if there is a blank line written to the file.
    *
    * @param filePath The path to the file to read in.
    * @return List of arrays. Each array has 1 line read from the file.

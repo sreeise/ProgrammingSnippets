@@ -18,6 +18,7 @@ public class Pairs {
 
   /**
    * Count the number of Integer pairs within an Integer array
+   *
    * @param array The array of Integers with possible pairs
    * @return The total amount of pairs
    */

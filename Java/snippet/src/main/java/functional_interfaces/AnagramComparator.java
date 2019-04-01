@@ -13,10 +13,6 @@ public class AnagramComparator implements Comparator<String> {
     return new String(content);
   }
 
-  public int compare(String s1, String s2) {
-    return sortChars(s1).compareTo(sortChars(s2));
-  }
-
   public static void sort(String[] array) {
     HashMapList<String, String> mapList = new HashMapList<>();
 
@@ -35,5 +31,9 @@ public class AnagramComparator implements Comparator<String> {
         index++;
       }
     }
+  }
+
+  public int compare(String s1, String s2) {
+    return sortChars(s1).compareTo(sortChars(s2));
   }
 }

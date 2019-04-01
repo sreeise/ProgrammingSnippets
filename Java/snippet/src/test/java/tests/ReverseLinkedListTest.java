@@ -3,7 +3,9 @@ package tests;
 import interview_questions.linked_lists.ReverseLinkedList;
 import interview_questions.linked_lists.SinglyLinkedListNode;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class ReverseLinkedListTest {
   @Test

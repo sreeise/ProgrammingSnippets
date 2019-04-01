@@ -11,8 +11,7 @@ public class Contains {
   /**
    * Returns the frequency of each word in a String.
    *
-   * @param str The string to check frequency of repeated
-   *            words.
+   * @param str The string to check frequency of repeated words.
    * @return HashMap with the frequency of the word and word itself.
    */
   public static HashMap<String, Integer> freq(String[] str) {
@@ -44,17 +43,14 @@ public class Contains {
   }
 
   /**
-   * Checks to see if the values of the first String array can be found
-   * in the second String array.
-   * <p>
-   * The number of times a word appears also matters in whether the
-   * second array contains all the Strings.
+   * Checks to see if the values of the first String array can be found in the second String array.
+   *
+   * <p>The number of times a word appears also matters in whether the second array contains all the
+   * Strings.
    *
    * @param strArr1 String array to check if values can be found in strArr2
-   * @param strArr2 String array to check if all values in
-   *                can be found from strArr2
-   * @return True if all Strings of strArr1 can be found in strArr2 including
-   * duplicates, else false
+   * @param strArr2 String array to check if all values in can be found from strArr2
+   * @return True if all Strings of strArr1 can be found in strArr2 including duplicates, else false
    */
   public static boolean containsAll(String[] strArr1, String[] strArr2) {
     HashMap<String, Integer> strMap1 = freq(strArr1);
@@ -85,10 +81,9 @@ public class Contains {
     return containsAllInts(intMap1, intMap2);
   }
 
-  /**
-   * Helper method that checks values and frequency of values in containsAll methods.
-   */
-  private static boolean containsAllInts(HashMap<Integer, Integer> map1, HashMap<Integer, Integer> map2) {
+  /** Helper method that checks values and frequency of values in containsAll methods. */
+  private static boolean containsAllInts(
+      HashMap<Integer, Integer> map1, HashMap<Integer, Integer> map2) {
     for (Map.Entry<Integer, Integer> entry : map1.entrySet()) {
       Integer number = entry.getKey();
 
@@ -99,9 +94,7 @@ public class Contains {
     return true;
   }
 
-  /**
-   * Helper method that checks values and frequency of values in containsAll methods.
-   */
+  /** Helper method that checks values and frequency of values in containsAll methods. */
   private static boolean containsAll(HashMap<String, Integer> map1, HashMap<String, Integer> map2) {
     for (Map.Entry<String, Integer> entry : map1.entrySet()) {
       String word = entry.getKey();

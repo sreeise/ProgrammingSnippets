@@ -12,21 +12,6 @@ public class LinkedList<T> {
   private ListNode head;
   private int size;
 
-  /**
-   * A ListNode represents a Node in a LinkedList, storing a Node T (any type) and a pointer to the
-   * next Node in a LinkedList.
-   *
-   * <p>Because all classes in Java are references we can use classes to the data as pointers.
-   */
-  class ListNode {
-    T data;
-    ListNode next;
-
-    ListNode(T data) {
-      this.data = data;
-    }
-  }
-
   /** Create an empty LinkedList. */
   public LinkedList() {
     this.head = null;
@@ -113,5 +98,20 @@ public class LinkedList<T> {
       current = current.next;
     }
     return list;
+  }
+
+  /**
+   * A ListNode represents a Node in a LinkedList, storing a Node T (any type) and a pointer to the
+   * next Node in a LinkedList.
+   *
+   * <p>Because all classes in Java are references we can use classes to the data as pointers.
+   */
+  class ListNode {
+    T data;
+    ListNode next;
+
+    ListNode(T data) {
+      this.data = data;
+    }
   }
 }

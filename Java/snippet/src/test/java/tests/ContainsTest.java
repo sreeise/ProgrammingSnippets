@@ -12,13 +12,11 @@ import static org.junit.Assert.assertEquals;
 
 public class ContainsTest {
   private static final String[] testFiles = {
-        "test_files/testcontains/input00.txt", "test_files/testcontains/input10.txt",
-        "test_files/testcontains/input13.txt", "test_files/testcontains/input20.txt"
+    "test_files/testcontains/input00.txt", "test_files/testcontains/input10.txt",
+    "test_files/testcontains/input13.txt", "test_files/testcontains/input20.txt"
   };
 
-  private static final boolean[] answers = {
-        true, false, true, false
-  };
+  private static final boolean[] answers = {true, false, true, false};
 
   @Test
   public void testContains() throws FileNotFoundException {

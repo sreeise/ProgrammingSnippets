@@ -2,13 +2,14 @@ package tests;
 
 import data_structures.hashsets.Unique;
 import org.junit.Test;
-import static org.junit.Assert.assertTrue;
 
 import java.util.HashSet;
 
+import static org.junit.Assert.assertTrue;
+
 public class UniqueWordsTest {
-  public static String words = "as d 2#sdaf dasl as as dd l";
   public static final String[] answer = {"as", "d", "2#sdaf", "dasl", "dd", "l"};
+  public static String words = "as d 2#sdaf dasl as as dd l";
 
   @Test
   public void testUniqueWords() {

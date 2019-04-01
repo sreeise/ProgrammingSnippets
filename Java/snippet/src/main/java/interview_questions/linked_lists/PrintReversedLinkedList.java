@@ -11,6 +11,5 @@ public class PrintReversedLinkedList {
       System.out.println(reversed.data);
       reversed = reversed.next;
     }
-
   }
 }

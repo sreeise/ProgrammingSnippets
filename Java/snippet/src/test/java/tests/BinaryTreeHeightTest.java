@@ -4,6 +4,7 @@ import data_structures.graphs.trees.BinaryTree;
 import data_structures.graphs.trees.BinaryTreeNode;
 import interview_questions.binary_trees.BinaryTreeHeight;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 public class BinaryTreeHeightTest {
