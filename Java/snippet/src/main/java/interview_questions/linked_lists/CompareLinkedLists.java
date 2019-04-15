@@ -27,10 +27,6 @@ public class CompareLinkedLists {
       head2 = head2.next;
     }
 
-    if (head2 != null) {
-      return false;
-    }
-
-    return true;
+    return head2 == null;
   }
 }

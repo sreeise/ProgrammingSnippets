@@ -1,4 +1,4 @@
-package arrys;
+package interview_questions.arrays;
 
 public class ArrayRotate {
   private ArrayRotate() {}

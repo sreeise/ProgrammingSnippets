@@ -30,10 +30,6 @@ public class HuffmanDecode {
   }
 
   public static boolean isLeaf(HuffmanNode node) {
-    if (node.left == null && node.right == null) {
-      return true;
-    }
-
-    return false;
+    return node.left == null && node.right == null;
   }
 }

@@ -52,6 +52,11 @@ Binary Tree Traversal:
       1. Traverse the left subtree and recursively call postOrder(root.left)
       2. Traverse the right subtree and recursively call postOrder(root.right)
       3. Visit the root
+
+Other Notes:
+   It is a basic combinatorial property of binary trees that a tree of height h has no more
+   than 2h leaves — the tree of height h with the maximum number of leaves is perfectly balanced, or complete.
+   - Robert Sedgewick and Kevin Wayne in Algorithms 4th Edition
 */
 
 /*

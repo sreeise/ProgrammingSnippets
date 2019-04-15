@@ -1,4 +1,4 @@
-package data_structures.collections;
+package collections;
 
 import java.util.Collection;
 import java.util.List;
@@ -64,8 +64,8 @@ public class GenericsAndWildcards {
   }
 
   /**
-   * General example from oracle tutorials on how to add an integer that can be from any supertype:
-   * Object, Number, or Integer.
+   * General example from oracle tutorials on how to enqueue an integer that can be from any
+   * supertype: Object, Number, or Integer.
    *
    * @param list A List using the lower bound wildcard super.
    */

@@ -14,7 +14,7 @@ public class Queue<T> {
    *
    * @param T item
    */
-  public void add(T item) {
+  public void enqueue(T item) {
     NodeItem<T> t = new NodeItem<>(item);
     if (last != null) {
       last.next = t;
@@ -31,7 +31,7 @@ public class Queue<T> {
    *
    * @return T - First item in queue
    */
-  public T remove() {
+  public T dequeue() {
     if (first == null) {
       throw new NoSuchElementException();
     }

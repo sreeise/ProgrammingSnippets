@@ -1,4 +1,4 @@
-package arrys;
+package interview_questions.arrays;
 
 public class Bribe {
   // 1. Queue is least to greatest

@@ -1,4 +1,4 @@
-package data_structures.graphs.breadth_first_search;
+package data_structures.graphs.graph.breadth_first_search;
 
 import java.util.LinkedList;
 /*

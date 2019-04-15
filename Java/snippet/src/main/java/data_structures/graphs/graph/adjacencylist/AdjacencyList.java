@@ -1,10 +1,10 @@
-package data_structures.graphs.adjacencylist;
+package data_structures.graphs.graph.adjacencylist;
 
 import java.util.LinkedList;
 
 public class AdjacencyList {
   int vertex;
-  LinkedList<Integer> adjacent[];
+  LinkedList<Integer>[] adjacent;
 
   public AdjacencyList(int v) {
     this.vertex = v;

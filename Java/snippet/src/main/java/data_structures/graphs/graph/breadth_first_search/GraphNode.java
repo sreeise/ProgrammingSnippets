@@ -1,4 +1,4 @@
-package data_structures.graphs.breadth_first_search;
+package data_structures.graphs.graph.breadth_first_search;
 
 public class GraphNode {
   GraphNode.State state;
@@ -32,6 +32,6 @@ public class GraphNode {
   public enum State {
     Unvisited,
     Visited,
-    Visiting;
+    Visiting
   }
 }

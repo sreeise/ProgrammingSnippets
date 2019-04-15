@@ -52,8 +52,8 @@ public class Unique {
   // random sets of characters. The string gets separated by spaces.
   // Using HashSet, which does not allow duplicates, the method
   // separates each set of characters or a single character and
-  // attempts to add it to the HashSet. The HashSet will either
-  // add each set, or will prevent from adding it if there is already
+  // attempts to enqueue it to the HashSet. The HashSet will either
+  // enqueue each set, or will prevent from adding it if there is already
   // the same String in the HashSet.
   public static String uniqueWords(String getUnique) {
     String[] words = getUnique.split(" ");

@@ -1,4 +1,4 @@
-package data_structures.graphs.breadth_first_search;
+package data_structures.graphs.graph.breadth_first_search;
 /*
 (Graph overview and code from Cracking the coding interviewing by Gayle Laakmann Mcdowell).
 Graphs can either be directed or undirected.

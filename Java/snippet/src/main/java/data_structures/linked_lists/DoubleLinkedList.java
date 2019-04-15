@@ -64,7 +64,7 @@ public class DoubleLinkedList<T> {
   }
 
   /**
-   * A ListNode represents a Node in a DoubleLinkedList, storing a Node T (any type) and a pointer
+   * A NodeItem represents a Node in a DoubleLinkedList, storing a Node T (any type) and a pointer
    * to the next and previous node in a DoubleLinkedList.
    *
    * <p>Because all classes in Java are references we can use classes to the data as pointers.

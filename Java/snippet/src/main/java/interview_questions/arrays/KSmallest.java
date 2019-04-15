@@ -28,7 +28,7 @@ public class KSmallest {
   /*
   Find the kth smallest element using quick sort.
    */
-  public int smallest(int arr[], int l, int r, int k) {
+  public int smallest(int[] arr, int l, int r, int k) {
     // If k is smaller than number of elements in array
     if (k > 0 && k <= r - l + 1) {
       // Partition the array around a random element and
@@ -50,7 +50,7 @@ public class KSmallest {
   }
 
   // Utility method to swap arr[i] and arr[j]
-  void swap(int arr[], int i, int j) {
+  void swap(int[] arr, int i, int j) {
     int temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
@@ -60,7 +60,7 @@ public class KSmallest {
   // the last element as pivot and moves all smaller element
   // to left of it and greater elements to right. This function
   // is used by randomPartition()
-  private int partition(int arr[], int l, int r) {
+  private int partition(int[] arr, int l, int r) {
     int x = arr[r], i = l;
     for (int j = l; j <= r - 1; j++) {
       if (arr[j] <= x) {
@@ -75,7 +75,7 @@ public class KSmallest {
   // Picks a random pivot element between l and r and
   // partitions arr[l..r] arount the randomly picked
   // element using partition()
-  private int randomPartition(int arr[], int l, int r) {
+  private int randomPartition(int[] arr, int l, int r) {
     int n = r - l + 1;
     int pivot = (int) (Math.random()) * (n - 1);
     swap(arr, l + pivot, r);
