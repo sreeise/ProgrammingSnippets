@@ -13,10 +13,19 @@ public class Anagram {
       return false;
     }
 
-    // This assumes that the two words are still anagrams regardless
-    // of casing.
-    word1 = word1.toLowerCase();
-    word2 = word2.toLowerCase();
+    char[] chars = word1.toCharArray();
+    char[] chars1 = word2.toCharArray();
+    Arrays.sort(chars);
+    Arrays.sort(chars1);
+    String s1 = String.valueOf(chars);
+    String s2 = String.valueOf(chars1);
+    return s1.equals(s2);
+  }
+
+  public static boolean isAnagram2(String word1, String word2) {
+    if (word1.length() != word2.length()) {
+      return false;
+    }
 
     String[] w1 = word1.split("");
     String[] w2 = word2.split("");

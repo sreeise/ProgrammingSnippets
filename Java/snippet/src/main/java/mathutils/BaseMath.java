@@ -39,6 +39,21 @@ public class BaseMath {
   }
 
   /*
+  Greatest Common Divisor (GCD) of of two numbers using the Euclidean algorithm.
+   */
+  public static int gcd(int a, int b) {
+    if (a == b) {
+      return a;
+    }
+
+    if (a > b) {
+      return gcd(a - b, b);
+    } else {
+      return gcd(a, b - a);
+    }
+  }
+
+  /*
   Sieve of Eratosthenes: Efficient way to generate a list of primes
 
   Recognizes all non-prime numbers are divisible by a prime number.

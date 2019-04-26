@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FindAllSubstring {
+public class FindPattern {
   /*
   Find all occurrences of a substring within another string.
    */

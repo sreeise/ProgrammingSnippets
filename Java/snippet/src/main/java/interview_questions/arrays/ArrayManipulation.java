@@ -39,6 +39,7 @@ public class ArrayManipulation {
       if (upper < n) {
         arr[upper] -= sum;
       }
+      //  yi = yi − 1 + xi
     }
 
     long max = 0;

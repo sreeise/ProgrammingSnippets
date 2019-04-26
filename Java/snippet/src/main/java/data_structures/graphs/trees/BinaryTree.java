@@ -64,6 +64,8 @@ In a binary search tree, all nodes on the left branch of a node are less than th
 All values on the right branch are greater than the node value.
  */
 
+import data_structures.queue.Queue;
+
 public class BinaryTree {
   public BinaryTreeNode root;
 
@@ -164,7 +166,7 @@ public class BinaryTree {
   /**
    * Level order traversal of a tree is breadth first traversal for the tree.
    *
-   * @param node BinaryTreeNode
+   * @param BinaryTreeNode node
    */
   public void printLevelOrder(BinaryTreeNode root) {
     int height = height(root);
@@ -204,6 +206,29 @@ public class BinaryTree {
         return leftHeight + 1;
       } else {
         return rightHeight + 1;
+      }
+    }
+  }
+
+  /**
+   * Same as level order traversal because it traverses all the nodes
+   * at each level before going to the next level.
+   * @param node BinaryTreeNode
+   */
+  public static void printBreadthFirstTraversal(BinaryTreeNode node) {
+    Queue<BinaryTreeNode> queue = new Queue<>();
+    queue.enqueue(node);
+    while (!queue.isEmpty()) {
+
+      BinaryTreeNode root = queue.dequeue();
+      System.out.print(root.data + " ");
+
+      if (root.left != null) {
+        queue.enqueue(root.left);
+      }
+
+      if (root.right != null) {
+        queue.enqueue(root.right);
       }
     }
   }
