@@ -34,3 +34,6 @@ node_modules
 
 # Rust web-assembly work in progress directory
 Rust/rust-web-assembly/
+
+# Python Venv
+venv
