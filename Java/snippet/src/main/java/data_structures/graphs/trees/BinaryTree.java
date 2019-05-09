@@ -8,7 +8,7 @@ Binary Search Tree: Is a binary tree where all left descendants < N < All right 
 
 Types of Binary Trees:
 
-  1. Complete Binary Tree: Every level of hte tree is fully filled, except for possibly the last,
+  1. Complete Binary Tree: Every level of the tree is fully filled, except for possibly the last,
     is completely filled, and all nodes are as far left as possible
 
   2. Full Binary Tree: Every node has either zero or two children. That is, no nodes have only one child.
@@ -35,6 +35,8 @@ Binary Heaps:
 
 Binary Tree Traversal:
 
+  Depth first traversal methods:
+
   1. In-Order Traversal: Visit the left branch, then the current node, and finally the right branch.
     Visits the nodes in ascending order.
       1. Traverse the left subtree and recursively call inOrder(node.left)
@@ -52,6 +54,11 @@ Binary Tree Traversal:
       1. Traverse the left subtree and recursively call postOrder(root.left)
       2. Traverse the right subtree and recursively call postOrder(root.right)
       3. Visit the root
+
+
+  Breadth first traversal methods:
+
+  1. Breadth first traversal or level order
 
 Other Notes:
    It is a basic combinatorial property of binary trees that a tree of height h has no more

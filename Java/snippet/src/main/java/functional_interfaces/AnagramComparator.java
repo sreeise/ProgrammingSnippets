@@ -1,5 +1,7 @@
 package functional_interfaces;
 
+import data_structures.hashmaps.HashMapList;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
