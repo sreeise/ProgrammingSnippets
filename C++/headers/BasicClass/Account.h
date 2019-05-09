@@ -1,11 +1,3 @@
-/*
- * License: GNU General Public License v3.0
- * You can obtain a copy in the file titled: LICENSE
- */
-
-/*
- * @author: sreeise
- */
 #include <string>
 
 using namespace std;

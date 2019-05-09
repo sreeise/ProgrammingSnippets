@@ -15,9 +15,13 @@
 #include "headers/BasicClass/Checking.h"
 #include "headers/Vectors/BasicVector/BasicVector.h"
 #include "headers/AddressOfAndPointers/ReferencesPointers.h"
+#include "headers/NameSpaces/Accounts.h"
+#include "headers/Templates/BasicTemplate.h"
+#include "headers/InterviewQuestions/PairDifference.h"
 
 // Using std without the std:: every time:
 using namespace std;
+using namespace account_types;
 
 // The method name is not intentional at all...
 void stdTest() {
@@ -115,6 +119,12 @@ void createAccount() {
   cout << name << endl;
 }
 
+void accountNameSpace() {
+  CheckingAccount checkingAccount{"Checking", 100.00};
+  cout << "Checking Account Name: " << checkingAccount.getAccountName() << endl;
+  cout << "Checking Account Balance: " << checkingAccount.getBalance() << endl;
+}
+
 // Vectors
 void vectorUsage() {
   // Vectors
@@ -137,6 +147,21 @@ void vectorUsage() {
   for (int item : basicCopy) {
     cout << item << " ";
   }
+}
+
+void templateUsage() {
+  Vector<string> vs(17);
+
+  // Print the length of the vector
+  cout << vs.size() << endl;
+
+  Vector<int> vs2(5);
+
+  // Set the value at index 0 in Vector to 3
+  vs2.setValue(0, 3);
+
+  // Print the value at index 0 in Vector
+  cout << vs2.operator[](0) << endl;
 }
 
 // Up Casting and Down casting
@@ -185,15 +210,23 @@ void pointersAndAddressOf() {
   referencesPointers.pointerAndAddressOfInfoContinued();
 }
 
+// Enums
+enum class Color {
+    red,
+    blue,
+    green
+};
+
+void enumUsage() {
+  Color col = Color::red;
+}
+
 // Main method
 int main() {
   cout << "Programming-Reference!" << endl;
 
   // Basic Hello World!
   cout << "Hello World!" << endl;
-
-  // Run one of the methods above here to see the output.
-
   return 0;
 }
 

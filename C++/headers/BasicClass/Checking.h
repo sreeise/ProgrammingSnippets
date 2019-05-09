@@ -3,10 +3,6 @@
 
 using namespace std;
 
-//
-// Created by sreeise on 7/16/18.
-//
-
 #ifndef C_REFERENCE_CHECKING_H
 #define C_REFERENCE_CHECKING_H
 
