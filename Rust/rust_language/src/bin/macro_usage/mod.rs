@@ -61,3 +61,16 @@ macro_rules! print_result {
         println!("{:?} = {:?}", stringify!($expression), $expression);
     };
 }
+
+#[macro_export]
+macro_rules! print_block {
+    // A block is anything in between curly brackets: { ... }
+    // You would define this as:
+    //  print_block!({
+    //    "b"; "s"
+    //  });
+    // Which prints "b" and then "s" on a new line.
+    ($b:block) => {
+        println!("{:#?}", $b);
+    }
+}
