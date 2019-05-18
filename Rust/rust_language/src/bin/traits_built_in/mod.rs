@@ -193,6 +193,4 @@ Traits can be an extension of another trait.
 Every type that implements Splicer must also implement
 Spliceable.
 */
-trait Splicer: Spliceable {
-
-}
+trait Splicer: Spliceable {}

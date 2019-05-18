@@ -1,4 +1,3 @@
-
 /*
 string 	    String
 slice 	    &str or something that dereferences to one, like String or Rc<String>
@@ -11,7 +10,6 @@ pattern 	Any pattern type: char, String, &str, &[char], or FnMut(char) -> bool
 
 Slices and Strings implement AsRef<str>, AsRef<[u8]>, AsRef<Path>, AsRef<OsStr>, and Borrow<str>
 */
-
 
 fn string_types() {
     // String type that is a heap-allocated buffer - stored on the heap
@@ -29,7 +27,10 @@ fn string_types() {
 
     // String iterator
     let string_to_collect = "Hel lo";
-    let str_joined: String = string_to_collect.chars().filter(|c| !c.is_whitespace()).collect();
+    let str_joined: String = string_to_collect
+        .chars()
+        .filter(|c| !c.is_whitespace())
+        .collect();
     println!("{:?}", str_joined); // -> "Hello"
 }
 
@@ -63,5 +64,6 @@ fn remove_string_values() {
 
     // Iterator over range of bytes and removes the characters
     // Items after range are shifted to the front
-    string_value.drain(0..2).collect::<String>();
+    let s = string_value.drain(0..2).collect::<String>();
+    println!("{}", s);
 }

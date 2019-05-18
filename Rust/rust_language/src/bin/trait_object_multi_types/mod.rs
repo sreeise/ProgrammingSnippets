@@ -108,11 +108,10 @@ struct SelectBox {
 
 impl Draw for SelectBox {
     fn draw(&self) {
-        println!("\nDrawing a SelectBox\nSelectBox Width: {}\nSelectBox Height: {}\n",
-                 self.width,
-                 self.height
+        println!(
+            "\nDrawing a SelectBox\nSelectBox Width: {}\nSelectBox Height: {}\n",
+            self.width, self.height
         );
-
 
         for item in self.options.iter() {
             println!("SelectBox Option: {}", item);
@@ -151,14 +150,14 @@ pub fn start() {
                 options: vec![
                     String::from("Yes"),
                     String::from("Maybe"),
-                    String::from("No")
+                    String::from("No"),
                 ],
             }),
             Box::new(Button {
                 width: 50,
                 height: 10,
                 label: String::from("Ok"),
-            })
+            }),
         ],
     };
 

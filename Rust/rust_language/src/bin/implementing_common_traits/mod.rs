@@ -51,7 +51,7 @@ impl fmt::Debug for Point {
 fn print_position_debug() {
     let position = Position {
         longitude: 2.0,
-        latitude: 2.1
+        latitude: 2.1,
     };
 
     // Using Debug
@@ -59,6 +59,14 @@ fn print_position_debug() {
     println!("The origin is: {:?}", origin); // -> The origin is: Point { x: 0, y: 0 }
 
     // Using Display
-    assert_eq!("(1.987, 2.983)".to_owned(),
-               format!("{}", Position { longitude: 1.987, latitude: 2.983, }));
+    assert_eq!(
+        "(1.987, 2.983)".to_owned(),
+        format!(
+            "{}",
+            Position {
+                longitude: 1.987,
+                latitude: 2.983,
+            }
+        )
+    );
 }

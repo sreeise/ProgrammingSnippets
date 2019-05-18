@@ -219,7 +219,7 @@ a function like this can be used.
 */
 fn print_error(mut err: &Error) {
     let _ = writeln!(stderr(), "error: {}", err);
-    while let Some(cause) = err.cause() {
+    while let Some(cause) = err.source() {
         let _ = writeln!(stderr(), "caused by: {}", cause);
         err = cause;
     }

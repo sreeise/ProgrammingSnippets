@@ -344,7 +344,9 @@ pub trait SafeThreadIter: Iterator {
 }
 
 impl<T> SafeThreadIter for T
-    where T: Iterator + Send + 'static, T::Item: Send + 'static
+where
+    T: Iterator + Send + 'static,
+    T::Item: Send + 'static,
 {
     fn off_thread(self) -> mpsc::IntoIter<Self::Item> {
         let (sender, receiver) = mpsc::sync_channel(1024);

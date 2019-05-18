@@ -31,6 +31,7 @@ unless a pub keyword is added where needed.
 */
 #![allow(dead_code)] // Allow dead code across entire crate
 #![allow(unused_variables)] // Allow unused variables across entire cate
+#![feature(try_trait)] // Use the try trait.
 
 // Modules for the different language features of Rust
 mod advanced_lifetimes; // Advanced feature
@@ -47,6 +48,7 @@ mod enum_types;
 mod file_io;
 mod generics_traits_lifetimes;
 mod handling_errors;
+mod implementing_common_traits;
 mod input_output_variables;
 mod loops_matching;
 mod match_expressions_patterns;
@@ -58,16 +60,16 @@ mod ownership_ref_deref;
 mod smart_pointers;
 mod sorting;
 mod state_pattern;
+mod string_types_chars;
+mod trait_object_multi_types;
 mod traits_built_in;
 mod unsafe_rust; // Advanced feature
 mod using_crates;
 mod vectors; // Advanced feature
-mod string_types_chars;
-mod trait_object_multi_types;
-mod implementing_common_traits;
 
 #[macro_use]
 mod macro_usage; // Macros
+extern crate reqwest;
 
 // Main method
 // Functions/Methods start with fn and use snake casing, where

@@ -197,7 +197,7 @@ after it’s compiled to a shared library and linked from C:
 // originally here so this code does not have to be exported and can't be used
 // without doing so. It is just an example. However, this has been removed in Rust
 // and no longer needed in Rust 1.31.
-
+#[allow(unused_attributes)]
 #[no_mangle]
 pub extern "C" fn call_from_c() {
     println!("Just called a Rust function from C!");

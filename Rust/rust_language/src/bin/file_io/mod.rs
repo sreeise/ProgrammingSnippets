@@ -22,6 +22,7 @@ The traits Read, BufRead, Write, and Seek have a prelude for
 only those traits: use std::io::prelude::*;
 */
 
+pub mod fileretriever;
 use std::fs;
 use std::fs::File;
 use std::fs::OpenOptions;

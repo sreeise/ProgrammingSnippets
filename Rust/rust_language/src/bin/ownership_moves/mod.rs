@@ -96,8 +96,7 @@ is set to the variable and the variable owns that value.
 fn loop_move() {
     let vec: Vec<u32> = vec![1, 2, 3, 4];
 
-    for mut val in vec {
-        // We can not modify the value using variable val
+    for val in vec {
         println!("val: {}", val + 1);
     }
 }

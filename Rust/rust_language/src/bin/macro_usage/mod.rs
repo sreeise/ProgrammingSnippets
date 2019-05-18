@@ -72,5 +72,5 @@ macro_rules! print_block {
     // Which prints "b" and then "s" on a new line.
     ($b:block) => {
         println!("{:#?}", $b);
-    }
+    };
 }

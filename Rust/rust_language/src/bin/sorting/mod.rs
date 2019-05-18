@@ -5,7 +5,6 @@ All Code and Definitions from:
 https://github.com/Hoverbear/rust-rosetta
 */
 
-
 /*
 Bubble Sort
 */
