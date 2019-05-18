@@ -13,16 +13,16 @@ public class SherlockAndAnagrams {
     HashMap<String, Integer> map = new HashMap<>();
     int count = 0;
 
-    for(int i = 0 ; i < s.length(); i++) {
-      for(int j= i + 1; j <= s.length(); j++) {
-        String sub = s.substring(i,j);
+    for (int i = 0; i < s.length(); i++) {
+      for (int j = i + 1; j <= s.length(); j++) {
+        String sub = s.substring(i, j);
         sub = sort(sub);
 
-        if(map.containsKey(sub)) {
+        if (map.containsKey(sub)) {
           int value = map.get(sub);
           count += value;
 
-          map.put(sub,  value + 1);
+          map.put(sub, value + 1);
         } else {
           map.put(sub, 1);
         }

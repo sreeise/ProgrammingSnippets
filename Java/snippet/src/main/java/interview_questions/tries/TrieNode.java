@@ -6,7 +6,8 @@ public class TrieNode {
   public int val;
   public List<TrieNode> children;
 
-  public TrieNode() {}
+  public TrieNode() {
+  }
 
   public TrieNode(int _val, List<TrieNode> _children) {
     val = _val;

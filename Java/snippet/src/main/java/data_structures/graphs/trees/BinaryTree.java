@@ -85,6 +85,30 @@ public class BinaryTree {
   }
 
   /**
+   * Same as level order traversal because it traverses all the nodes
+   * at each level before going to the next level.
+   *
+   * @param node BinaryTreeNode
+   */
+  public static void printBreadthFirstTraversal(BinaryTreeNode node) {
+    Queue<BinaryTreeNode> queue = new Queue<>();
+    queue.enqueue(node);
+    while (!queue.isEmpty()) {
+
+      BinaryTreeNode root = queue.dequeue();
+      System.out.print(root.data + " ");
+
+      if (root.left != null) {
+        queue.enqueue(root.left);
+      }
+
+      if (root.right != null) {
+        queue.enqueue(root.right);
+      }
+    }
+  }
+
+  /**
    * Pre-order traversal takes the following steps:
    *
    * <p>1. Visit the root 2. Traverse the left subtree and recursively call preOrder(root.left) 3.
@@ -213,29 +237,6 @@ public class BinaryTree {
         return leftHeight + 1;
       } else {
         return rightHeight + 1;
-      }
-    }
-  }
-
-  /**
-   * Same as level order traversal because it traverses all the nodes
-   * at each level before going to the next level.
-   * @param node BinaryTreeNode
-   */
-  public static void printBreadthFirstTraversal(BinaryTreeNode node) {
-    Queue<BinaryTreeNode> queue = new Queue<>();
-    queue.enqueue(node);
-    while (!queue.isEmpty()) {
-
-      BinaryTreeNode root = queue.dequeue();
-      System.out.print(root.data + " ");
-
-      if (root.left != null) {
-        queue.enqueue(root.left);
-      }
-
-      if (root.right != null) {
-        queue.enqueue(root.right);
       }
     }
   }

@@ -1,7 +1,5 @@
 package interview_questions.arrays;
 
-import java.util.*;
-
 public class SmallestWindowToSort {
   /*
   Given an array of integers that are out of order, determine the bound of the smallest
@@ -36,7 +34,7 @@ public class SmallestWindowToSort {
     }
 
     // Loop through the array in reverse.
-    for (int i = array.length -1; i >= 0; i--) {
+    for (int i = array.length - 1; i >= 0; i--) {
       // Get the smallest current value since iteration started.
       min_seen = Math.min(min_seen, array[i]);
 

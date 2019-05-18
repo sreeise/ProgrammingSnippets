@@ -15,7 +15,7 @@ public class Graph {
   public Graph(int vertices) {
     this.vertices = vertices;
     adjacent = new LinkedList[vertices];
-    for (int i = 0; i< vertices; ++i) {
+    for (int i = 0; i < vertices; ++i) {
       adjacent[i] = new LinkedList();
     }
   }
@@ -26,7 +26,7 @@ public class Graph {
   }
 
   // A function used by DFS
-  private List<Integer> depthFirstSearch(List<Integer> list, int v, boolean visited[]) {
+  private List<Integer> depthFirstSearch(List<Integer> list, int v, boolean[] visited) {
     visited[v] = true;
     // Add the integer that was visited to the list.
     list.add(v);

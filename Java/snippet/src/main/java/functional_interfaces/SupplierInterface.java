@@ -16,12 +16,12 @@ public class SupplierInterface {
     Logger logger = Logger.getLogger("...");
 
     DoubleSupplier randomSupplier =
-        new DoubleSupplier() {
-          @Override
-          public double getAsDouble() {
-            return Math.random();
-          }
-        };
+          new DoubleSupplier() {
+            @Override
+            public double getAsDouble() {
+              return Math.random();
+            }
+          };
 
     // OR
     // randomSupplier = () -> Math.random();

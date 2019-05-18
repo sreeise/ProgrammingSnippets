@@ -14,23 +14,6 @@ public class BreadthFirstSearch {
   true or false for whether we have visited the node before.
    */
 
-  static class Graph {
-    int v;
-    LinkedList[] adjacent;
-
-    Graph(int v) {
-      this.v = v;
-      this.adjacent = new LinkedList[v];
-      for (int i = 0; i < v; i++) {
-        this.adjacent[i] = new LinkedList<>();
-      }
-    }
-
-    void addEdge(int v, int w) {
-      this.adjacent[v].add(w);
-    }
-  }
-
   public static void breadthFirstSearch(Graph graph, int s) {
     boolean[] visited = new boolean[graph.v];
 
@@ -66,5 +49,22 @@ public class BreadthFirstSearch {
     g.addEdge(3, 3);
 
     breadthFirstSearch(g, 2);
+  }
+
+  static class Graph {
+    int v;
+    LinkedList[] adjacent;
+
+    Graph(int v) {
+      this.v = v;
+      this.adjacent = new LinkedList[v];
+      for (int i = 0; i < v; i++) {
+        this.adjacent[i] = new LinkedList<>();
+      }
+    }
+
+    void addEdge(int v, int w) {
+      this.adjacent[v].add(w);
+    }
   }
 }

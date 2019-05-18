@@ -33,11 +33,11 @@ public class MajorityElement2 {
 
 
   public static List<Integer> majorityElementSlower(int[] array) {
-    Integer[] arr = IntStream.of(array).boxed().toArray( Integer[]::new );
+    Integer[] arr = IntStream.of(array).boxed().toArray(Integer[]::new);
     return majorityElementSlower(arr);
   }
 
-  public static <T> Set<T> convertSlower(T array[]) {
+  public static <T> Set<T> convertSlower(T[] array) {
     return new HashSet<>(Arrays.asList(array));
   }
 

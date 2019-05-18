@@ -2,7 +2,8 @@ package runtime;
 
 public class O1Runtime {
 
-  private O1Runtime() {}
+  private O1Runtime() {
+  }
 
   // This is O(1) runtime.
   // O(1): AS the size increases, time stays the same. It won't take longer

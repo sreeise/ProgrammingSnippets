@@ -13,14 +13,14 @@ public class NaivePatternSearch {
     for (int i = 0; i <= n - m; i++) {
       int j;
       for (j = 0; j < m; j++) {
-          if (txt.charAt(i + j) != pat.charAt(j)) {
-            break;
-          }
+        if (txt.charAt(i + j) != pat.charAt(j)) {
+          break;
         }
+      }
 
-        if (j == m) {
-          patterns.add(i);
-        }
+      if (j == m) {
+        patterns.add(i);
+      }
     }
 
     return patterns;

@@ -7,7 +7,7 @@ public class InsertAtPositionLinkedList {
   integer, insert this node at the desired position and return the head node.
    */
   public static SinglyLinkedListNode insertNodeAtPosition(
-      SinglyLinkedListNode head, int data, int position) {
+        SinglyLinkedListNode head, int data, int position) {
     int count = 1;
     SinglyLinkedListNode current = head;
     while (count < position) {

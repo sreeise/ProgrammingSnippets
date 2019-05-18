@@ -13,7 +13,7 @@ public class JumpingOnClouds {
     int count = 0;
 
     int i = 0;
-    while (i < c.length -1) {
+    while (i < c.length - 1) {
       if (i + 2 >= c.length || c[i + 2] == 1) {
         i = i + 1;
         count = count + 1;

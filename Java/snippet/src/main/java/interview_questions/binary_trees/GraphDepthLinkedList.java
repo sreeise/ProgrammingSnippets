@@ -12,7 +12,7 @@ public class GraphDepthLinkedList {
    */
 
   public void createList(
-      BinaryTreeNode root, ArrayList<LinkedList<BinaryTreeNode>> lists, int level) {
+        BinaryTreeNode root, ArrayList<LinkedList<BinaryTreeNode>> lists, int level) {
     if (root == null) {
       return;
     }

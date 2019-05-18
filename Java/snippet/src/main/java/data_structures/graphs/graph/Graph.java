@@ -44,11 +44,12 @@ public class Graph {
   public int edgeSize() {
     return edge;
   }
+
   // throw an IllegalArgumentException unless {@code 0 <= v < V}
   private void validateVertex(int v) {
     if (v < 0 || v >= this.vertex)
       throw new IllegalArgumentException(
-          "vertex " + v + " is not between 0 and " + (this.vertex - 1));
+            "vertex " + v + " is not between 0 and " + (this.vertex - 1));
   }
 
   public void addEdge(int v, int w) {

@@ -5,6 +5,7 @@ public class LinkedListNode {
   public LinkedListNode prev;
   public LinkedListNode last;
   public int data;
+
   public LinkedListNode(int d, LinkedListNode n, LinkedListNode p) {
     data = d;
     setNext(n);
@@ -15,7 +16,8 @@ public class LinkedListNode {
     data = d;
   }
 
-  public LinkedListNode() { }
+  public LinkedListNode() {
+  }
 
   public void setNext(LinkedListNode n) {
     next = n;

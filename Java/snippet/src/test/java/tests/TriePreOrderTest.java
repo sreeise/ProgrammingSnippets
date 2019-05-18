@@ -11,6 +11,16 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class TriePreOrderTest {
+  private static void addChild(TrieNode node, int val) {
+    if (node.children == null) {
+      node.children = new ArrayList<>();
+    }
+
+    TrieNode child = new TrieNode();
+    child.val = val;
+    node.children.add(child);
+  }
+
   @Test
   public void triePreorderTraversalTest() {
     List<Integer> answers = new ArrayList<>(Arrays.asList(1, 3, 5, 6, 2, 4));
@@ -30,17 +40,6 @@ public class TriePreOrderTest {
     List<Integer> answers = new ArrayList<>(Arrays.asList(1, 2, 8, 12, 100, 333));
     List<Integer> list = PreOrderTraversal.preorder(setup(answers));
     assertEquals(list, answers);
-  }
-
-
-  private static void addChild(TrieNode node, int val) {
-    if (node.children == null) {
-      node.children = new ArrayList<>();
-    }
-
-    TrieNode child = new TrieNode();
-    child.val = val;
-    node.children.add(child);
   }
 
   private TrieNode setup(List<Integer> values) {

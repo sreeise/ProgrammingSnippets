@@ -37,7 +37,7 @@ public class HashMapList<T, E> {
    *
    * @param key
    * @return The ArrayList of items in the hash map list that
-   *         matches the given key.
+   * matches the given key.
    */
   public ArrayList<E> get(T key) {
     return map.get(key);
@@ -68,6 +68,7 @@ public class HashMapList<T, E> {
 
   /**
    * Get the list of keys.
+   *
    * @return List of keys in the hash map list.
    */
   public Set<T> keySet() {

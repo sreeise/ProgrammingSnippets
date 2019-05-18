@@ -1,12 +1,13 @@
 package interview_questions.arrays;
 
 public class ArrayRotate {
-  private ArrayRotate() {}
+  private ArrayRotate() {
+  }
 
   /**
    * Returns a copy of an int array with its integers rotated to the left a given amount of times.
    *
-   * @param array The array given for rotation
+   * @param array  The array given for rotation
    * @param amount The amount of times to rotate
    * @return Array of int's
    */

@@ -29,7 +29,8 @@ public class Bag<T> implements Iterable<T> {
       return current != null;
     }
 
-    public void remove() {}
+    public void remove() {
+    }
 
     public T next() {
       T item = current.data;

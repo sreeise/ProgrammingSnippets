@@ -9,12 +9,12 @@ public class ConsumerInterface {
     List<String> strings = Arrays.asList("this", "is", "a", "list", "of", "strings");
 
     strings.forEach(
-        new Consumer<String>() {
-          @Override
-          public void accept(String s) {
-            System.out.println(s);
-          }
-        });
+          new Consumer<String>() {
+            @Override
+            public void accept(String s) {
+              System.out.println(s);
+            }
+          });
 
     // as lambda
     strings.forEach(s -> System.out.println(s));

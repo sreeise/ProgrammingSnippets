@@ -18,8 +18,8 @@ public class SortTest {
   @Test
   public void testCompareSort() throws FileNotFoundException {
 
-    String test_files[] = FileUtils.getPathsArray(testFiles);
-    String out_files[] = FileUtils.getPathsArray(outFiles);
+    String[] test_files = FileUtils.getPathsArray(testFiles);
+    String[] out_files = FileUtils.getPathsArray(outFiles);
     for (int testIndex = 0; testIndex < testFiles.length; testIndex++) {
       File file = new File(test_files[testIndex]);
 

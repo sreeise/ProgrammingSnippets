@@ -37,7 +37,9 @@ public class LinkedList<T> {
   private NodeItem<T> head;
   private int size;
 
-  /** Create an empty LinkedList. */
+  /**
+   * Create an empty LinkedList.
+   */
   public LinkedList() {
     this.head = null;
     this.size = 0;
@@ -150,7 +152,9 @@ public class LinkedList<T> {
     return builder.toString();
   }
 
-  /** @return ArrayList of elements in the list. */
+  /**
+   * @return ArrayList of elements in the list.
+   */
   public ArrayList<T> toArrayList() {
     NodeItem<T> current = this.head;
     ArrayList<T> list = new ArrayList<>();

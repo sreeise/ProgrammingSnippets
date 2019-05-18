@@ -6,7 +6,8 @@ import java.util.Map;
 public class Contains {
 
   // Don't let anyone instantiate this class
-  private Contains() {}
+  private Contains() {
+  }
 
   /**
    * Returns the frequency of each word in a String.
@@ -81,9 +82,11 @@ public class Contains {
     return containsAllInts(intMap1, intMap2);
   }
 
-  /** Helper method that checks values and frequency of values in containsAll methods. */
+  /**
+   * Helper method that checks values and frequency of values in containsAll methods.
+   */
   private static boolean containsAllInts(
-      HashMap<Integer, Integer> map1, HashMap<Integer, Integer> map2) {
+        HashMap<Integer, Integer> map1, HashMap<Integer, Integer> map2) {
     for (Map.Entry<Integer, Integer> entry : map1.entrySet()) {
       Integer number = entry.getKey();
 
@@ -94,7 +97,9 @@ public class Contains {
     return true;
   }
 
-  /** Helper method that checks values and frequency of values in containsAll methods. */
+  /**
+   * Helper method that checks values and frequency of values in containsAll methods.
+   */
   private static boolean containsAll(HashMap<String, Integer> map1, HashMap<String, Integer> map2) {
     for (Map.Entry<String, Integer> entry : map1.entrySet()) {
       String word = entry.getKey();

@@ -7,15 +7,15 @@ import java.util.stream.Collectors;
 public class FunctionInterface {
   public static void wordListLength(List<String> words) {
     List<Integer> lengths =
-        words.stream()
-            .map(
-                new Function<String, Integer>() {
-                  @Override
-                  public Integer apply(String s) {
-                    return s.length();
-                  }
-                })
-            .collect(Collectors.toList());
+          words.stream()
+                .map(
+                      new Function<String, Integer>() {
+                        @Override
+                        public Integer apply(String s) {
+                          return s.length();
+                        }
+                      })
+                .collect(Collectors.toList());
 
     System.out.println(lengths);
   }

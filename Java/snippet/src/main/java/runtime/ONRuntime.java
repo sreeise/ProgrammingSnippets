@@ -2,7 +2,8 @@ package runtime;
 
 public class ONRuntime {
 
-  private ONRuntime() {}
+  private ONRuntime() {
+  }
 
   // This will take O(N) time.
   // O(N): The runtime will increase linearly with the size of N.

@@ -3,7 +3,6 @@ package interview_questions.strings;
 
 public class UniqueChars {
   /**
-   *
    * @param str
    * @return
    */
@@ -21,7 +20,7 @@ public class UniqueChars {
   }
 
   /**
-   *  Assumes only letters a through z.
+   * Assumes only letters a through z.
    *
    * @param str
    * @return

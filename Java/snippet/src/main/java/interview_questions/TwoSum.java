@@ -16,7 +16,7 @@ public class TwoSum {
     for (int j = 0; j < nums.length; j++) {
       for (int i = 1; i < nums.length; i++) {
         if (target == (nums[i] + nums[j]) && i != j) {
-          return new int[] {j, i};
+          return new int[]{j, i};
         }
       }
     }
@@ -35,7 +35,7 @@ public class TwoSum {
     for (int i = 0; i < nums.length; i++) {
       int complement = target - nums[i];
       if (map.containsKey(complement) && map.get(complement) != i) {
-        return new int[] {i, map.get(complement)};
+        return new int[]{i, map.get(complement)};
       }
     }
     return null;
@@ -48,7 +48,7 @@ public class TwoSum {
     for (int i = 0; i < nums.length; i++) {
       int complement = target - nums[i];
       if (map.containsKey(complement)) {
-        return new int[] {map.get(complement), i};
+        return new int[]{map.get(complement), i};
       }
       map.put(nums[i], i);
     }

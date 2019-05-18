@@ -1,7 +1,8 @@
 package multithreading;
 
 public class BasicCreateThread {
-  private BasicCreateThread() {}
+  private BasicCreateThread() {
+  }
 
   /*
   When a program calls start() a new thread is created and the code inside
@@ -15,11 +16,11 @@ public class BasicCreateThread {
    */
   public static synchronized void CreateThread() {
     Thread thread =
-        new Thread() {
-          public void run() {
-            printStatement();
-          }
-        };
+          new Thread() {
+            public void run() {
+              printStatement();
+            }
+          };
 
     // In Java, the start() method must be called to create a new thread, whereas
     // the run() method will run the on the main thread.

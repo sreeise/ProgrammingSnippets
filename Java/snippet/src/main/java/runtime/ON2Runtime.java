@@ -2,7 +2,8 @@ package runtime;
 
 public class ON2Runtime {
 
-  private ON2Runtime() {}
+  private ON2Runtime() {
+  }
 
   // This is 0(N^2) Runtime.
   // 0(N^2): The runtime is proportionate to the square of the size of data_structures.

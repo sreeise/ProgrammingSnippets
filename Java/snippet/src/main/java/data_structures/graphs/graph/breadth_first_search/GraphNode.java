@@ -5,6 +5,7 @@ public class GraphNode {
   private GraphNode[] adjacent;
   private int adjacentCount;
   private String vertex;
+
   public GraphNode(String vertex, int adjacentLength) {
     this.vertex = vertex;
     adjacentCount = 0;

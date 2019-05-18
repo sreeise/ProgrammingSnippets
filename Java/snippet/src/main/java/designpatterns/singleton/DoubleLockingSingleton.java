@@ -10,7 +10,8 @@ public class DoubleLockingSingleton {
 
   // Don't let anyone instantiate this class.
   // Caller must get the instance of the class through getInstance()
-  private DoubleLockingSingleton() {}
+  private DoubleLockingSingleton() {
+  }
 
   /*
   Checks that the _instance is null twice.

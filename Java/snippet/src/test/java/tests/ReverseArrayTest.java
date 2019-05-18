@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 public class ReverseArrayTest {
   @Test
   public void reverseArrayTest() {
-    int[] a = new int[] {1, 4, 3, 2};
+    int[] a = new int[]{1, 4, 3, 2};
     int[] b = ReverseArray.reverse(a);
     assertEquals(b[0], 2);
     assertEquals(b[1], 3);

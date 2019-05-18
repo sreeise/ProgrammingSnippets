@@ -1,6 +1,8 @@
 package sort;
 
-/** Quick sort using insertion sort for smaller arrays. */
+/**
+ * Quick sort using insertion sort for smaller arrays.
+ */
 public class QuickSortInsertion {
   private int[] array;
 

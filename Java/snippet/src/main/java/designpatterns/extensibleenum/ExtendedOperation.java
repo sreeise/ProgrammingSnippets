@@ -20,7 +20,8 @@ public enum ExtendedOperation implements Operation {
     this.symbol = symbol;
   }
 
-  @Override public String toString() {
+  @Override
+  public String toString() {
     return symbol;
   }
 }

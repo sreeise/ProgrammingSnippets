@@ -7,7 +7,8 @@ import java.util.HashSet;
 public class Unique {
 
   // Don't let anyone instantiate this class.
-  private Unique() {}
+  private Unique() {
+  }
 
   // HashSet: Maps only unique values therefore any value
   // that is not unique will not be added in the string a second time.

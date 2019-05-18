@@ -25,7 +25,7 @@ public class MinimumAbsoluteDifference {
   // number in the array.
   public static int minimumAbsoluteDifference(int[] arr) {
     Arrays.sort(arr);
-    int smallest = Math.abs(arr[0] - arr[arr.length -1]);
+    int smallest = Math.abs(arr[0] - arr[arr.length - 1]);
 
     for (int i = 0; i < arr.length; i++) {
       if (i + 1 < arr.length) {

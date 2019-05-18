@@ -1,6 +1,7 @@
 package interview_questions.arrays;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class PairDifference {

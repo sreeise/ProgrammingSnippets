@@ -38,8 +38,8 @@ public class RotateString {
 
   public static String[] copy(String[] array) {
     String[] arr = new String[array.length];
-    System.arraycopy(array, 1, arr, 0, arr.length -1);
-    arr[array.length -1] = array[0];
+    System.arraycopy(array, 1, arr, 0, arr.length - 1);
+    arr[array.length - 1] = array[0];
     return arr;
   }
 
@@ -56,14 +56,15 @@ public class RotateString {
     int Pinv = BigInteger.valueOf(P).modInverse(BigInteger.valueOf(MOD)).intValue();
 
     long hb = 0, power = 1;
-    for (char x: B.toCharArray()) {
+    for (char x : B.toCharArray()) {
       hb = (hb + power * x) % MOD;
       power = power * P % MOD;
     }
 
-    long ha = 0; power = 1;
+    long ha = 0;
+    power = 1;
     char[] ca = A.toCharArray();
-    for (char x: ca) {
+    for (char x : ca) {
       ha = (ha + power * x) % MOD;
       power = power * P % MOD;
     }
@@ -74,7 +75,7 @@ public class RotateString {
       ha %= MOD;
       ha *= Pinv;
       ha %= MOD;
-      if (ha == hb && (A.substring(i+1) + A.substring(0, i+1)).equals(B))
+      if (ha == hb && (A.substring(i + 1) + A.substring(0, i + 1)).equals(B))
         return true;
 
     }
@@ -107,7 +108,7 @@ public class RotateString {
     }
 
     int matchLen = 0;
-    for (char c: (A+A).toCharArray()) {
+    for (char c : (A + A).toCharArray()) {
       while (matchLen >= 0 && B.charAt(matchLen) != c) {
         matchLen -= shifts[matchLen];
       }

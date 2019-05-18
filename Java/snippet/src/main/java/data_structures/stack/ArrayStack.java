@@ -60,6 +60,7 @@ public class ArrayStack<Item> implements Iterable<Item> {
       return a[--i];
     }
 
-    public void remove() {}
+    public void remove() {
+    }
   }
 }

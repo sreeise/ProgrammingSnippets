@@ -13,8 +13,11 @@ public class DoubleLinkedList<T> {
   private ListNode head;
   private int size;
 
-  /** DoublyLinkedList constructor. */
-  public DoubleLinkedList() {}
+  /**
+   * DoublyLinkedList constructor.
+   */
+  public DoubleLinkedList() {
+  }
 
   /**
    * Creates a new Node consisting of the data given and adds the node to the linked list.
@@ -45,12 +48,16 @@ public class DoubleLinkedList<T> {
     return temp.data;
   }
 
-  /** @return int the number of nodes in the linked list. */
+  /**
+   * @return int the number of nodes in the linked list.
+   */
   public int size() {
     return this.size;
   }
 
-  /** @return boolean True if the list is empty else false. */
+  /**
+   * @return boolean True if the list is empty else false.
+   */
   public boolean isEmpty() {
     return this.size == 0;
   }

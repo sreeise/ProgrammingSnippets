@@ -9,7 +9,7 @@ public class MergeSinglyLinkedLists {
    */
 
   public static SinglyLinkedListNode mergeLists(
-      SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+        SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
     SinglyLinkedListNode ref = new SinglyLinkedListNode(0);
     SinglyLinkedListNode tail = ref;
 

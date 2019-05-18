@@ -9,13 +9,17 @@ public class ProductOfAllOtherElements {
   array except the one at i.
    */
 
+  // Sum of all elements excluding array[i] using base 10 logarithms
+  // and a precision number.
+  private static final double PRECISION = 1e-9;
+
   // Time complexity: O(N)
   // Space Complexity: O(N)
   public static int[] product(int[] arr) {
     // Create array to store the products.
     int[] result = new int[arr.length];
     // Initialize all integers in array to 1
-    Arrays.fill(result, 1);;
+    Arrays.fill(result, 1);
 
     // Calculate all elements on the left side excluding array[i]
     int temp = 1;
@@ -35,11 +39,6 @@ public class ProductOfAllOtherElements {
 
     return result;
   }
-
-
-  // Sum of all elements excluding array[i] using base 10 logarithms
-  // and a precision number.
-  private static final double PRECISION = 1e-9;
 
   public static int[] product2(int[] array) {
     double sum = 0;

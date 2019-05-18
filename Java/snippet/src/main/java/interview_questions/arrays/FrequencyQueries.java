@@ -83,7 +83,7 @@ public class FrequencyQueries {
       List<Integer> ans = freqQuery(bufferedReader, q);
 
       try (BufferedWriter bufferedWriter =
-          new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
+                 new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
         bufferedWriter.write(ans.stream().map(Object::toString).collect(joining("\n")) + "\n");
       }

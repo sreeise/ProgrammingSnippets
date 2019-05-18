@@ -10,10 +10,10 @@ public class Bribe {
    *
    * <p>Example: [1, 2, 3, 5, 4, 6] -> [1, 2, 3, 4, 5, 6]
    *
-   * @param q Array of integers
+   * @param q       Array of integers
    * @param minimum A minimum amount of moves that one number can make
    * @return -1 if a number moves more then the minimum amount else return the total amount of moves
-   *     made for all numbers or in other words the total amount of bribes all numbers made.
+   * made for all numbers or in other words the total amount of bribes all numbers made.
    */
   public static int minimumBribes(int[] q, int minimum) {
     int count = 0;
