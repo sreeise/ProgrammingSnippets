@@ -18,6 +18,7 @@
 #include "headers/NameSpaces/Accounts.h"
 #include "headers/Templates/BasicTemplate.h"
 #include "headers/InterviewQuestions/PairDifference.h"
+#include "headers/InterviewQuestions/PairSum.h"
 
 // Using std without the std:: every time:
 using namespace std;
@@ -221,9 +222,18 @@ void enumUsage() {
   Color col = Color::red;
 }
 
+
 // Main method
 int main() {
   cout << "Programming-Reference!" << endl;
+
+  const vector<int> vec = {1, 3, 4, 8, 2, 4, 5, 10, 3};
+  if (PairSum::hasPairSum(vec, 9) ) {
+    cout << "true" << endl;
+  } else {
+    cout << "false" << endl;
+  }
+
 
   // Basic Hello World!
   cout << "Hello World!" << endl;
