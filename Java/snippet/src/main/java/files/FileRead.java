@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class FileRead {
   /**
    * Returns a list of files in a directory.
+   *
    * @param dirPath The path to the directory.
    * @return List of files in directory.
    * @throws IOException If the path given is not a directory or the directory could not be found.
@@ -43,10 +43,10 @@ public class FileRead {
     String line = bufferedReader.readLine();
 
     while (line != null) {
-     if (!line.isEmpty()) {
-       String[] splitLine = {line.trim()};
-       fileList.add(splitLine);
-     }
+      if (!line.isEmpty()) {
+        String[] splitLine = {line.trim()};
+        fileList.add(splitLine);
+      }
       line = bufferedReader.readLine();
     }
     bufferedReader.close();
@@ -55,6 +55,7 @@ public class FileRead {
 
   /**
    * Read in a file of Integers.
+   *
    * @param filePath The path to the file.
    * @return A list of integers from the given file.
    * @throws IOException If the file could not be found or other issues with reading in the file.
@@ -79,6 +80,7 @@ public class FileRead {
 
   /**
    * Read in a file of Doubles.
+   *
    * @param filePath The path to the file.
    * @return A list of Doubles from the given file.
    * @throws IOException If the file could not be found or other issues with reading in the file.

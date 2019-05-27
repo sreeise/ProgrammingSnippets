@@ -11,14 +11,14 @@ Note:
    */
 
   public static String removeKdigits(String num, int k) {
-    if(num.length() == k) {
+    if (num.length() == k) {
       return "0";
     }
 
     StringBuilder builder = new StringBuilder(num);
-    for(int j = 0; j < k; j++){
+    for (int j = 0; j < k; j++) {
       int i = 0;
-      while(i < builder.length() - 1 && builder.charAt(i) <= builder.charAt(i + 1)) {
+      while (i < builder.length() - 1 && builder.charAt(i) <= builder.charAt(i + 1)) {
         i++;
       }
       builder.delete(i, i + 1);
@@ -28,7 +28,7 @@ Note:
     while (builder.length() > 1 && builder.charAt(0) == '0')
       builder.delete(0, 1);
 
-    if(builder.length() == 0){
+    if (builder.length() == 0) {
       return "0";
     }
 

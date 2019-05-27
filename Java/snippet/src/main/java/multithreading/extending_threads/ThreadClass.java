@@ -11,7 +11,7 @@ public class ThreadClass extends Thread {
       while (count < 5) {
         Thread.sleep(5);
         System.out.println("In Thread, count is: " + count);
-        count ++;
+        count++;
       }
     } catch (InterruptedException e) {
       System.out.println("Thread Interrupted");

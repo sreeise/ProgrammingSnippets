@@ -13,8 +13,8 @@ public class SuperReducedString {
 
   public static String reduce(String s) {
     for (int i = 1; i < s.length(); i++) {
-      if (s.charAt(i) == s.charAt(i-1)) {
-        s = s.substring(0, i-1) + s.substring(i+1);
+      if (s.charAt(i) == s.charAt(i - 1)) {
+        s = s.substring(0, i - 1) + s.substring(i + 1);
         i = 0;
       }
     }

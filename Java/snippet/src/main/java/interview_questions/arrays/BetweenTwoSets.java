@@ -22,12 +22,12 @@ public class BetweenTwoSets {
 
   public static int getTotalX(int[] a, int[] b) {
     int gcdOfB = 0;
-    for(int i : b) {
+    for (int i : b) {
       gcdOfB = gcd(gcdOfB, i);
     }
 
     int lcmOfA = 1;
-    for(int i : a) {
+    for (int i : a) {
       lcmOfA = lcm(lcmOfA, i);
       if (lcmOfA > gcdOfB) {
         return 0;

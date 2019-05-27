@@ -4,7 +4,9 @@ package designpatterns.factory;
 // The factory design allows the subclasses to instantiate a chosen type.
 public abstract class Motherboard {
   public abstract String getId();
+
   public abstract String getVRMVoltage();
+
   public abstract String getCPUClockCycles();
 
   @Override

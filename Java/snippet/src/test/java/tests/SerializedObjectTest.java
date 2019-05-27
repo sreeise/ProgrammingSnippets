@@ -12,20 +12,6 @@ import static org.junit.Assert.assertEquals;
 public class SerializedObjectTest {
   private static final String TEST_CASE_FILE = "./test_files/obj.ser";
 
-  @Test
-  public void testSerializedObject() throws IOException, ClassNotFoundException {
-    if (canRunTest(TEST_CASE_FILE)) {
-      SerializedObject serializedObject = new SerializedObject();
-      Obj obj = serializedObject.createObj("objName", "objType");
-      serializedObject.serializeObj(obj, TEST_CASE_FILE);
-      Obj obj1 = serializedObject.deserializeObj(TEST_CASE_FILE);
-      assertEquals(obj1.name, obj.name);
-      assertEquals(obj1.type, obj.type);
-    }
-
-    tryDeleteFile(TEST_CASE_FILE);
-  }
-
   private static void tryDeleteFile(String filePath) {
     File file = new File(filePath);
     if (file.exists()) {
@@ -45,5 +31,19 @@ public class SerializedObjectTest {
     }
 
     return !file.exists();
+  }
+
+  @Test
+  public void testSerializedObject() throws IOException, ClassNotFoundException {
+    if (canRunTest(TEST_CASE_FILE)) {
+      SerializedObject serializedObject = new SerializedObject();
+      Obj obj = serializedObject.createObj("objName", "objType");
+      serializedObject.serializeObj(obj, TEST_CASE_FILE);
+      Obj obj1 = serializedObject.deserializeObj(TEST_CASE_FILE);
+      assertEquals(obj1.name, obj.name);
+      assertEquals(obj1.type, obj.type);
+    }
+
+    tryDeleteFile(TEST_CASE_FILE);
   }
 }
