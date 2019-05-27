@@ -18,6 +18,9 @@ public class RunningMedian {
       2. Find the median of the updated list (i.e., for the first element through the i'th element).
       3. Print the list's updated median on a new line. The printed value must be a double-precision
          number scaled to decimal place (i.e., 12.3 format).
+
+   The testing implementation would normally print the median. This solution focuses on
+   returning the medians.
    */
 
   public static double[] runningMedian(int[] array) {
