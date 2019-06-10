@@ -1,4 +1,4 @@
-package designpatterns.interitance;
+package java_lang.interitance;
 
 /*
 Inheritance

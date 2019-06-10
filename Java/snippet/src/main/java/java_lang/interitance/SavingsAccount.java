@@ -1,4 +1,4 @@
-package designpatterns.interitance;
+package java_lang.interitance;
 
 /*
 Basic Savings subclass that calculates yearly interest and overrides deposit()
