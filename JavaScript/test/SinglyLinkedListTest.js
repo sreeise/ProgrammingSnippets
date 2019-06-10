@@ -1,6 +1,6 @@
 let chai = require('chai');
-let LinkedList = require("../data_structures/SinglyLinkedList.js").SinglyLinkedList;
-let Node = require("../data_structures/SinglyLinkedList.js").Node;
+let LinkedList = require("../data_structures/linkedlists/SinglyLinkedList.js").SinglyLinkedList;
+let Node = require("../data_structures/linkedlists/SinglyLinkedList.js").Node;
 
 let assert = chai.assert;
 

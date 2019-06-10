@@ -1,6 +1,6 @@
 let chai = require('chai');
-let LinkedList = require("../data_structures/DoublyLinkedList.js").DoublyLinkedList;
-let Node = require("../data_structures/DoublyLinkedList.js").Node;
+let LinkedList = require("../data_structures/linkedlists/DoublyLinkedList.js").DoublyLinkedList;
+let Node = require("../data_structures/linkedlists/DoublyLinkedList.js").Node;
 let assert = chai.assert;
 let expect = chai.expect;
 

@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "chai": "*",
-    "mocha": "*"
+    "mocha": "^6.1.4"
   }
 }
