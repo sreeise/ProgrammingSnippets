@@ -8,6 +8,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FileRead {
   /**
@@ -76,6 +78,37 @@ public class FileRead {
     }
     bufferedReader.close();
     return fileList;
+  }
+
+  public List<Integer> readInIntegerLines(String filePath) throws IOException {
+    Path path = Paths.get(filePath);
+    List<Integer> fileList = new ArrayList<>();
+    File file = path.toFile();
+
+    BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+    String line = bufferedReader.readLine();
+    while (line != null) {
+      if (!line.isEmpty()) {
+        String[] lines = line.split(" ");
+        for (String num : lines) {
+          Integer splitLine = Integer.parseInt(num.trim());
+          fileList.add(splitLine);
+        }
+      }
+      line = bufferedReader.readLine();
+    }
+    bufferedReader.close();
+    return fileList;
+  }
+
+  public List<String> readInLines(String filePath) throws IOException {
+    Path path = Paths.get(filePath);
+    File file = path.toFile();
+
+    BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+    List<String> list = bufferedReader.lines().collect(Collectors.toList());
+    bufferedReader.close();
+    return list;
   }
 
   /**

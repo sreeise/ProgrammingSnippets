@@ -31,4 +31,23 @@ public class ArrayRotate {
     System.arraycopy(array, 1, array2, 0, array.length - 1);
     return array2;
   }
+
+  // The next two methods show rotating an array left
+  // by a given amount without performing an array copy.
+  public static void leftRotation(int[] array, int r) {
+    for (int i = 0; i < r; i++) {
+      rotateLeft(array);
+    }
+    for (int num : array) {
+      System.out.print(num + " ");
+    }
+  }
+
+  public static void rotateLeft(int[] array) {
+    int first = array[0];
+    for (int i = 1; i < array.length; i++) {
+      array[i -1] = array[i];
+    }
+    array[array.length -1] = first;
+  }
 }

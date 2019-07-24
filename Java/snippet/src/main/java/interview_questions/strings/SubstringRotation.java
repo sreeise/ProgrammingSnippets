@@ -7,7 +7,8 @@ public class SubstringRotation {
   if s2 is a rotation of s1 using only one call to is substring.
    */
 
-  public static boolean isSubstring(String s1, String s2) {
+  // Check if a String, s2, is a rotation of a String, s1.
+  public static boolean isRotation(String s1, String s2) {
     int length = s1.length();
 
     if (length == s2.length() && length > 0) {
@@ -16,5 +17,10 @@ public class SubstringRotation {
     }
 
     return false;
+  }
+
+  // Check if a String, s2, is a substring of String, s1.
+  private static boolean isSubstring(String s1, String s2) {
+    return s1.contains(s2);
   }
 }

@@ -1,12 +1,10 @@
 package interview_questions.arrays;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class GenerateSubArrays {
   // Given an array of integers, return all possible
-  // sub arrays with no repeating arrays.
+  // contiguous sub arrays with no repeating arrays.
 
   public static Set<int[]> subArray(int[] array) {
     Set<int[]> set = new HashSet<>();
@@ -14,13 +12,17 @@ public class GenerateSubArrays {
 
     for (int i = 0; i < n; i++) {
       for (int j = i; j < n; j++) {
-        int[] t = new int[j + 1];
+        int[] t = new int[Math.abs(j - i) + 1];
         int count = 0;
         for (int k = i; k <= j; k++) {
           t[count] = array[k];
           count++;
         }
-        set.add(t);
+
+        Arrays.sort(t);
+        if (set.stream().noneMatch(a -> Arrays.equals(a, t))) {
+          set.add(t);
+        }
       }
     }
     return set;
@@ -38,6 +40,19 @@ public class GenerateSubArrays {
           list.add(array[k]);
         }
         set.add(list);
+      }
+    }
+    return set;
+  }
+
+  // Generate contiguous subarray chunks equal in length to k.
+  public static Set<int[]> chunks(int[] array, int k) {
+    Set<int[]> set = new HashSet<>();
+    for(int i = 0; i < array.length; i += k){
+      final int[] arr =  Arrays.copyOfRange(array, i, Math.min(array.length, i + k));
+      boolean noneMatch = set.stream().noneMatch(a -> Arrays.equals(a, arr));
+      if (noneMatch && arr.length == k) {
+        set.add(arr);
       }
     }
     return set;

@@ -1,6 +1,7 @@
 package interview_questions.linked_lists;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class RemoveDuplicates {
   /*
@@ -42,5 +43,38 @@ public class RemoveDuplicates {
       head = head.next;
     }
     return map;
+  }
+
+  // Shorter version of the first removeDuplicates method.
+  public static void removeDuplicatesBetter(SinglyLinkedListNode head) {
+    Set<Integer> set = new HashSet<>();
+    SinglyLinkedListNode previous = null;
+    while (head != null) {
+      if (set.contains(head.data)) {
+        previous.next = head.next;
+      } else {
+        set.add(head.data);
+        previous = head;
+      }
+      head = head.next;
+    }
+  }
+
+  // Remove duplicates when there is no buffer.
+  public static void removeDuplicatesNoBuffer(SinglyLinkedListNode head) {
+    SinglyLinkedListNode current = head;
+    while (current != null) {
+      SinglyLinkedListNode runner = current;
+      while (runner.next != null) {
+        // If a duplicate is found then set that node
+        // to the next node in the list.
+        if (runner.next.data == current.data) {
+          runner.next = runner.next.next;
+        } else {
+          runner = runner.next;
+        }
+      }
+      current = current.next;
+    }
   }
 }
