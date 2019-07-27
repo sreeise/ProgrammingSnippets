@@ -35,6 +35,25 @@ var obj = {
 obj.fn(); // => ["string", "array"]
 
 
+// An object or construct function `new` call will not override a bind call:
+function Dog(name) {
+    this.name = name;
+}
+
+var myDog = {};
+
+var marshel = Dog.bind(myDog);
+marshel("Marshal");
+
+console.log(myDog.name); // => Marshal
+
+var buster = new Dog("Buster");
+
+// The object, myDog, property name is still the same:
+console.log(myDog.name); // => Marshal
+console.log(buster.name); // => Buster
+
+
 // JavaScript has the built-in `call` and `apply` functions which will create
 // a new `this` binding with the object given as an argument. The `call` function
 // takes an argument list while the `apply` function takes an array of arguments.
@@ -84,3 +103,27 @@ let listSizes = list.map((element) => {
 });
 
 console.log(listSizes); // => [2, 3, 4]
+
+
+// Constructor function this binding.
+
+// When an object is created via a constructor function it has its this binding set as the
+// object.
+
+function Person() {
+    this.name = "John Doe";
+}
+
+var john = new Person();
+
+console.log(john.name); // => John Doe
+
+
+// You can also set a this variable binding to a given argument:
+function Animal(name) {
+    this.name = name;
+}
+
+var dog = new Animal("Dog");
+
+console.log(dog.name); // => Dog

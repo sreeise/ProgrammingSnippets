@@ -1,8 +1,13 @@
 /*
 Prototypes
 
+For more information on prototypes see:
+  1. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
 Note: Consider using ES6 classes instead of prototypes for extending
-and inheritance
+and inheritance. Internally, classes are just syntactical sugar for
+prototypes and the prototype chain but may offer a more clear
+program structure.
  */
 
 // Car object.
