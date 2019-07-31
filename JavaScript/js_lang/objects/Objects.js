@@ -13,6 +13,19 @@ cpu.cores = 2;
 
 console.log(obj.cores); // => 2
 
+// Using constructor notation, you can use a function constructor
+// to create a new type of object.
+function MyInteger(num) {
+    if (typeof num !== "number") {
+        throw new Error("Not a number");
+    }
+
+    this.num = num;
+}
+
+let int = new MyInteger(3);
+console.log(int.num); // => 3
+
 
 // Literal Notation
 

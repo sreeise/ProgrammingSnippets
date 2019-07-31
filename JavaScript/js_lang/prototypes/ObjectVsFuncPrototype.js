@@ -1,5 +1,9 @@
 // Object Prototypes and Function Prototypes.
 
+// See also: FunctionConstructorVsPrototype.js for why it is better to
+// define common methods on the prototype of an object rather then within
+// the function constructor of an object.
+
 // An objects prototype, Object.prototype, is different from that of a functions
 // prototype, func.prototype. The function prototype specifics a prototype that
 // is assigned to all instances of objects created by the given function when

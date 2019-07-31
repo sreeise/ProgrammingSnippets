@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "fmt": "prettier '**/*.js'"
   },
   "dependencies": {
     "chai": "*",
-    "mocha": "^6.1.4"
+    "mocha": "^6.2.0"
+  },
+  "devDependencies": {
+    "prettier": "1.18.2"
   }
 }

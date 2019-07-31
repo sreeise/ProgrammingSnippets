@@ -1,6 +1,6 @@
 // Closures
 
-//A closure is the combination of a function and the lexical environment within which
+// A closure is the combination of a function and the lexical environment within which
 // that function was declared.
 // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
 
