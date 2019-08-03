@@ -64,6 +64,9 @@ Information on Object Safety can be found here:
     https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md
 */
 
+// See impltrait.rs for information on using `impl trait`.
+mod impltrait;
+
 // Trait that will be used as a trait object.
 pub trait Draw {
     fn draw(&self);

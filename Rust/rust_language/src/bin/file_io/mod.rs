@@ -95,7 +95,7 @@ where
 Use full syntax for Error or it may reference fmt::Error instead
 of error::Error while both are in scope.
 */
-fn grep_run() -> Result<(), Box<std::error::Error>> {
+fn grep_run() -> Result<(), Box<dyn std::error::Error>> {
     // Get the command-line arguments. The first argument is the
     // string to search for; the rest are filenames.
     let mut args = std::env::args().skip(1);

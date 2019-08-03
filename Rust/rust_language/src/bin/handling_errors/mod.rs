@@ -217,7 +217,7 @@ Printing Errors to standard output.
 Rust may not always print out an errors cause. In this case
 a function like this can be used.
 */
-fn print_error(mut err: &Error) {
+fn print_error(mut err: &dyn Error) {
     let _ = writeln!(stderr(), "error: {}", err);
     while let Some(cause) = err.source() {
         let _ = writeln!(stderr(), "caused by: {}", cause);
