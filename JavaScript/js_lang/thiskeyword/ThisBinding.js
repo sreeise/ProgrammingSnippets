@@ -127,3 +127,43 @@ function Animal(name) {
 var dog = new Animal("Dog");
 
 console.log(dog.name); // => Dog
+
+
+// Another confusing area is the arguments object.
+// In the following call to: obj.method(fn, 1), the output
+// will be 10, 2. The reason is that fn is defined in the global
+// scope and is called from the global scope so the this binding
+// represents the global scope or window object and this.length
+// on the global scope is equal to 10. When invoking arguments[0]()
+// the fn function is called again except this time the scope
+// of the fn call has changed to the arguments object which will
+// log the length of the arguments object itself equaling 2.
+var length = 10;
+function fn() {
+    console.log(this.length);
+}
+
+var obj = {
+    length: 5,
+    method: function(fn) {
+        fn();
+        arguments[0]();
+    }
+};
+
+obj.method(fn, 1); // => 10, 2
+
+
+// A variable within a function that is defined after it is used will cause the
+// variable to be undefined when used. This is because JavaScript will first look
+// to see if the variable is declared within the function scope. Because the variable
+// is declared, but not until after its use, JavaScript will use that variable as
+// undeclared.
+
+var x = 21;
+var logNum = function () {
+    console.log(x); // Variable x shadows the outer scope x but is also undefined when used because it is
+    var x = 20;     // used before it is declared.
+};
+
+logNum(); // => Undefined
