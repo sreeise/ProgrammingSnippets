@@ -66,3 +66,12 @@ console.log(+"1" + "1" + "2"); // => "112"
 // 1. The - applied to strings so the operation, "A" - "B" results in NaN.
 // 2. The next operation, NaN + "2", performs string concatenation resulting in "NaN2".
 console.log("A" - "B" + "2"); // => "NaN2"
+
+
+// The number zero, whether signed or unsigned, is always considered equal.
+console.log(0 === 0); // => true
+console.log(-0 === 0); // => true
+console.log(-0 === -0); // => true
+console.log(-0 === +0); // => true
+console.log(+0 === 0); // => true
+console.log(+0 === +0); // => true

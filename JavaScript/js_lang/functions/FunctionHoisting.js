@@ -23,10 +23,10 @@ function getNumber() { return 2; }
 // referenced before it is defined and is not hoisted. Because of this only the most
 // recent definition of a function expression will be used. So the following will
 // log 1 to the console because the first getString definition is the most recent.
-function getString() { return "1"; }
+let num = function() { return "1"; };
 
-console.log(getString()); // => "1"
+console.log(num()); // => "1"
 
-function getString() { return "2" }
+num = function() { return "2" };
 
 
