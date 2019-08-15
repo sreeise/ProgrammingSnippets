@@ -1,24 +1,16 @@
-/*
- * License: MIT
- * See LICENSE
- *
- * This is the main C++ file and includes the main method
- *
- * @author: sreeise
- */
-
 #include <iostream>
 #include <array>
-#include <iomanip>
-#include "headers/BasicClass/Account.h"
-#include "headers/BasicClass/Savings.h"
-#include "headers/BasicClass/Checking.h"
-#include "headers/Vectors/BasicVector/BasicVector.h"
-#include "headers/AddressOfAndPointers/ReferencesPointers.h"
-#include "headers/NameSpaces/Accounts.h"
-#include "headers/Templates/BasicTemplate.h"
-#include "headers/InterviewQuestions/PairDifference.h"
-#include "headers/InterviewQuestions/PairSum.h"
+#include "cplusplus_lang/classes/Account.h"
+#include "cplusplus_lang/classes/Savings.h"
+#include "cplusplus_lang/classes/Checking.h"
+#include "cplusplus_lang/vectors/BasicVector.h"
+#include "cplusplus_lang/pointers/ReferencesPointers.h"
+#include "cplusplus_lang/templates/BasicTemplate.h"
+#include "cplusplus_lang/namespaces/Accounts.h"
+#include "interview_questions/PairDifference.h"
+#include "interview_questions/PairSum.h"
+#include "interview_questions/Abbreviations.cpp"
+
 
 // Using std without the std:: every time:
 using namespace std;

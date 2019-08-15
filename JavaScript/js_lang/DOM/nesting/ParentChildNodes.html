@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <nav id="nav">
+        <button id="home">Home</button>
+    </nav>
+
+    <h1 id="main-heading">Heading</h1>
+
+    <article id="card">
+        <h2>Title</h2>
+        <div>
+            <p>SubTitle</p>
+        </div>
+    </article>
+
+    <section>
+        <article id="bodyCard">
+            <h1>Title</h1>
+            <div>
+                <p id="bodyCardSubtitle">Subtitle</p>
+            </div>
+        </article>
+    </section>
+</main>
+
+<script>
+    // Getting the parent node of a node
+    let article = document.getElementById("card");
+
+    // The articles parent is the main tag because
+    // of how it is nested.
+    let parent = article.parentNode;
+
+    console.log(parent); // => <main>
+
+    // If we get the button within the nav we can
+    // see that the parent of the button
+    // is the nav based upon its nesting.
+    let button = document.getElementById("home");
+
+    let buttonParent = button.parentNode;
+
+    console.log(buttonParent); // => <nav id="nav">
+
+
+    // HTML elements can have multiple nested nodes.
+    // For instance getting the p element in the second
+    // article will have a parent node of div and that
+    // div will have a parent node of article
+    let paragraph = document.getElementById("bodyCardSubtitle");
+
+    let paragraphParent = paragraph.parentNode;
+
+    console.log(paragraphParent); // => <div>
+
+    let article2 = paragraphParent.parentNode;
+
+    console.log(article2); // => <article id="bodyCard">
+</script>
+</body>
+</html>

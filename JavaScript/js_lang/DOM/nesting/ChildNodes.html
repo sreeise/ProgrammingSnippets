@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <nav id="nav">
+        <button id="home">Home</button>
+    </nav>
+
+    <h1 id="main-heading">Heading</h1>
+
+    <article id="article">
+        <h2>Title</h2>
+        <div>
+            <p>SubTitle</p>
+        </div>
+    </article>
+
+    <section>
+        <article id="article-2">
+            <h1>Title</h1>
+            <div>
+                <p id="bodyCardSubtitle">Subtitle</p>
+            </div>
+        </article>
+    </section>
+</main>
+
+<script>
+    // The childNodes property is a collection of a nodes child nodes called a NodeList object.
+
+    let article = document.getElementById("article");
+
+    // NodeList object
+    let articleChildNodes = article.childNodes;
+
+    console.log(articleChildNodes); // => NodeList[ ... ]
+
+    // You can loop through a NodeList object. Note that you will see
+    // the console print #text a few times. This is because new lines
+    // are treated as white space and this adds TextNodes to the DOM
+    // so when we loop over child nodes the TextNodes are included.
+    for (let i = 0; i < articleChildNodes.length; i++) {
+        console.log(articleChildNodes[i]);
+    }
+
+    // You can also get the first and last child of an element.
+    // The firstChild and lastChild also include TextNodes which
+    // can make it difficult if you only want to get the HTML elements.
+    let first = article.firstChild;
+    let last = article.lastChild;
+
+    console.log(first);
+    console.log(last);
+
+    // To only get HTML elements and exclude the TextNodes we can
+    // use the children property:
+    let articleChildren = article.children;
+    console.log(articleChildren); // => HTMLCollection[ h2, div ]
+
+    // You can also traverse the an HTMLCollection
+    for (let i = 0; i < articleChildren.length; i++) {
+        console.log(articleChildren[i]);  // h2, div
+    }
+</script>
+</body>
+</html>

@@ -2,7 +2,16 @@
 The this keyword.
  */
 
-// The window object is the global object and the `this` keyword refers to this object.
+// In browsers, the window object is the global object and the `this` keyword refers to this object.
+// In JavaScript engines such as Node JS, the global object does not refer to the window object. Node JS
+// does not have a window object. Instead, Node JS has its own global object
+// called 'global' but is NOT the same as the window object in a browser. The Node JS
+// documentation defines the global object as follows:
+//      - In browsers, the top-level scope is the global scope. This means that within the browser
+//      var something will define a new global variable. In Node.js this is different. The top-level
+//      scope is not the global scope; var something inside a Node.js module will be local to that module.
+
+// Global object in browsers:
 console.log(this === window); // => true
 
 

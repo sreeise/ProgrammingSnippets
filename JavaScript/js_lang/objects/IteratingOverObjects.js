@@ -19,8 +19,8 @@ for (let value in Person) {
 
 // The for..in syntax will iterate over all enumerable properties of
 // both the object itself and its prototype. The built-in function,
-// getOwnPropertyNames can be used to get only those properties
-// that are on the object itself.
+// getOwnPropertyNames returns an array of all properties including
+// non-enumerable properties except for those which use Symbol.
 let propertyNames = Object.getOwnPropertyNames(Person);
 for (let i = 0; i < propertyNames.length; i++) {
     console.log(propertyNames[i] + ": " + Person[propertyNames[i]]);

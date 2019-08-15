@@ -11,12 +11,12 @@ let cpu = new Object();
 
 cpu.cores = 2;
 
-console.log(obj.cores); // => 2
+console.log(cpu.cores); // => 2
 
 // Using constructor notation, you can use a function constructor
 // to create a new type of object.
 function MyInteger(num) {
-    if (typeof num !== "number") {
+    if (!Number.isInteger(num)) {
         throw new Error("Not a number");
     }
 
@@ -33,15 +33,15 @@ let armCpu = {
     cores: 2,
 };
 
-console.log(armCpu.value); // => 2
+console.log(armCpu.cores); // => 2
 
 
 // Object.Create()
 // Create a new object using an existing object.
 
-let obj3 = Object.create(obj2);
+let armCpu2 = Object.create(armCpu);
 
-console.log(obj3.value); // => 2
+console.log(armCpu2.cores); // => 2
 
 
 // JavaScript Properties and Property Names
@@ -73,4 +73,3 @@ console.log(obj4.name); // => John Doe
 
 console.log(obj4["key-value"]); // => Object { key: "key", value: "value" }
 console.log(obj4.key-value); // =>  ReferenceError: value is not defined
-

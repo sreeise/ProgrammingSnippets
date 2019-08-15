@@ -1,4 +1,3 @@
-mod arrays;
-mod strings;
+pub mod arrays;
+pub mod strings;
 
-pub use strings::reverse_words;

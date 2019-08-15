@@ -23,4 +23,4 @@ console.log(Person.getName()); // => John
 
 var getNameFunc2 = Person.getName.bind(Person);
 
-console.log(getNameFunc2()); // => JOhn
+console.log(getNameFunc2()); // => John
