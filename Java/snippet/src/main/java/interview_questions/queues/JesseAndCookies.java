@@ -1,6 +1,5 @@
 package interview_questions.queues;
 
-import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class JesseAndCookies {
@@ -13,7 +12,7 @@ public class JesseAndCookies {
 
   static int cookies(int k, int[] array) {
     PriorityQueue<Integer> queue = new PriorityQueue<>();
-    for (int num: array) {
+    for (int num : array) {
       queue.add(num);
     }
 

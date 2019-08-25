@@ -40,7 +40,6 @@ public class PartitionLabels {
     return list;
   }
 
-
   public static List<Integer> partition2(String s) {
     // Get the last index for each character a - z
     int[] last = lastIndex(s);
@@ -62,5 +61,4 @@ public class PartitionLabels {
 
     return list;
   }
-
 }

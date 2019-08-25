@@ -46,8 +46,8 @@ public class ArrayRotate {
   public static void rotateLeft(int[] array) {
     int first = array[0];
     for (int i = 1; i < array.length; i++) {
-      array[i -1] = array[i];
+      array[i - 1] = array[i];
     }
-    array[array.length -1] = first;
+    array[array.length - 1] = first;
   }
 }

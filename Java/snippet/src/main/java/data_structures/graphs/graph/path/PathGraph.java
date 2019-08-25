@@ -1,6 +1,8 @@
 package data_structures.graphs.graph.path;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 
 /*
 Represents either a directed or undirected graph for checking if there
@@ -21,6 +23,34 @@ public class PathGraph {
 
   public PathGraph() {
     map = new HashMap<>();
+  }
+
+  public static void example() {
+    int[][] nodes = {
+          {1, 2},
+          {3, 1},
+          {2, 3},
+          {4, 1},
+    };
+
+    PathGraph graph = new PathGraph();
+    // Add the nodes to the graph.
+    for (int[] node : nodes) {
+      // A HashSet is used so only nodes that are
+      // new will be added.
+      graph.addNode(node[0]);
+      graph.addNode(node[1]);
+    }
+
+    // Add the edges - the nodes that are connected
+    // to each other.
+    for (int[] node : nodes) {
+      graph.addEdge(node[0], node[1]);
+    }
+
+    // Prints true. Node 1 has an edge going to Node 2. Node 2
+    // has an edge going to 3 so the path will be 1 -> 2 -> 3.
+    System.out.println(graph.hasPathBFS(1, 3)); // => true
   }
 
   public void addNode(int id) {
@@ -91,33 +121,5 @@ public class PathGraph {
       next.addAll(node.adjacent);
     }
     return false;
-  }
-
-  public static void example() {
-    int[][] nodes = {
-          {1, 2},
-          {3, 1},
-          {2, 3},
-          {4, 1},
-    };
-
-    PathGraph graph = new PathGraph();
-    // Add the nodes to the graph.
-    for (int[] node : nodes) {
-      // A HashSet is used so only nodes that are
-      // new will be added.
-      graph.addNode(node[0]);
-      graph.addNode(node[1]);
-    }
-
-    // Add the edges - the nodes that are connected
-    // to each other.
-    for (int[] node : nodes) {
-      graph.addEdge(node[0], node[1]);
-    }
-
-    // Prints true. Node 1 has an edge going to Node 2. Node 2
-    // has an edge going to 3 so the path will be 1 -> 2 -> 3.
-    System.out.println(graph.hasPathBFS(1, 3)); // => true
   }
 }

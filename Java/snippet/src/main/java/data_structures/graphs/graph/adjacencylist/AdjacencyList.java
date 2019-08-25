@@ -42,13 +42,13 @@ public class AdjacencyList {
     int count = 0;
     while (!queue.isEmpty()) {
       int next = queue.poll();
-   //   System.out.println("s: " + next);
+      //   System.out.println("s: " + next);
       count++;
       if (next == d) {
         if (count == 1 || count == 2) {
           count = 6;
         } else {
-          count = 6 * (count -1);
+          count = 6 * (count - 1);
         }
 
         return count;
@@ -65,7 +65,4 @@ public class AdjacencyList {
     }
     return -1;
   }
-
-
-
 }

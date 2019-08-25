@@ -18,7 +18,7 @@ public class CircularArrayRotation {
     int[] nums = new int[q];
 
     for (int i = 0; i < q; i++) {
-      nums[i] = a[(n - (k % n)+ queries[i]) % n];
+      nums[i] = a[(n - (k % n) + queries[i]) % n];
     }
 
     return nums;

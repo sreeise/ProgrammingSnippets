@@ -3,8 +3,6 @@ package data_structures.graphs.graph;
 /*
 "Vertex" is a synonym for a node of a graph, i.e., one of the points on which the graph is
 defined and which may be connected by graph edges
-
-
  */
 
 public class Graph {

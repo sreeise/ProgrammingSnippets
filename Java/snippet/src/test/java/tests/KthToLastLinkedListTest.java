@@ -1,6 +1,5 @@
 package tests;
 
-import data_structures.NodeItem;
 import interview_questions.linked_lists.KthToLast;
 import interview_questions.linked_lists.SinglyLinkedListNode;
 import org.junit.Test;

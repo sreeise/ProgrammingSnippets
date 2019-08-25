@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -109,6 +111,22 @@ public class FileRead {
     List<String> list = bufferedReader.lines().collect(Collectors.toList());
     bufferedReader.close();
     return list;
+  }
+
+  /**
+   * Read in a files lines to a single String.
+   *
+   * @param filePath The path to a file.
+   * @return String of all lines in the file.
+   * @throws IOException If the file could not be found or other issues with reading in the file.
+   */
+  public String readInToString(String filePath) throws IOException {
+    Path path = Paths.get(filePath);
+    StringBuilder builder = new StringBuilder();
+    try (Stream<String> stream = Files.lines(path, StandardCharsets.UTF_8)) {
+      stream.forEach(builder::append);
+    }
+    return builder.toString();
   }
 
   /**

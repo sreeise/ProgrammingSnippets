@@ -10,11 +10,6 @@ public class KthToLast {
   second to last element and so on.
    */
 
-  // Solution 1
-  static class Index {
-    public int value = 0;
-  }
-
   public static SinglyLinkedListNode kthToLast(SinglyLinkedListNode head, int k) {
     Index idx = new Index();
     return kthToLast(head, k, idx);
@@ -52,5 +47,10 @@ public class KthToLast {
     }
 
     return p2;
+  }
+
+  // Solution 1
+  static class Index {
+    public int value = 0;
   }
 }

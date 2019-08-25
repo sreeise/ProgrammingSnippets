@@ -3,7 +3,8 @@ package tests;
 import data_structures.graphs.graph.path.PathGraph;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class PathGraphTest {
   private int[][] nodes = {

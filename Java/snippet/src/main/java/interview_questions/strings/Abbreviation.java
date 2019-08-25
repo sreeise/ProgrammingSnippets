@@ -22,7 +22,7 @@ public class Abbreviation {
     if (isUpcase(c)) {
       return c;
     }
-    return (char)(c - 32);
+    return (char) (c - 32);
   }
 
   public static String abbreviation(String s1, String s2) {
@@ -34,14 +34,14 @@ public class Abbreviation {
     }
     dp[0][0] = true;
 
-    for (int i = 0; i < s1.length(); i++){
+    for (int i = 0; i < s1.length(); i++) {
       for (int j = 0; j <= s2.length(); j++) {
         if (dp[i][j]) {
-          if(j < s2.length() && (upcase(s1.charAt(i)) == s2.charAt(j))) {
+          if (j < s2.length() && (upcase(s1.charAt(i)) == s2.charAt(j))) {
             dp[i + 1][j + 1] = true;
           }
 
-          if(!isUpcase(s1.charAt(i))) {
+          if (!isUpcase(s1.charAt(i))) {
             dp[i + 1][j] = true;
           }
         }

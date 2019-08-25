@@ -1,6 +1,9 @@
 package interview_questions.arrays;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GenerateSubArrays {
   // Given an array of integers, return all possible
@@ -48,8 +51,8 @@ public class GenerateSubArrays {
   // Generate contiguous subarray chunks equal in length to k.
   public static Set<int[]> chunks(int[] array, int k) {
     Set<int[]> set = new HashSet<>();
-    for(int i = 0; i < array.length; i += k){
-      final int[] arr =  Arrays.copyOfRange(array, i, Math.min(array.length, i + k));
+    for (int i = 0; i < array.length; i += k) {
+      final int[] arr = Arrays.copyOfRange(array, i, Math.min(array.length, i + k));
       boolean noneMatch = set.stream().noneMatch(a -> Arrays.equals(a, arr));
       if (noneMatch && arr.length == k) {
         set.add(arr);

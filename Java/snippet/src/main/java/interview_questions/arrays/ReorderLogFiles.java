@@ -38,7 +38,7 @@ Return the final order of the logs.
         return split1[0].compareTo(split2[0]);
       }
 
-      return isInt1 ?  (isInt2 ? 0 : 1) : -1;
+      return isInt1 ? (isInt2 ? 0 : 1) : -1;
     });
 
     return logs;
