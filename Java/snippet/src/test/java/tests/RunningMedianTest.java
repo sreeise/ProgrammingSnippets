@@ -4,10 +4,9 @@ import files.FileRead;
 import interview_questions.arrays.RunningMedian;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.Assert.assertEquals;
 
@@ -30,15 +29,12 @@ public class RunningMedianTest {
   @Test
   public void testLargeArrayRunningMedian() throws IOException {
     // Read in the test case and answer.
+    String input = Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("test_running_median/input01.txt")).getPath();
+    String output = Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource("test_running_median/output01.txt")).getPath();
+
     FileRead fileRead = new FileRead();
-    File[] files = fileRead.listFilesInDir("./test_files/test_running_median");
-    // Sort the array so we get the test case file at index 0 and the answers file at
-    // index 1.
-    Arrays.sort(files);
-    File input = files[0];
-    File output = files[1];
-    List<Integer> intList = fileRead.readInIntegers(input.toString());
-    List<Double> doubleList = fileRead.readInDoubles(output.toString());
+    List<Integer> intList = fileRead.readInIntegers(input);
+    List<Double> doubleList = fileRead.readInDoubles(output);
 
     // Test case and answer.
     int[] testCase = intList.stream().mapToInt(i -> i).toArray();

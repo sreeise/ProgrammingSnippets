@@ -1,10 +1,12 @@
 package tests;
 
 import data_structures.hashmaps.Contains;
+import files.FileRead;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -12,8 +14,8 @@ import static org.junit.Assert.assertEquals;
 
 public class ContainsTest {
   private static final String[] testFiles = {
-        "test_files/testcontains/input00.txt", "test_files/testcontains/input10.txt",
-        "test_files/testcontains/input13.txt", "test_files/testcontains/input20.txt"
+        "testcontains/input00.txt", "testcontains/input10.txt",
+        "testcontains/input13.txt", "testcontains/input20.txt"
   };
 
   private static final boolean[] answers = {true, false, true, false};
@@ -21,8 +23,8 @@ public class ContainsTest {
   @Test
   public void testContains() throws FileNotFoundException {
     for (int testIndex = 0; testIndex < testFiles.length; testIndex++) {
-
-      File file = new File(testFiles[testIndex]);
+      String path = Objects.requireNonNull(ClassLoader.getSystemClassLoader().getResource(testFiles[testIndex])).getPath();
+      File file = new File(path);
 
       Scanner scanner = new Scanner(file);
       String[] mn = scanner.nextLine().split(" ");
