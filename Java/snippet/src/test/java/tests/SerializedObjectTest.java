@@ -10,7 +10,7 @@ import java.io.IOException;
 import static org.junit.Assert.assertEquals;
 
 public class SerializedObjectTest {
-  private static final String TEST_CASE_FILE = "./test_files/obj.ser";
+  private static final String TEST_CASE_FILE = "./src/test/resources/obj.ser";
 
   private static void tryDeleteFile(String filePath) {
     File file = new File(filePath);
