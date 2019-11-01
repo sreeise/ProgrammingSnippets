@@ -41,7 +41,7 @@ public class Candies {
     int[] candies = new int[n + 1];
     int[] arr = new int[n + 2];
     arr[0] = Integer.MAX_VALUE;
-    arr[arr.length -1] = Integer.MAX_VALUE;
+    arr[arr.length - 1] = Integer.MAX_VALUE;
     System.arraycopy(a, 0, arr, 1, a.length);
 
     for (int i = 1; i <= a.length; i++) {
@@ -63,7 +63,7 @@ public class Candies {
     }
 
     for (int i = 1; i < a.length + 1; i++) {
-      if (arr[i -1] < arr[i] && arr[i] > arr[i + 1]) {
+      if (arr[i - 1] < arr[i] && arr[i] > arr[i + 1]) {
         candies[i] = Math.max(candies[i - 1], candies[i + 1]) + 1;
       }
     }

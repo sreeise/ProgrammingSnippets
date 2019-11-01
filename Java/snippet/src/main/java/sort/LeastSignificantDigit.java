@@ -2,8 +2,6 @@ package sort;
 
 // LSD String sort - Least Significant Digit First String Sort.
 
-import java.util.Arrays;
-
 // LSD Sort uses Key-Indexed counting to sort a string. LSD sort is useful
 // for Strings that have a fixed length of characters such as phone numbers
 // and IP Addresses.

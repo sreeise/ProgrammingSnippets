@@ -9,6 +9,7 @@ public class FibonacciMemoization {
   simple fibonacci algorithm which is badly exponential.
  */
   static HashMap<Integer, Long> map = new HashMap<>();
+
   static {
     map.put(0, 1L);
     map.put(1, 1L);

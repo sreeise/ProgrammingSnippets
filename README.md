@@ -11,18 +11,3 @@ subdirectory, is the largest and includes the most tests. I may update this late
 
 Licensed under the MIT license.
 
-### Issues
-If you find something is wrong with any of the code please file an issue making sure to adhere to the following criteria:
-
-For outdated code that could be updated:
-1. Make sure that the specific language version you are using is the same as the one used in this code base. For instance,
-the Java version used here is 1.8 and C++ uses C++14. Do not file an issue for specific code to be updated to use features 
-in a later version. Rather, if you feel that a language version is too outdated then file an issue to update the language version.
-2. If the language version is the same then follow the process below for code issues.
-3. Note that I periodically update the Rust language version and code.
-
-For code issues:
-1. Describe the issue and how you came to this conclusion. If you can try to provide some type of proof for why the code is wrong.
-2. If possible, provide a solution by making a pull request for this issue. Also update any tests or write a new test if possible. I will
-still accept code that doesn't have a test in most cases. 
-
