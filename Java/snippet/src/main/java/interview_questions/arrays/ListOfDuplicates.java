@@ -1,7 +1,6 @@
 package interview_questions.arrays;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ListOfDuplicates {
 
@@ -50,5 +49,27 @@ public class ListOfDuplicates {
     }
 
     return map;
+  }
+
+  /*
+  Find all duplicates in a list of Strings.
+
+  For instance, a list with elements: ["a", "b", "a", "c", "C", "b"];
+  should return a set with the duplicates which are: ["a", "b"]. Note
+  that in this example a lowercase of a letter is not equal to its uppercase
+  self.
+   */
+
+  public static Set<String> findDuplicates(List<String> list) {
+    final Set<String> result = new HashSet<>();
+    final Set<String> temp = new HashSet<>();
+
+    for (String s : list) {
+      if (!temp.add(s)) {
+        result.add(s);
+      }
+    }
+
+    return result;
   }
 }
