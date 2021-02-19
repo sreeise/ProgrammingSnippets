@@ -69,3 +69,21 @@ venv
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+*.class
+*.log
+
+# sbt specific
+Scala/snippet/.cache/
+Scala/snippet/.history/
+Scala/snippet/.lib/
+Scala/snippet/dist/*
+Scala/snippet/target/
+Scala/snippet/lib_managed/
+Scala/snippet/src_managed/
+Scala/snippet/project/boot/
+Scala/snippet/project/plugins/project/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
